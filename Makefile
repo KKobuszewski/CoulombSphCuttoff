@@ -30,7 +30,7 @@ Coulomb:
 
 
 purge:
-	@rm *.o *.reg.c *.cudafe* *.i *.ii *.fatbin *.fatbin.c *.cubin
+	@rm *.o *.reg.c *.cudafe* *.i *.ii *.fatbin *.fatbin.c *.cubin *.module_id
 
 clean: purge
 	@rm *.exe *.so *.ptx
