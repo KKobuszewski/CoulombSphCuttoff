@@ -1,0 +1,1776 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+\usepackage{esint}
+\usepackage{multicol}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package babel
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 0
+\use_package cancel 1
+\use_package esint 0
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1.5cm
+\topmargin 1.5cm
+\rightmargin 1.5cm
+\bottommargin 1.5cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation 0bp
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Numerical computation of Coulomb potential
+\end_layout
+
+\begin_layout Author
+Konrad Kobuszewski
+\end_layout
+
+\begin_layout Section
+Naive method.
+ Accurancy problems.
+\end_layout
+
+\begin_layout Standard
+We consider continuous distribution of charge 
+\begin_inset Formula $\rho\left(\boldsymbol{r}\right)=qn\left(\boldsymbol{r}\right)$
+\end_inset
+
+, where 
+\begin_inset Formula $n\left(\boldsymbol{r}\right)=\sum_{k=1}^{N}\vert\psi_{k}\vert^{2}\left(\boldsymbol{r}\right)$
+\end_inset
+
+ (
+\begin_inset Formula $\psi_{k}\in\mathbb{C}$
+\end_inset
+
+ for 
+\begin_inset Formula $N=1$
+\end_inset
+
+ is assumed to be the input of the program).
+ Coulomb potential of such a distribution is given by (we used 
+\begin_inset Formula $\varepsilon_{0}=1$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+V_{coulomb}\left(\boldsymbol{r}\right)=\frac{1}{4\pi}\int_{\mathbb{R}^{3}}\frac{q^{2}}{\left\vert \boldsymbol{r}-\boldsymbol{r}'\right\vert }n\left(\boldsymbol{r}'\right)d^{3}r'=\mathcal{F}^{-1}\left[\frac{q^{2}}{k^{2}}\mathcal{F}\left[n\left(\boldsymbol{r}\right)\right]\left(\boldsymbol{k}\right)\right]\left(\boldsymbol{r}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This is general solution of Poisson equation in an integral form.
+\end_layout
+
+\begin_layout Standard
+We used Borel's convolution theorem for conversion in equation above.
+\end_layout
+
+\begin_layout Standard
+In case of testing accurancy of algorithm 
+\begin_inset Formula $n\left(\boldsymbol{r}\right)=\frac{1}{\left(2\pi\sigma^{2}\right)^{3/2}}e^{-\frac{r^{2}}{2\sigma^{2}}}=\frac{1}{\left(\pi a_{ho}^{2}\right)^{3/2}}e^{-\frac{r^{2}}{a_{ho}^{2}}}$
+\end_inset
+
+ will be used, because analitic solution is known (
+\begin_inset CommandInset href
+LatexCommand href
+name "wiki"
+target "https://en.wikipedia.org/wiki/Poisson%27s_equation#Potential_of_a_Gaussian_charge_density"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+V_{coulomb}\left(\boldsymbol{r}\right)=\frac{1}{4\pi}\frac{q^{2}}{r}\,\mbox{erf}\left(\frac{r}{\sqrt{2}\sigma}\right)=\frac{1}{4\pi}\frac{q^{2}}{r}\,\mbox{erf}\left(\frac{r}{a_{ho}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $a_{ho}=\sqrt{\frac{\hbar}{m\omega}}$
+\end_inset
+
+ is characteristic length of harmonic oscilator (groundstate wavefunction
+ is a kind of gaussian).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Advantages
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+Straight forward implementation
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+columnbreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Disadvantages
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+Due to long range behaviour of Coulomb potential poor accurancy is expected.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename vcoulomb_x__aho1.pdf
+	lyxscale 75
+	width 30theight%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename vcoulomb_x__aho10.pdf
+	lyxscale 75
+	width 30theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ilustration of misaccurancy of computing Coulomb potential with naive method.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Ilustration-of-misaccurancy"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Methods of increasing accuracy of Coulomb potential computation
+\end_layout
+
+\begin_layout Subsection
+Performing computation on larger lattice
+\end_layout
+
+\begin_layout Standard
+First conclusion from analysis of fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Ilustration-of-misaccurancy"
+
+\end_inset
+
+ suggests just to perform computation on bigger grid.
+\end_layout
+
+\begin_layout Standard
+We need to get values from smaller lattice and copy to 
+\begin_inset Quotes pld
+\end_inset
+
+centre
+\begin_inset Quotes prd
+\end_inset
+
+ of bigger array and also fill other entries of bigger array with zeros.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /home/konrad/Pulpit/CUDA/CoulombComplex/data/resized3D_xy__aho10.pdf
+	width 50theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Example of resizing array in 3D.
+ Colors correspond to density in logscale (orginal array was filled with
+ constant).
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Increase of lattice size in fact gives no more information about charge
+ distribution, so there could exists better way for increasing accuracy
+ without unnecessary increase of lattice and computation time, nevermore
+ little more math have to be used.
+ Two different cutoff methods dealing with this issue will be presented
+ in next sections.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Spherical cutoff method
+\end_layout
+
+\begin_layout Standard
+Given a cubic lattice of size 
+\begin_inset Formula $\left(1+\sqrt{3}\right)L_{c}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{F}^{-1}\left[\frac{q^{2}}{k^{2}}\left(1-\cos\left(\sqrt{3}L_{c}k\right)\right)\mathcal{F}\left[n\left(\boldsymbol{r}\right)\right]\left(\boldsymbol{k}\right)\right]\left(\boldsymbol{r}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To deal with division by 0 we can use
+\begin_inset Formula $\lim_{k\to0}\frac{q^{2}}{k^{2}}\left(1-\cos\left(\sqrt{3}L_{c}k\right)\right)=\frac{3}{2}q^{2}L_{c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{multicols}{2}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Advantages
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+Accurate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+columnbreak
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Disadvantages
+\series default
+:
+\end_layout
+
+\begin_layout Itemize
+The lattice is much bigger, performing cuFFT and vector-vector multiplication
+ is getting slower.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{multicols}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename theoretical.png
+	width 45page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Spherical cutoff method is expected to give accurate results except edges
+ of the lattice, so bigger box for computation and truncation of results
+ is needed.
+ (the red plot is density of charge in log-scale)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Cubic cutoff method
+\end_layout
+
+\begin_layout Standard
+(not done yet...)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%Timing comparison of different methods
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Performance tests
+\end_layout
+
+\begin_layout Subsection
+Comparison on device
+\end_layout
+
+\begin_layout Standard
+We implemented and tested 3 types of functions counting number of different
+ entries in two arrays (for comparision purpose).
+ Each function returns number of entries with absolute difference 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+textit{eps}
+\end_layout
+
+\end_inset
+
+ between same entries in each array.
+\end_layout
+
+\begin_layout Standard
+First solution was based on 
+\series bold
+thrust::inner_product
+\series default
+ and two another use 
+\series bold
+__syncthreads_count
+\series default
+ for blockwise comparison and custom reductions for suming results of each
+ blocks.
+ kernel_compare is kernel using every thread for comparision (like in simple
+ reduction) and kernel_compare_multipass is based on thread fence reductions
+ in Nvidia CUDA Samples.
+ Both functions sum over blocks using custom reduction from Nvidia CUDA
+ Samples (Harris example).
+ The code is in files 
+\begin_inset Quotes eld
+\end_inset
+
+compare.cuh
+\begin_inset Quotes erd
+\end_inset
+
+, 
+\begin_inset Quotes eld
+\end_inset
+
+reductions.cuh
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+compare_thrust.cuh
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Example of results given by nvprof (comparision of arrays of 307712 double
+ elements, 100 calls for each function):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)      Time     Calls       Avg       Min       Max  Name  
+\end_layout
+
+\begin_layout Plain Layout
+
+29.27%  5.8410ms       100  58.410us  56.958us  74.909us  void kernel_compare_multipa
+ss
+\end_layout
+
+\begin_layout Plain Layout
+
+29.22%  5.8318ms       100  58.317us  56.350us  71.325us  <thrust part 1>  
+\end_layout
+
+\begin_layout Plain Layout
+
+26.72%  5.3325ms       100  53.324us  51.870us  66.237us  void kernel_compare<double>
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+4.42%   882.08us       100  8.8200us  8.4480us  10.367us  <thrust part 2>
+\end_layout
+
+\begin_layout Plain Layout
+
+3.72%   742.12us       303  2.4490us  2.2080us  7.3280us  [CUDA memcpy DtoH]
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+3.04%   607.33us       200  3.0360us  2.5280us  3.2960us  void __reduce_kernel__
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename compare.png
+	lyxscale 30
+	width 90page%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results from nvprof for different sizes of input array.
+ Results of custom reductions and memcpy should be added to custom comparisons
+ and timings for thrust1 and thrust2 kernels should also be taken together.
+ Solution based on thrust is comparable for samll arrays and noticeably
+ faster for bigger arrays.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Comparison reveals that we could be able to improve the implementation based
+ on 
+\series bold
+thrust::inner_product
+\series default
+ by custom kernels, so this kernel will be used in further part of the project.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+CUFFT complex-to-complex and real-to-complex
+\end_layout
+
+\begin_layout Standard
+Output from nvprof for complex-to-complex transfroms (lattice 256x256x256,
+ GeForce GTX 980M):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)      Time   Calls       Avg       Min       Max  Name  
+\end_layout
+
+\begin_layout Plain Layout
+
+29.97%   42.821 ms      2  21.410ms  21.399ms  21.422ms  [CUDA memcpy DtoH] 
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+18.52%   26.457 ms      2  13.229ms  13.220ms  13.237ms  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+18.51%   26.451 ms      2  13.225ms  13.212ms  13.238ms  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+15.23%   21.762 ms      5  4.3524ms     928ns  21.758ms  [CUDA memcpy HtoD]
+\end_layout
+
+\begin_layout Plain Layout
+
+6.78%    9.6858 ms      1  9.6858ms  9.6858ms  9.6858ms  void dpVector0256C::kernelMe
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+6.78%    9.6832 ms      1  9.6832ms  9.6832ms  9.6832ms  void dpVector0256C::kernelMe
+m  
+\end_layout
+
+\begin_layout Plain Layout
+
+4.21%    6.0161 ms      1  6.0161ms  6.0161ms  6.0161ms  kernel_vcoulomb
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Output from nvprof for real-to-complex and complex-to-real transfroms (lattice
+ 256x256x256, GeForce GTX 980M):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)      Time   Calls       Avg       Min       Max  Name  
+\end_layout
+
+\begin_layout Plain Layout
+
+28.08%  22.014  ms      2  11.007ms  10.933ms  11.081ms  [CUDA memcpy DtoH] 
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+16.74%  13.122  ms      2  6.5608ms  6.5487ms  6.5730ms  void dpRadix0256C::kernel1Te
+x  
+\end_layout
+
+\begin_layout Plain Layout
+
+16.71%  13.100  ms      2  6.5499ms  6.5469ms  6.5529ms  void dpRadix0256C::kernel1Te
+x 
+\end_layout
+
+\begin_layout Plain Layout
+
+13.82%  10.836  ms      5  2.1673ms     896ns  10.833ms  [CUDA memcpy HtoD]
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+5.40%    4.2312 ms      1  4.2312ms  4.2312ms  4.2312ms  <__nv_static_callback_t>
+   
+\end_layout
+
+\begin_layout Plain Layout
+
+5.01%    3.9293 ms      1  3.9293ms  3.9293ms  3.9293ms  void dpVector0128C::kernelTe
+x 
+\end_layout
+
+\begin_layout Plain Layout
+
+5.01%    3.9267 ms      1  3.9267ms  3.9267ms  3.9267ms  void dpVector0128C::kernelTe
+x  
+\end_layout
+
+\begin_layout Plain Layout
+
+4.95%    3.8820 ms      1  3.8820ms  3.8820ms  3.8820ms  <__nv_static_callback_t>
+\end_layout
+
+\begin_layout Plain Layout
+
+4.29%    3.3631 ms      1  3.3631ms  3.3631ms  3.3631ms  kernel_coulomb_real
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using real-to-complex versions of transfroms gives about 40% speedup and
+ requires nearly only half of the memory needed by complex-to-complex transform.
+ According to this observations using real-to-complex versions is a necessity.
+\end_layout
+
+\begin_layout Standard
+Coulmb kernel (naive, inaccurate implementation) takes only about 10% of
+ total computation time, so its optimization will not give significant speed
+ up for whole algorithm.
+ Nevertheless real-to-complex transfrom rewrites array of [Nx,Ny,Nz] double
+ entries to array [Nx,Ny,Nz/2+1] cuDoubleComplex entries, so memory alignment
+ have to be considered more carefully.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Coulomb kernel
+\end_layout
+
+\begin_layout Subsubsection
+Preliminaries
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename timings_kernel0_pow_2.pdf
+	width 95theight%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Performace tests for non-optimized implementation with power of 2 dimensions.
+ Note that upper figure is in logscale.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+After brief perfomance analysis of parts of algorithm we found out that
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Memory alignment
+\end_layout
+
+\begin_layout Standard
+We can use resizing of arrays to align memory properly and avoid using strided
+ cuFFT, which is fairly complicated...
+\end_layout
+
+\begin_layout Standard
+When resizing arrays we chose dimensions to be multiples of 32.
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+3D indexing
+\end_layout
+
+\begin_layout Standard
+Firstly it was tested for naive algorithm
+\end_layout
+
+\begin_layout Standard
+Best results for Coulomb's convolution kernels (lattice 256x256x256, GeForce
+ GTX 980M):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+  4.71%  4.1189ms         1  4.1189ms  4.1189ms  4.1189ms  kernel_coulomb_3Didx0<int=
+256, int=256, int=256>
+\end_layout
+
+\begin_layout Plain Layout
+
+  4.41%  3.7549ms         1  3.7549ms  3.7549ms  3.7549ms  kernel_coulomb_3Didx1<int=
+256, int=256, int=256>
+\end_layout
+
+\begin_layout Plain Layout
+
+  3.85%  3.2651ms         1  3.2651ms  3.2651ms  3.2651ms  kernel_coulomb_3Didx_cnst<
+int=256, int=256, int=256>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Callbacks
+\end_layout
+
+\begin_layout Subsubsection
+First tests
+\end_layout
+
+\begin_layout Standard
+Results for code in file cufft_callback.cu (GeForce GTX980M, compute capability
+ SM5.2):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)     Time  Calls       Avg       Min       Max  Name  
+\end_layout
+
+\begin_layout Plain Layout
+
+73.37%  120.58ms    100  1.2058ms  1.1810ms  2.4289ms  ConvolveAndStoreTransposedC_Op
+timized
+\end_layout
+
+\begin_layout Plain Layout
+
+22.57%  37.097ms    100  370.97us  368.44us  377.17us  void spVector0512C::kernelMemC
+allback
+\end_layout
+
+\begin_layout Plain Layout
+
+4.01%   6.5895ms    101  65.242us  59.934us  472.30us  <callback_store_R2C>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Results for code in file cufft_no_callback.cu (GeForce GTX980M, compute capabilit
+y SM5.2):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)      Time     Calls       Avg       Min       Max  Name
+\end_layout
+
+\begin_layout Plain Layout
+
+50.21%  22.094ms       100  220.94us  219.26us  223.16us  ConvertInputR
+\end_layout
+
+\begin_layout Plain Layout
+
+19.50%  8.5785ms       100  85.785us  70.814us  1.2094ms  ConvolveAndStoreTransposedC
+_Optimized
+\end_layout
+
+\begin_layout Plain Layout
+
+16.26%  7.1535ms       101  70.826us  66.974us  74.461us  void spVector0512C::kernelT
+ex
+\end_layout
+
+\begin_layout Plain Layout
+
+14.03%  6.1728ms       101  61.116us  59.485us  63.742us  <callback_store_R2C>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This quick comparison show that FFT with callback load (void spVector0512C::kern
+elMemCallback + callback_store_R2C) takes about 43.62 ms and FFT without
+ callback, but with preprocessing input in separete kernel (void spVector0512C::
+kernelTex + callback_store_R2C + ConvertInputR) takes about 35.28 ms, so
+ is 20% faster.
+ The issue is that a device function called from a kernel cannot use more
+ registers than have been allocated to that kernel at launch time.
+\end_layout
+
+\begin_layout Standard
+Moreover kernel ConvolveAndStoreTransposedC_Optimized became almost 15 times
+ slover.
+ We cannot find out what is the possible reason of such a behaviour.
+ Maybe it is due to inconsistency in compute architectures of cufft_static
+ library and the exploited machine?
+\end_layout
+
+\begin_layout Standard
+Nevertheless the conclusion is that cuFFT kernels utilizing custom callback
+ are less efficient and they probably will not accelerate program.
+\end_layout
+
+\begin_layout Standard
+Same results on Tesla K80 with CUDA 7.5.
+\end_layout
+
+\begin_layout Subsubsection
+Test for naive Coulomb kernel
+\end_layout
+
+\begin_layout Standard
+Callback load in inverse FFT:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)    Time     Calls       Avg       Min       Max  Name
+\end_layout
+
+\begin_layout Plain Layout
+
+%            ms                  ms        ms        ms
+\end_layout
+
+\begin_layout Plain Layout
+
+45.55  106.6498         1  106.6498  106.6498  106.6498  void dpRadix0256B::kernel1Me
+mCallback
+\end_layout
+
+\begin_layout Plain Layout
+
+18.04  42.23892         3  14.07964  2.91e-03  21.20170  [CUDA memcpy DtoH]
+\end_layout
+
+\begin_layout Plain Layout
+
+11.54  27.01562         2  13.50781  13.41062  13.60501  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+9.26   21.68575         5  4.337150  9.28e-04  21.68182  [CUDA memcpy HtoD]
+\end_layout
+
+\begin_layout Plain Layout
+
+6.08   14.24234         1  14.24234  14.24234  14.24234  void dpVector0256C::kernelMe
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+5.60   13.10694         1  13.10694  13.10694  13.10694  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+3.93   9.200936         1  9.200936  9.200936  9.200936  void dpVector0256C::kernelMe
+m
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No callbacks:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Time(%)    Time     Calls       Avg       Min       Max  Name 
+\end_layout
+
+\begin_layout Plain Layout
+
+%            ms                  ms        ms        ms
+\end_layout
+
+\begin_layout Plain Layout
+
+28.10  42.22948         2  21.11474  21.06722  21.16226  [CUDA memcpy DtoH]
+\end_layout
+
+\begin_layout Plain Layout
+
+18.70  28.10450         2  14.05225  13.57981  14.52468  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+18.70  28.09931         2  14.04966  13.23512  14.86419  void dpRadix0256C::kernel1Me
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+14.38  21.61293         5  4.322586  8.96e-04  21.60922  [CUDA memcpy HtoD]
+\end_layout
+
+\begin_layout Plain Layout
+
+8.13   12.21691         1  12.21691  12.21691  12.21691  void dpVector0256C::kernelMe
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+8.03   12.06882         1  12.06882  12.06882  12.06882  void dpVector0256C::kernelMe
+m
+\end_layout
+
+\begin_layout Plain Layout
+
+3.95   5.931899         1  5.931899  5.931899  5.931899  __density_times_vcoulomb_k__
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This also confirms conclusions from results is a section above.
+\end_layout
+
+\begin_layout Subsubsection
+Problems with registers for callbacks
+\end_layout
+
+\begin_layout Standard
+The issue is that a device function called from a kernel cannot use more
+ registers than have been allocated to that kernel at launch time.
+\end_layout
+
+\begin_layout Standard
+Source: 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://devtalk.nvidia.com/default/topic/904009/unavoidable-register-spilling-with-cufft-callbacks/"
+target "https://devtalk.nvidia.com/default/topic/904009/unavoidable-register-spilling-with-cufft-callbacks/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Possibly the neat solution would be to keep the callbacks in a register
+ agnostic ptx form and then jit them as soon as the register constraints
+ of the calling kernel are known.
+ But don't know how to that...
+\end_layout
+
+\begin_layout Standard
+https://devblogs.nvidia.com/parallelforall/cuda-pro-tip-understand-fat-binaries-ji
+t-caching/
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Reductions
+\end_layout
+
+\begin_layout Standard
+This section is considered due to approach to integration described in the
+ next section.
+\end_layout
+
+\begin_layout Standard
+Different types of solutions where investigated.
+ The implementation of reductions in directory 
+\shape slanted
+integration
+\shape default
+ (files 
+\shape italic
+reductions.cuh, thread_fence_reductions.cuh, cub_utils.cuh
+\shape default
+), performace test in 
+\shape italic
+reduce_test.cu
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+Results on GeForce GTX 980M, array 128x128x128 :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// CUSTOM BLOCK REDUCE 
+\end_layout
+
+\begin_layout Plain Layout
+
+ 22.03%  16.454ms       200  82.271us  3.0390us  173.79us  __reduce_kernel__<unsigned
+ int=512> 
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.34%  255.16us       100  2.5510us  2.5270us  2.6560us  __reduce_kernel__<unsigned
+ int= 64>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// THRUST
+\end_layout
+
+\begin_layout Plain Layout
+
+ 16.53%  12.341ms       100  123.41us  122.21us  129.47us  <thrust1>
+\end_layout
+
+\begin_layout Plain Layout
+
+  1.14%  854.13us       100  8.5410us  8.2880us  8.9920us  <thrust2>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// CUB LIBRARY
+\end_layout
+
+\begin_layout Plain Layout
+
+ 16.43%  12.270ms       100  122.70us  120.86us  124.38us  cub::DeviceReduceKernel
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.50%  373.15us       100  3.7310us  3.4240us  4.1280us  cub::DeviceReduceSingleTil
+eKernel
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.28%  206.78us       100  2.0670us  1.9840us  3.2640us  cub::FillAndResetDrainKern
+el
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Simple comparison between known methods of reductions reveals superiority
+ of libraries over custom implementation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Integrals (rectangles method)
+\end_layout
+
+\begin_layout Standard
+As a supplement for the project we present methods for pefroming integrals
+ of type:
+\begin_inset Formula 
+\[
+\int\psi^{*}\left(\boldsymbol{r}\right)V\left(\boldsymbol{r}\right)\psi\left(\boldsymbol{r}\right)d^{3}r\approx\Delta x\Delta y\Delta z\sum_{ix,iy,iz}\left(\Re e\psi\left[ix,iy,iz\right]\right)^{2}+\left(Im\psi\left[ix,iy,iz\right]\right)^{2}\cdot V\left[ix,iy,iz\right]
+\]
+
+\end_inset
+
+Where assuming 
+\begin_inset Formula $\psi$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ are arrays of same size and cuDoubleComplex and double types respectively.
+\end_layout
+
+\begin_layout Standard
+In quantum mechanics such integrals represent expectation values of operators.
+\end_layout
+
+\begin_layout Standard
+Three types of solutions where investigated: based on thrust::inner_product,
+ utilizing cuBLAS and self-written kernels.
+ The implementation of intergals in directory 
+\shape slanted
+integration
+\shape default
+ (files 
+\shape italic
+Integration.hpp, reductions.cuh
+\shape default
+), performace test in reduce_test.cu.
+\end_layout
+
+\begin_layout Standard
+Results on GeForce GTX 980M, array 128x128x128 :
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+// CUBLAS
+\end_layout
+
+\begin_layout Plain Layout
+
+ 25.04%  60.297ms       100  602.97us  597.62us  624.95us  kernel_RC_mult
+\end_layout
+
+\begin_layout Plain Layout
+
+ 19.45%  46.826ms       100  468.26us  463.54us  488.21us  dot_kernel
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.16%  389.63us       100  3.8960us  3.7760us  4.9920us  reduce_1Block_kernel
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// THRUST
+\end_layout
+
+\begin_layout Plain Layout
+
+ 17.35%  41.783ms       100  417.83us  404.63us  435.00us   <thrust1>
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.37%  889.25us       100  8.8920us  8.5440us  9.7590us   <thrust2>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// CUSTOM BLOCK REDUCE
+\end_layout
+
+\begin_layout Plain Layout
+
+ 14.56%  35.055ms       100  350.55us  348.63us  355.51us  kernel_DZdreduce <unsigned
+ int=512>
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.14%  339.00us       100  3.3890us  3.2640us  3.5520us  __reduce_kernel__<unsigned
+ int=512>
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.11%  263.58us       100  2.6350us  2.5920us  2.7840us  __reduce_kernel__<unsigned
+ int= 64>
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+// MEMORY TRANSFERS
+\end_layout
+
+\begin_layout Plain Layout
+
+  1.70%  4.0985ms         3  1.3662ms  1.2800us  2.7401ms  [CUDA memcpy HtoD]
+  
+\end_layout
+
+\begin_layout Plain Layout
+
+  0.25%  590.57us       400  1.4760us  1.3430us  7.2950us  [CUDA memcpy DtoH]
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Conclusions:
+\end_layout
+
+\begin_layout Itemize
+Even without further optimization of kernel_RC_mult we must reject solution
+ based on cuBLAS (dot_kernel is slow).
+\end_layout
+
+\begin_layout Itemize
+Solution utilizing custom block reduce is suprisingly fast and beats Thrust
+ by almost 20%.
+\end_layout
+
+\begin_layout Itemize
+thrust::inner_product is almost 3.5x slower than simple reductions
+\end_layout
+
+\begin_layout Itemize
+No solution with CUB Library was tested, but according to results of reductions
+ methods tests it can also provide some speedup (can be faster than Thrust).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+Appendix
+\end_layout
+
+\begin_layout Subsection*
+Coulomb integral 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mathcal{F}\left[\frac{1}{4\pi}\frac{q^{2}}{\left\vert \boldsymbol{r}\right\vert }\right]=\frac{q^{2}}{4\pi}\lim_{\alpha\to0}\int_{0}^{2\pi}d\phi\int_{0}^{\infty}dr\int_{-1}^{1}e^{ikr\cos\theta}e^{-\alpha r}\frac{1}{r}r^{2}d\left(cos\theta\right)=\lim_{\alpha\to0}\frac{q^{2}}{2ik}\int_{0}^{\infty}\left[\frac{1}{r}e^{ikrx}\right]_{x=-1}^{x=\thinspace\thinspace1}e^{-\alpha r}rdr=\lim_{\alpha\to0}\frac{q^{2}}{2ik}\int_{0}^{\infty}\left[e^{\left(ik-\alpha\right)r}-e^{-\left(ik+\alpha\right)r}\right]dr=
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\lim_{\alpha\to0}\frac{q^{2}}{2ik}\left[\frac{1}{\left(ik-\alpha\right)}e^{\left(ik-\alpha\right)r}+\frac{1}{\left(ik+\alpha\right)}e^{-\left(ik+\alpha\right)r}\right]_{r=0}^{r=\infty}=\lim_{\alpha\to0}\frac{q^{2}}{2ik}\left[\frac{\left(ik-\alpha\right)e^{ikr}+\left(ik+\alpha\right)e^{-ikr}}{\left(ik-\alpha\right)\left(ik+\alpha\right)}\vert_{r=\infty}-\frac{\left(ik-\alpha\right)+\left(ik+\alpha\right)}{\left(ik-\alpha\right)\left(ik+\alpha\right)}\right]=
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\frac{q^{2}}{2ik}\left[\frac{ik\left(e^{ikr}+e^{-ikr}\right)}{-k^{2}}\vert_{r=\infty}-\lim_{\alpha\to0}\frac{2ik}{-k^{2}-\alpha^{2}}\right]=\lim_{R\to\infty}\frac{q^{2}}{2}\frac{2\cos\left(kr\right)}{-k^{2}}\vert_{r=R}+\lim_{\alpha\to0}\frac{q^{2}}{k^{2}+\alpha^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\lim_{R\to\infty}q^{2}\frac{1-\cos\left(kR\right)}{k^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+See also:
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "http://physics.stackexchange.com/questions/7462/fourier-transform-of-the-coulomb-potential"
+target "http://physics.stackexchange.com/questions/7462/fourier-transform-of-the-coulomb-potential"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

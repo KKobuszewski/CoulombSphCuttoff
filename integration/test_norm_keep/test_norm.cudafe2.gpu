@@ -1,0 +1,1096 @@
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj0EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj1EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj2EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj3EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj4EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj5EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj6EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj7EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj8EEEEE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj9EEEEE;
+# 30 "/usr/local/cuda/include/thrust/detail/seq.h"
+struct _ZN6thrust6detail5seq_tE;
+# 51 "/usr/local/cuda/include/thrust/system/detail/sequential/execution_policy.h"
+struct _ZN6thrust6system6detail10sequential3tagE;
+# 575 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj3EEE;
+# 557 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj2EEE;
+# 557 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj1EEE;
+# 591 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj0EEE;
+# 192 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail12aligned_typeILm8EE4typeE;
+# 206 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+union _ZN6thrust6system4cuda6detail5bulk_6detail15aligned_storageILm24ELm8EE4typeE;
+# 31 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/uninitialized.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_13uninitializedINS3_6detail27singleton_on_chip_allocatorEEE;
+# 216 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 176 "/usr/local/cuda/include/cuComplex.h"
+typedef struct double2 cuDoubleComplex;
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj0EEEEE _ZN6thrust6detail10functional11placeholderILj0EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj0EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj1EEEEE _ZN6thrust6detail10functional11placeholderILj1EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj1EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj2EEEEE _ZN6thrust6detail10functional11placeholderILj2EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj2EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj3EEEEE _ZN6thrust6detail10functional11placeholderILj3EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj3EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj4EEEEE _ZN6thrust6detail10functional11placeholderILj4EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj4EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj5EEEEE _ZN6thrust6detail10functional11placeholderILj5EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj5EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj6EEEEE _ZN6thrust6detail10functional11placeholderILj6EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj6EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj7EEEEE _ZN6thrust6detail10functional11placeholderILj7EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj7EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj8EEEEE _ZN6thrust6detail10functional11placeholderILj8EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj8EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 33 "/usr/local/cuda/include/thrust/detail/functional/placeholder.h"
+typedef struct _ZN6thrust6detail10functional5actorINS1_8argumentILj9EEEEE _ZN6thrust6detail10functional11placeholderILj9EE4typeE;
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+struct _ZN6thrust6detail10functional5actorINS1_8argumentILj9EEEEE {
+# 49 "/usr/local/cuda/include/thrust/detail/functional/actor.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 30 "/usr/local/cuda/include/thrust/detail/seq.h"
+struct _ZN6thrust6detail5seq_tE {
+# 30 "/usr/local/cuda/include/thrust/detail/seq.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 51 "/usr/local/cuda/include/thrust/system/detail/sequential/execution_policy.h"
+struct _ZN6thrust6system6detail10sequential3tagE {
+# 51 "/usr/local/cuda/include/thrust/system/detail/sequential/execution_policy.h"
+char __nv_no_debug_dummy_end_padding_0;};
+# 575 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj3EEE {
+# 575 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+char __nv_no_debug_dummy_end_padding_0;};
+# 557 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj2EEE {
+# 563 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj3EEE this_exec;};
+# 557 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj1EEE {
+# 563 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj2EEE this_exec;};
+# 591 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj0EEE {
+# 597 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj1EEE this_exec;};
+# 192 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail12aligned_typeILm8EE4typeE {
+# 192 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+char __nv_no_debug_dummy_end_padding_0[8];} __align__(8) ;
+# 206 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+union _ZN6thrust6system4cuda6detail5bulk_6detail15aligned_storageILm24ELm8EE4typeE {
+# 208 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+unsigned char data[24];
+# 210 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/detail/alignment.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_6detail12aligned_typeILm8EE4typeE align;};
+# 31 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/uninitialized.hpp"
+struct _ZN6thrust6system4cuda6detail5bulk_13uninitializedINS3_6detail27singleton_on_chip_allocatorEEE {
+# 37 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/uninitialized.hpp"
+union _ZN6thrust6system4cuda6detail5bulk_6detail15aligned_storageILm24ELm8EE4typeE storage;};
+# 196 "/usr/local/cuda/include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((__used__)) __attribute__((visibility("default"))) void *malloc(size_t __T10);
+# 197 "/usr/local/cuda/include/crt/device_runtime.h" 3
+___device__(extern  __no_sc__) __attribute__((__externally_visible__)) __attribute__((__used__)) __attribute__((__nothrow__)) __attribute__((visibility("default"))) void free(void *__T11);
+#if !defined(__CUDABE__)
+# 168 "/usr/local/cuda/include/device_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) void __syncthreads(void);
+#endif
+# 127 "./reductions.cuh"
+__global__ __var_used__ extern void _Z16kernel_DZdreduceILj1024EEvPdP7double2S0_i(double *__T12, cuDoubleComplex *__T13, double *__T14, int __T15);
+# 127 "./reductions.cuh"
+__global__ __var_used__ extern void _Z16kernel_DZdreduceILj512EEvPdP7double2S0_i(double *__T16, cuDoubleComplex *__T17, double *__T18, int __T19);
+# 127 "./reductions.cuh"
+__global__ __var_used__ extern void _Z16kernel_DZdreduceILj256EEvPdP7double2S0_i(double *__T110, cuDoubleComplex *__T111, double *__T112, int __T113);
+# 127 "./reductions.cuh"
+__global__ __var_used__ extern void _Z16kernel_DZdreduceILj128EEvPdP7double2S0_i(double *__T114, cuDoubleComplex *__T115, double *__T116, int __T117);
+# 127 "./reductions.cuh"
+__global__ __var_used__ extern void _Z16kernel_DZdreduceILj64EEvPdP7double2S0_i(double *__T118, cuDoubleComplex *__T119, double *__T120, int __T121);
+# 129 "./reductions.cuh"
+extern  __shared__ double sdata[];
+# 70 "/usr/local/cuda/include/thrust/system/detail/sequential/execution_policy.h"
+static  __device__  __var_used__ struct _ZN6thrust6system6detail10sequential3tagE _ZN6thrust6system6detail10sequential3seqE;
+# 458 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/malloc.hpp"
+static  __shared__  __var_used__ struct _ZN6thrust6system4cuda6detail5bulk_13uninitializedINS3_6detail27singleton_on_chip_allocatorEEE _ZN6thrust6system4cuda6detail5bulk_6detail41_GLOBAL__N__17_test_norm_cpp1_ii_d366c12b19s_on_chip_allocatorE;
+# 622 "/usr/local/cuda/include/thrust/system/cuda/detail/bulk/execution_policy.hpp"
+static  __device__  __var_used__ struct _ZN6thrust6system4cuda6detail5bulk_6detail6cursorILj0EEE _ZN6thrust6system4cuda6detail5bulk_4rootE;
+# 1381 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj0EE4typeE _ZN6thrust12placeholders2_1E;
+# 1390 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj1EE4typeE _ZN6thrust12placeholders2_2E;
+# 1399 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj2EE4typeE _ZN6thrust12placeholders2_3E;
+# 1408 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj3EE4typeE _ZN6thrust12placeholders2_4E;
+# 1417 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj4EE4typeE _ZN6thrust12placeholders2_5E;
+# 1426 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj5EE4typeE _ZN6thrust12placeholders2_6E;
+# 1435 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj6EE4typeE _ZN6thrust12placeholders2_7E;
+# 1444 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj7EE4typeE _ZN6thrust12placeholders2_8E;
+# 1453 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj8EE4typeE _ZN6thrust12placeholders2_9E;
+# 1462 "/usr/local/cuda/include/thrust/functional.h"
+static  __device__  __var_used__ _ZN6thrust6detail10functional11placeholderILj9EE4typeE _ZN6thrust12placeholders3_10E;
+# 55 "/usr/local/cuda/include/thrust/detail/seq.h"
+static  __device__  __var_used__ struct _ZN6thrust6detail5seq_tE _ZN6thrust3seqE;
+# 10 "./thread_fence_reductions.cuh"
+static  __device__  __var_used__ unsigned retirementCount;
+#include "common_functions.h"
+# 10 "./thread_fence_reductions.cuh"
+static  __device__  __var_used__ unsigned retirementCount = 0U;
+#if !defined(__CUDABE__)
+#endif
+# 127 "./reductions.cuh"
+__global__ __var_used__ void _Z16kernel_DZdreduceILj1024EEvPdP7double2S0_i(
+# 127 "./reductions.cuh"
+double *entity, 
+# 127 "./reductions.cuh"
+cuDoubleComplex *psi, 
+# 127 "./reductions.cuh"
+double *d_wrk_mem, 
+# 127 "./reductions.cuh"
+int n){
+# 127 "./reductions.cuh"
+{
+# 128 "./reductions.cuh"
+{
+# 130 "./reductions.cuh"
+ unsigned __cuda_local_var_85496_18_non_const_tid;
+# 131 "./reductions.cuh"
+ unsigned __cuda_local_var_85497_18_non_const_i;
+# 132 "./reductions.cuh"
+ unsigned __cuda_local_var_85498_18_non_const_ishift;
+# 130 "./reductions.cuh"
+__cuda_local_var_85496_18_non_const_tid = (threadIdx.x);
+# 131 "./reductions.cuh"
+__cuda_local_var_85497_18_non_const_i = (((blockIdx.x) * ((blockDim.x) * 2U)) + (threadIdx.x));
+# 132 "./reductions.cuh"
+__cuda_local_var_85498_18_non_const_ishift = (__cuda_local_var_85497_18_non_const_i + (blockDim.x)); {
+# 135 "./reductions.cuh"
+if (__cuda_local_var_85498_18_non_const_ishift < ((unsigned)n))
+# 135 "./reductions.cuh"
+{
+# 135 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y)))) + ((entity[__cuda_local_var_85498_18_non_const_ishift]) * ((((psi[__cuda_local_var_85498_18_non_const_ishift]).x) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).x)) + (((psi[__cuda_local_var_85498_18_non_const_ishift]).y) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).y)))));
+# 135 "./reductions.cuh"
+}
+# 135 "./reductions.cuh"
+else 
+# 135 "./reductions.cuh"
+{ {
+# 137 "./reductions.cuh"
+if (__cuda_local_var_85497_18_non_const_i < ((unsigned)n))
+# 137 "./reductions.cuh"
+{
+# 137 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = ((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y))));
+# 137 "./reductions.cuh"
+}
+# 137 "./reductions.cuh"
+else 
+# 137 "./reductions.cuh"
+{
+# 138 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (0.0);
+# 138 "./reductions.cuh"
+} }
+# 138 "./reductions.cuh"
+} }
+# 139 "./reductions.cuh"
+__syncthreads(); {
+# 141 "./reductions.cuh"
+if (1)
+# 141 "./reductions.cuh"
+{ {
+# 141 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 512U)
+# 141 "./reductions.cuh"
+{
+# 141 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 512U)]);
+# 141 "./reductions.cuh"
+} }
+# 141 "./reductions.cuh"
+__syncthreads();
+# 141 "./reductions.cuh"
+} } {
+# 142 "./reductions.cuh"
+if (1)
+# 142 "./reductions.cuh"
+{ {
+# 142 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 256U)
+# 142 "./reductions.cuh"
+{
+# 142 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 256U)]);
+# 142 "./reductions.cuh"
+} }
+# 142 "./reductions.cuh"
+__syncthreads();
+# 142 "./reductions.cuh"
+} } {
+# 143 "./reductions.cuh"
+if (1)
+# 143 "./reductions.cuh"
+{ {
+# 143 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 128U)
+# 143 "./reductions.cuh"
+{
+# 143 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 128U)]);
+# 143 "./reductions.cuh"
+} }
+# 143 "./reductions.cuh"
+__syncthreads();
+# 143 "./reductions.cuh"
+} } {
+# 144 "./reductions.cuh"
+if (1)
+# 144 "./reductions.cuh"
+{ {
+# 144 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 64U)
+# 144 "./reductions.cuh"
+{
+# 144 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 64U)]);
+# 144 "./reductions.cuh"
+} }
+# 144 "./reductions.cuh"
+__syncthreads();
+# 144 "./reductions.cuh"
+} } {
+# 145 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 32U)
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 30 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 32U)]);
+# 30 "./reductions.cuh"
+}
+# 30 "./reductions.cuh"
+{
+# 31 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 16U)]);
+# 31 "./reductions.cuh"
+}
+# 31 "./reductions.cuh"
+{
+# 32 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 8U)]);
+# 32 "./reductions.cuh"
+}
+# 32 "./reductions.cuh"
+{
+# 33 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 4U)]);
+# 33 "./reductions.cuh"
+}
+# 33 "./reductions.cuh"
+{
+# 34 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 2U)]);
+# 34 "./reductions.cuh"
+}
+# 34 "./reductions.cuh"
+{
+# 35 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 1U)]);
+# 35 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+} } {
+# 147 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid == 0U)
+# 147 "./reductions.cuh"
+{
+# 147 "./reductions.cuh"
+(d_wrk_mem[(blockIdx.x)]) = ((sdata)[0]);
+# 147 "./reductions.cuh"
+} }
+# 148 "./reductions.cuh"
+} 
+# 148 "./reductions.cuh"
+}}
+# 127 "./reductions.cuh"
+__global__ __var_used__ void _Z16kernel_DZdreduceILj512EEvPdP7double2S0_i(
+# 127 "./reductions.cuh"
+double *entity, 
+# 127 "./reductions.cuh"
+cuDoubleComplex *psi, 
+# 127 "./reductions.cuh"
+double *d_wrk_mem, 
+# 127 "./reductions.cuh"
+int n){
+# 127 "./reductions.cuh"
+{
+# 128 "./reductions.cuh"
+{
+# 130 "./reductions.cuh"
+ unsigned __cuda_local_var_85496_18_non_const_tid;
+# 131 "./reductions.cuh"
+ unsigned __cuda_local_var_85497_18_non_const_i;
+# 132 "./reductions.cuh"
+ unsigned __cuda_local_var_85498_18_non_const_ishift;
+# 130 "./reductions.cuh"
+__cuda_local_var_85496_18_non_const_tid = (threadIdx.x);
+# 131 "./reductions.cuh"
+__cuda_local_var_85497_18_non_const_i = (((blockIdx.x) * ((blockDim.x) * 2U)) + (threadIdx.x));
+# 132 "./reductions.cuh"
+__cuda_local_var_85498_18_non_const_ishift = (__cuda_local_var_85497_18_non_const_i + (blockDim.x)); {
+# 135 "./reductions.cuh"
+if (__cuda_local_var_85498_18_non_const_ishift < ((unsigned)n))
+# 135 "./reductions.cuh"
+{
+# 135 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y)))) + ((entity[__cuda_local_var_85498_18_non_const_ishift]) * ((((psi[__cuda_local_var_85498_18_non_const_ishift]).x) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).x)) + (((psi[__cuda_local_var_85498_18_non_const_ishift]).y) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).y)))));
+# 135 "./reductions.cuh"
+}
+# 135 "./reductions.cuh"
+else 
+# 135 "./reductions.cuh"
+{ {
+# 137 "./reductions.cuh"
+if (__cuda_local_var_85497_18_non_const_i < ((unsigned)n))
+# 137 "./reductions.cuh"
+{
+# 137 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = ((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y))));
+# 137 "./reductions.cuh"
+}
+# 137 "./reductions.cuh"
+else 
+# 137 "./reductions.cuh"
+{
+# 138 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (0.0);
+# 138 "./reductions.cuh"
+} }
+# 138 "./reductions.cuh"
+} }
+# 139 "./reductions.cuh"
+__syncthreads(); {
+# 141 "./reductions.cuh"
+if (0)
+# 141 "./reductions.cuh"
+{ {
+# 141 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 512U)
+# 141 "./reductions.cuh"
+{
+# 141 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 512U)]);
+# 141 "./reductions.cuh"
+} }
+# 141 "./reductions.cuh"
+__syncthreads();
+# 141 "./reductions.cuh"
+} } {
+# 142 "./reductions.cuh"
+if (1)
+# 142 "./reductions.cuh"
+{ {
+# 142 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 256U)
+# 142 "./reductions.cuh"
+{
+# 142 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 256U)]);
+# 142 "./reductions.cuh"
+} }
+# 142 "./reductions.cuh"
+__syncthreads();
+# 142 "./reductions.cuh"
+} } {
+# 143 "./reductions.cuh"
+if (1)
+# 143 "./reductions.cuh"
+{ {
+# 143 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 128U)
+# 143 "./reductions.cuh"
+{
+# 143 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 128U)]);
+# 143 "./reductions.cuh"
+} }
+# 143 "./reductions.cuh"
+__syncthreads();
+# 143 "./reductions.cuh"
+} } {
+# 144 "./reductions.cuh"
+if (1)
+# 144 "./reductions.cuh"
+{ {
+# 144 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 64U)
+# 144 "./reductions.cuh"
+{
+# 144 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 64U)]);
+# 144 "./reductions.cuh"
+} }
+# 144 "./reductions.cuh"
+__syncthreads();
+# 144 "./reductions.cuh"
+} } {
+# 145 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 32U)
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 30 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 32U)]);
+# 30 "./reductions.cuh"
+}
+# 30 "./reductions.cuh"
+{
+# 31 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 16U)]);
+# 31 "./reductions.cuh"
+}
+# 31 "./reductions.cuh"
+{
+# 32 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 8U)]);
+# 32 "./reductions.cuh"
+}
+# 32 "./reductions.cuh"
+{
+# 33 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 4U)]);
+# 33 "./reductions.cuh"
+}
+# 33 "./reductions.cuh"
+{
+# 34 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 2U)]);
+# 34 "./reductions.cuh"
+}
+# 34 "./reductions.cuh"
+{
+# 35 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 1U)]);
+# 35 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+} } {
+# 147 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid == 0U)
+# 147 "./reductions.cuh"
+{
+# 147 "./reductions.cuh"
+(d_wrk_mem[(blockIdx.x)]) = ((sdata)[0]);
+# 147 "./reductions.cuh"
+} }
+# 148 "./reductions.cuh"
+} 
+# 148 "./reductions.cuh"
+}}
+# 127 "./reductions.cuh"
+__global__ __var_used__ void _Z16kernel_DZdreduceILj256EEvPdP7double2S0_i(
+# 127 "./reductions.cuh"
+double *entity, 
+# 127 "./reductions.cuh"
+cuDoubleComplex *psi, 
+# 127 "./reductions.cuh"
+double *d_wrk_mem, 
+# 127 "./reductions.cuh"
+int n){
+# 127 "./reductions.cuh"
+{
+# 128 "./reductions.cuh"
+{
+# 130 "./reductions.cuh"
+ unsigned __cuda_local_var_85496_18_non_const_tid;
+# 131 "./reductions.cuh"
+ unsigned __cuda_local_var_85497_18_non_const_i;
+# 132 "./reductions.cuh"
+ unsigned __cuda_local_var_85498_18_non_const_ishift;
+# 130 "./reductions.cuh"
+__cuda_local_var_85496_18_non_const_tid = (threadIdx.x);
+# 131 "./reductions.cuh"
+__cuda_local_var_85497_18_non_const_i = (((blockIdx.x) * ((blockDim.x) * 2U)) + (threadIdx.x));
+# 132 "./reductions.cuh"
+__cuda_local_var_85498_18_non_const_ishift = (__cuda_local_var_85497_18_non_const_i + (blockDim.x)); {
+# 135 "./reductions.cuh"
+if (__cuda_local_var_85498_18_non_const_ishift < ((unsigned)n))
+# 135 "./reductions.cuh"
+{
+# 135 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y)))) + ((entity[__cuda_local_var_85498_18_non_const_ishift]) * ((((psi[__cuda_local_var_85498_18_non_const_ishift]).x) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).x)) + (((psi[__cuda_local_var_85498_18_non_const_ishift]).y) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).y)))));
+# 135 "./reductions.cuh"
+}
+# 135 "./reductions.cuh"
+else 
+# 135 "./reductions.cuh"
+{ {
+# 137 "./reductions.cuh"
+if (__cuda_local_var_85497_18_non_const_i < ((unsigned)n))
+# 137 "./reductions.cuh"
+{
+# 137 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = ((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y))));
+# 137 "./reductions.cuh"
+}
+# 137 "./reductions.cuh"
+else 
+# 137 "./reductions.cuh"
+{
+# 138 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (0.0);
+# 138 "./reductions.cuh"
+} }
+# 138 "./reductions.cuh"
+} }
+# 139 "./reductions.cuh"
+__syncthreads(); {
+# 141 "./reductions.cuh"
+if (0)
+# 141 "./reductions.cuh"
+{ {
+# 141 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 512U)
+# 141 "./reductions.cuh"
+{
+# 141 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 512U)]);
+# 141 "./reductions.cuh"
+} }
+# 141 "./reductions.cuh"
+__syncthreads();
+# 141 "./reductions.cuh"
+} } {
+# 142 "./reductions.cuh"
+if (0)
+# 142 "./reductions.cuh"
+{ {
+# 142 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 256U)
+# 142 "./reductions.cuh"
+{
+# 142 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 256U)]);
+# 142 "./reductions.cuh"
+} }
+# 142 "./reductions.cuh"
+__syncthreads();
+# 142 "./reductions.cuh"
+} } {
+# 143 "./reductions.cuh"
+if (1)
+# 143 "./reductions.cuh"
+{ {
+# 143 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 128U)
+# 143 "./reductions.cuh"
+{
+# 143 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 128U)]);
+# 143 "./reductions.cuh"
+} }
+# 143 "./reductions.cuh"
+__syncthreads();
+# 143 "./reductions.cuh"
+} } {
+# 144 "./reductions.cuh"
+if (1)
+# 144 "./reductions.cuh"
+{ {
+# 144 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 64U)
+# 144 "./reductions.cuh"
+{
+# 144 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 64U)]);
+# 144 "./reductions.cuh"
+} }
+# 144 "./reductions.cuh"
+__syncthreads();
+# 144 "./reductions.cuh"
+} } {
+# 145 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 32U)
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 30 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 32U)]);
+# 30 "./reductions.cuh"
+}
+# 30 "./reductions.cuh"
+{
+# 31 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 16U)]);
+# 31 "./reductions.cuh"
+}
+# 31 "./reductions.cuh"
+{
+# 32 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 8U)]);
+# 32 "./reductions.cuh"
+}
+# 32 "./reductions.cuh"
+{
+# 33 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 4U)]);
+# 33 "./reductions.cuh"
+}
+# 33 "./reductions.cuh"
+{
+# 34 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 2U)]);
+# 34 "./reductions.cuh"
+}
+# 34 "./reductions.cuh"
+{
+# 35 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 1U)]);
+# 35 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+} } {
+# 147 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid == 0U)
+# 147 "./reductions.cuh"
+{
+# 147 "./reductions.cuh"
+(d_wrk_mem[(blockIdx.x)]) = ((sdata)[0]);
+# 147 "./reductions.cuh"
+} }
+# 148 "./reductions.cuh"
+} 
+# 148 "./reductions.cuh"
+}}
+# 127 "./reductions.cuh"
+__global__ __var_used__ void _Z16kernel_DZdreduceILj128EEvPdP7double2S0_i(
+# 127 "./reductions.cuh"
+double *entity, 
+# 127 "./reductions.cuh"
+cuDoubleComplex *psi, 
+# 127 "./reductions.cuh"
+double *d_wrk_mem, 
+# 127 "./reductions.cuh"
+int n){
+# 127 "./reductions.cuh"
+{
+# 128 "./reductions.cuh"
+{
+# 130 "./reductions.cuh"
+ unsigned __cuda_local_var_85496_18_non_const_tid;
+# 131 "./reductions.cuh"
+ unsigned __cuda_local_var_85497_18_non_const_i;
+# 132 "./reductions.cuh"
+ unsigned __cuda_local_var_85498_18_non_const_ishift;
+# 130 "./reductions.cuh"
+__cuda_local_var_85496_18_non_const_tid = (threadIdx.x);
+# 131 "./reductions.cuh"
+__cuda_local_var_85497_18_non_const_i = (((blockIdx.x) * ((blockDim.x) * 2U)) + (threadIdx.x));
+# 132 "./reductions.cuh"
+__cuda_local_var_85498_18_non_const_ishift = (__cuda_local_var_85497_18_non_const_i + (blockDim.x)); {
+# 135 "./reductions.cuh"
+if (__cuda_local_var_85498_18_non_const_ishift < ((unsigned)n))
+# 135 "./reductions.cuh"
+{
+# 135 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y)))) + ((entity[__cuda_local_var_85498_18_non_const_ishift]) * ((((psi[__cuda_local_var_85498_18_non_const_ishift]).x) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).x)) + (((psi[__cuda_local_var_85498_18_non_const_ishift]).y) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).y)))));
+# 135 "./reductions.cuh"
+}
+# 135 "./reductions.cuh"
+else 
+# 135 "./reductions.cuh"
+{ {
+# 137 "./reductions.cuh"
+if (__cuda_local_var_85497_18_non_const_i < ((unsigned)n))
+# 137 "./reductions.cuh"
+{
+# 137 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = ((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y))));
+# 137 "./reductions.cuh"
+}
+# 137 "./reductions.cuh"
+else 
+# 137 "./reductions.cuh"
+{
+# 138 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (0.0);
+# 138 "./reductions.cuh"
+} }
+# 138 "./reductions.cuh"
+} }
+# 139 "./reductions.cuh"
+__syncthreads(); {
+# 141 "./reductions.cuh"
+if (0)
+# 141 "./reductions.cuh"
+{ {
+# 141 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 512U)
+# 141 "./reductions.cuh"
+{
+# 141 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 512U)]);
+# 141 "./reductions.cuh"
+} }
+# 141 "./reductions.cuh"
+__syncthreads();
+# 141 "./reductions.cuh"
+} } {
+# 142 "./reductions.cuh"
+if (0)
+# 142 "./reductions.cuh"
+{ {
+# 142 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 256U)
+# 142 "./reductions.cuh"
+{
+# 142 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 256U)]);
+# 142 "./reductions.cuh"
+} }
+# 142 "./reductions.cuh"
+__syncthreads();
+# 142 "./reductions.cuh"
+} } {
+# 143 "./reductions.cuh"
+if (0)
+# 143 "./reductions.cuh"
+{ {
+# 143 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 128U)
+# 143 "./reductions.cuh"
+{
+# 143 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 128U)]);
+# 143 "./reductions.cuh"
+} }
+# 143 "./reductions.cuh"
+__syncthreads();
+# 143 "./reductions.cuh"
+} } {
+# 144 "./reductions.cuh"
+if (1)
+# 144 "./reductions.cuh"
+{ {
+# 144 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 64U)
+# 144 "./reductions.cuh"
+{
+# 144 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 64U)]);
+# 144 "./reductions.cuh"
+} }
+# 144 "./reductions.cuh"
+__syncthreads();
+# 144 "./reductions.cuh"
+} } {
+# 145 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 32U)
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 30 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 32U)]);
+# 30 "./reductions.cuh"
+}
+# 30 "./reductions.cuh"
+{
+# 31 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 16U)]);
+# 31 "./reductions.cuh"
+}
+# 31 "./reductions.cuh"
+{
+# 32 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 8U)]);
+# 32 "./reductions.cuh"
+}
+# 32 "./reductions.cuh"
+{
+# 33 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 4U)]);
+# 33 "./reductions.cuh"
+}
+# 33 "./reductions.cuh"
+{
+# 34 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 2U)]);
+# 34 "./reductions.cuh"
+}
+# 34 "./reductions.cuh"
+{
+# 35 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 1U)]);
+# 35 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+} } {
+# 147 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid == 0U)
+# 147 "./reductions.cuh"
+{
+# 147 "./reductions.cuh"
+(d_wrk_mem[(blockIdx.x)]) = ((sdata)[0]);
+# 147 "./reductions.cuh"
+} }
+# 148 "./reductions.cuh"
+} 
+# 148 "./reductions.cuh"
+}}
+# 127 "./reductions.cuh"
+__global__ __var_used__ void _Z16kernel_DZdreduceILj64EEvPdP7double2S0_i(
+# 127 "./reductions.cuh"
+double *entity, 
+# 127 "./reductions.cuh"
+cuDoubleComplex *psi, 
+# 127 "./reductions.cuh"
+double *d_wrk_mem, 
+# 127 "./reductions.cuh"
+int n){
+# 127 "./reductions.cuh"
+{
+# 128 "./reductions.cuh"
+{
+# 130 "./reductions.cuh"
+ unsigned __cuda_local_var_85496_18_non_const_tid;
+# 131 "./reductions.cuh"
+ unsigned __cuda_local_var_85497_18_non_const_i;
+# 132 "./reductions.cuh"
+ unsigned __cuda_local_var_85498_18_non_const_ishift;
+# 130 "./reductions.cuh"
+__cuda_local_var_85496_18_non_const_tid = (threadIdx.x);
+# 131 "./reductions.cuh"
+__cuda_local_var_85497_18_non_const_i = (((blockIdx.x) * ((blockDim.x) * 2U)) + (threadIdx.x));
+# 132 "./reductions.cuh"
+__cuda_local_var_85498_18_non_const_ishift = (__cuda_local_var_85497_18_non_const_i + (blockDim.x)); {
+# 135 "./reductions.cuh"
+if (__cuda_local_var_85498_18_non_const_ishift < ((unsigned)n))
+# 135 "./reductions.cuh"
+{
+# 135 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y)))) + ((entity[__cuda_local_var_85498_18_non_const_ishift]) * ((((psi[__cuda_local_var_85498_18_non_const_ishift]).x) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).x)) + (((psi[__cuda_local_var_85498_18_non_const_ishift]).y) * ((psi[__cuda_local_var_85498_18_non_const_ishift]).y)))));
+# 135 "./reductions.cuh"
+}
+# 135 "./reductions.cuh"
+else 
+# 135 "./reductions.cuh"
+{ {
+# 137 "./reductions.cuh"
+if (__cuda_local_var_85497_18_non_const_i < ((unsigned)n))
+# 137 "./reductions.cuh"
+{
+# 137 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = ((entity[__cuda_local_var_85497_18_non_const_i]) * ((((psi[__cuda_local_var_85497_18_non_const_i]).x) * ((psi[__cuda_local_var_85497_18_non_const_i]).x)) + (((psi[__cuda_local_var_85497_18_non_const_i]).y) * ((psi[__cuda_local_var_85497_18_non_const_i]).y))));
+# 137 "./reductions.cuh"
+}
+# 137 "./reductions.cuh"
+else 
+# 137 "./reductions.cuh"
+{
+# 138 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) = (0.0);
+# 138 "./reductions.cuh"
+} }
+# 138 "./reductions.cuh"
+} }
+# 139 "./reductions.cuh"
+__syncthreads(); {
+# 141 "./reductions.cuh"
+if (0)
+# 141 "./reductions.cuh"
+{ {
+# 141 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 512U)
+# 141 "./reductions.cuh"
+{
+# 141 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 512U)]);
+# 141 "./reductions.cuh"
+} }
+# 141 "./reductions.cuh"
+__syncthreads();
+# 141 "./reductions.cuh"
+} } {
+# 142 "./reductions.cuh"
+if (0)
+# 142 "./reductions.cuh"
+{ {
+# 142 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 256U)
+# 142 "./reductions.cuh"
+{
+# 142 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 256U)]);
+# 142 "./reductions.cuh"
+} }
+# 142 "./reductions.cuh"
+__syncthreads();
+# 142 "./reductions.cuh"
+} } {
+# 143 "./reductions.cuh"
+if (0)
+# 143 "./reductions.cuh"
+{ {
+# 143 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 128U)
+# 143 "./reductions.cuh"
+{
+# 143 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 128U)]);
+# 143 "./reductions.cuh"
+} }
+# 143 "./reductions.cuh"
+__syncthreads();
+# 143 "./reductions.cuh"
+} } {
+# 144 "./reductions.cuh"
+if (0)
+# 144 "./reductions.cuh"
+{ {
+# 144 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 64U)
+# 144 "./reductions.cuh"
+{
+# 144 "./reductions.cuh"
+((sdata)[__cuda_local_var_85496_18_non_const_tid]) += ((sdata)[(__cuda_local_var_85496_18_non_const_tid + 64U)]);
+# 144 "./reductions.cuh"
+} }
+# 144 "./reductions.cuh"
+__syncthreads();
+# 144 "./reductions.cuh"
+} } {
+# 145 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid < 32U)
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 145 "./reductions.cuh"
+{
+# 30 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 32U)]);
+# 30 "./reductions.cuh"
+}
+# 30 "./reductions.cuh"
+{
+# 31 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 16U)]);
+# 31 "./reductions.cuh"
+}
+# 31 "./reductions.cuh"
+{
+# 32 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 8U)]);
+# 32 "./reductions.cuh"
+}
+# 32 "./reductions.cuh"
+{
+# 33 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 4U)]);
+# 33 "./reductions.cuh"
+}
+# 33 "./reductions.cuh"
+{
+# 34 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 2U)]);
+# 34 "./reductions.cuh"
+}
+# 34 "./reductions.cuh"
+{
+# 35 "./reductions.cuh"
+(((volatile double *)(sdata))[__cuda_local_var_85496_18_non_const_tid]) += (((volatile double *)(sdata))[(__cuda_local_var_85496_18_non_const_tid + 1U)]);
+# 35 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+}
+# 145 "./reductions.cuh"
+} } {
+# 147 "./reductions.cuh"
+if (__cuda_local_var_85496_18_non_const_tid == 0U)
+# 147 "./reductions.cuh"
+{
+# 147 "./reductions.cuh"
+(d_wrk_mem[(blockIdx.x)]) = ((sdata)[0]);
+# 147 "./reductions.cuh"
+} }
+# 148 "./reductions.cuh"
+} 
+# 148 "./reductions.cuh"
+}}

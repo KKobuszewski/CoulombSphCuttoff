@@ -1,0 +1,3794 @@
+typedef char __nv_bool;
+# 1482 "/usr/local/cuda/include/driver_types.h"
+struct CUstream_st;
+# 1487 "/usr/local/cuda/include/driver_types.h"
+struct CUevent_st;
+# 54 "/usr/local/cuda/include/library_types.h"
+enum cudaDataType_t {
+# 56 "/usr/local/cuda/include/library_types.h"
+CUDA_R_16F = 2,
+# 57 "/usr/local/cuda/include/library_types.h"
+CUDA_C_16F = 6,
+# 58 "/usr/local/cuda/include/library_types.h"
+CUDA_R_32F = 0,
+# 59 "/usr/local/cuda/include/library_types.h"
+CUDA_C_32F = 4,
+# 60 "/usr/local/cuda/include/library_types.h"
+CUDA_R_64F = 1,
+# 61 "/usr/local/cuda/include/library_types.h"
+CUDA_C_64F = 5,
+# 62 "/usr/local/cuda/include/library_types.h"
+CUDA_R_8I = 3,
+# 63 "/usr/local/cuda/include/library_types.h"
+CUDA_C_8I = 7,
+# 64 "/usr/local/cuda/include/library_types.h"
+CUDA_R_8U,
+# 65 "/usr/local/cuda/include/library_types.h"
+CUDA_C_8U,
+# 66 "/usr/local/cuda/include/library_types.h"
+CUDA_R_32I,
+# 67 "/usr/local/cuda/include/library_types.h"
+CUDA_C_32I,
+# 68 "/usr/local/cuda/include/library_types.h"
+CUDA_R_32U,
+# 69 "/usr/local/cuda/include/library_types.h"
+CUDA_C_32U};
+# 73 "/usr/local/cuda/include/library_types.h"
+enum libraryPropertyType_t {
+# 75 "/usr/local/cuda/include/library_types.h"
+MAJOR_VERSION,
+# 76 "/usr/local/cuda/include/library_types.h"
+MINOR_VERSION,
+# 77 "/usr/local/cuda/include/library_types.h"
+PATCH_LEVEL};
+# 176 "/usr/include/libio.h" 3
+enum __codecvt_result {
+# 178 "/usr/include/libio.h" 3
+__codecvt_ok,
+# 179 "/usr/include/libio.h" 3
+__codecvt_partial,
+# 180 "/usr/include/libio.h" 3
+__codecvt_error,
+# 181 "/usr/include/libio.h" 3
+__codecvt_noconv};
+# 241 "/usr/include/libio.h" 3
+struct _IO_FILE;
+# 51 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3
+enum idtype_t {
+# 52 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3
+P_ALL,
+# 53 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3
+P_PID,
+# 54 "/usr/include/x86_64-linux-gnu/bits/waitflags.h" 3
+P_PGID};
+# 210 "/usr/include/math.h" 3
+enum _ZUt_ {
+# 211 "/usr/include/math.h" 3
+FP_NAN,
+# 214 "/usr/include/math.h" 3
+FP_INFINITE,
+# 217 "/usr/include/math.h" 3
+FP_ZERO,
+# 220 "/usr/include/math.h" 3
+FP_SUBNORMAL,
+# 223 "/usr/include/math.h" 3
+FP_NORMAL};
+# 348 "/usr/include/math.h" 3
+enum _LIB_VERSION_TYPE {
+# 349 "/usr/include/math.h" 3
+_IEEE_ = (-1),
+# 350 "/usr/include/math.h" 3
+_SVID_,
+# 351 "/usr/include/math.h" 3
+_XOPEN_,
+# 352 "/usr/include/math.h" 3
+_POSIX_,
+# 353 "/usr/include/math.h" 3
+_ISOC_};
+# 271 "/usr/local/cuda/include/cuda.h"
+enum CUipcMem_flags_enum {
+# 272 "/usr/local/cuda/include/cuda.h"
+CU_IPC_MEM_LAZY_ENABLE_PEER_ACCESS = 1};
+# 280 "/usr/local/cuda/include/cuda.h"
+enum CUmemAttach_flags_enum {
+# 281 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ATTACH_GLOBAL = 1,
+# 282 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ATTACH_HOST,
+# 283 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ATTACH_SINGLE = 4};
+# 289 "/usr/local/cuda/include/cuda.h"
+enum CUctx_flags_enum {
+# 290 "/usr/local/cuda/include/cuda.h"
+CU_CTX_SCHED_AUTO,
+# 291 "/usr/local/cuda/include/cuda.h"
+CU_CTX_SCHED_SPIN,
+# 292 "/usr/local/cuda/include/cuda.h"
+CU_CTX_SCHED_YIELD,
+# 293 "/usr/local/cuda/include/cuda.h"
+CU_CTX_SCHED_BLOCKING_SYNC = 4,
+# 294 "/usr/local/cuda/include/cuda.h"
+CU_CTX_BLOCKING_SYNC = 4,
+# 297 "/usr/local/cuda/include/cuda.h"
+CU_CTX_SCHED_MASK = 7,
+# 298 "/usr/local/cuda/include/cuda.h"
+CU_CTX_MAP_HOST,
+# 299 "/usr/local/cuda/include/cuda.h"
+CU_CTX_LMEM_RESIZE_TO_MAX = 16,
+# 300 "/usr/local/cuda/include/cuda.h"
+CU_CTX_FLAGS_MASK = 31};
+# 306 "/usr/local/cuda/include/cuda.h"
+enum CUstream_flags_enum {
+# 307 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_DEFAULT,
+# 308 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_NON_BLOCKING};
+# 334 "/usr/local/cuda/include/cuda.h"
+enum CUevent_flags_enum {
+# 335 "/usr/local/cuda/include/cuda.h"
+CU_EVENT_DEFAULT,
+# 336 "/usr/local/cuda/include/cuda.h"
+CU_EVENT_BLOCKING_SYNC,
+# 337 "/usr/local/cuda/include/cuda.h"
+CU_EVENT_DISABLE_TIMING,
+# 338 "/usr/local/cuda/include/cuda.h"
+CU_EVENT_INTERPROCESS = 4};
+# 345 "/usr/local/cuda/include/cuda.h"
+enum CUstreamWaitValue_flags_enum {
+# 346 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WAIT_VALUE_GEQ,
+# 348 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WAIT_VALUE_EQ,
+# 349 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WAIT_VALUE_AND,
+# 350 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WAIT_VALUE_FLUSH = 1073741824};
+# 362 "/usr/local/cuda/include/cuda.h"
+enum CUstreamWriteValue_flags_enum {
+# 363 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WRITE_VALUE_DEFAULT,
+# 364 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_WRITE_VALUE_NO_MEMORY_BARRIER};
+# 375 "/usr/local/cuda/include/cuda.h"
+enum CUstreamBatchMemOpType_enum {
+# 376 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_MEM_OP_WAIT_VALUE_32 = 1,
+# 377 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_MEM_OP_WRITE_VALUE_32,
+# 378 "/usr/local/cuda/include/cuda.h"
+CU_STREAM_MEM_OP_FLUSH_REMOTE_WRITES};
+# 418 "/usr/local/cuda/include/cuda.h"
+enum CUoccupancy_flags_enum {
+# 419 "/usr/local/cuda/include/cuda.h"
+CU_OCCUPANCY_DEFAULT,
+# 420 "/usr/local/cuda/include/cuda.h"
+CU_OCCUPANCY_DISABLE_CACHING_OVERRIDE};
+# 426 "/usr/local/cuda/include/cuda.h"
+enum CUarray_format_enum {
+# 427 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_UNSIGNED_INT8 = 1,
+# 428 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_UNSIGNED_INT16,
+# 429 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_UNSIGNED_INT32,
+# 430 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_SIGNED_INT8 = 8,
+# 431 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_SIGNED_INT16,
+# 432 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_SIGNED_INT32,
+# 433 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_HALF = 16,
+# 434 "/usr/local/cuda/include/cuda.h"
+CU_AD_FORMAT_FLOAT = 32};
+# 440 "/usr/local/cuda/include/cuda.h"
+enum CUaddress_mode_enum {
+# 441 "/usr/local/cuda/include/cuda.h"
+CU_TR_ADDRESS_MODE_WRAP,
+# 442 "/usr/local/cuda/include/cuda.h"
+CU_TR_ADDRESS_MODE_CLAMP,
+# 443 "/usr/local/cuda/include/cuda.h"
+CU_TR_ADDRESS_MODE_MIRROR,
+# 444 "/usr/local/cuda/include/cuda.h"
+CU_TR_ADDRESS_MODE_BORDER};
+# 450 "/usr/local/cuda/include/cuda.h"
+enum CUfilter_mode_enum {
+# 451 "/usr/local/cuda/include/cuda.h"
+CU_TR_FILTER_MODE_POINT,
+# 452 "/usr/local/cuda/include/cuda.h"
+CU_TR_FILTER_MODE_LINEAR};
+# 458 "/usr/local/cuda/include/cuda.h"
+enum CUdevice_attribute_enum {
+# 459 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_THREADS_PER_BLOCK = 1,
+# 460 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_X,
+# 461 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_Y,
+# 462 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_BLOCK_DIM_Z,
+# 463 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_X,
+# 464 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_Y,
+# 465 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_GRID_DIM_Z,
+# 466 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_SHARED_MEMORY_PER_BLOCK,
+# 467 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_SHARED_MEMORY_PER_BLOCK = 8,
+# 468 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_TOTAL_CONSTANT_MEMORY,
+# 469 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_WARP_SIZE,
+# 470 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_PITCH,
+# 471 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_REGISTERS_PER_BLOCK,
+# 472 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_REGISTERS_PER_BLOCK = 12,
+# 473 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CLOCK_RATE,
+# 474 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_TEXTURE_ALIGNMENT,
+# 475 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_GPU_OVERLAP,
+# 476 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MULTIPROCESSOR_COUNT,
+# 477 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_KERNEL_EXEC_TIMEOUT,
+# 478 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_INTEGRATED,
+# 479 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CAN_MAP_HOST_MEMORY,
+# 480 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_COMPUTE_MODE,
+# 481 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_WIDTH,
+# 482 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_WIDTH,
+# 483 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_HEIGHT,
+# 484 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_WIDTH,
+# 485 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_HEIGHT,
+# 486 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_DEPTH,
+# 487 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_WIDTH,
+# 488 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_HEIGHT,
+# 489 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LAYERED_LAYERS,
+# 490 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_ARRAY_WIDTH = 27,
+# 491 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_ARRAY_HEIGHT,
+# 492 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_ARRAY_NUMSLICES,
+# 493 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_SURFACE_ALIGNMENT,
+# 494 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CONCURRENT_KERNELS,
+# 495 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_ECC_ENABLED,
+# 496 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_PCI_BUS_ID,
+# 497 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_PCI_DEVICE_ID,
+# 498 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_TCC_DRIVER,
+# 499 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MEMORY_CLOCK_RATE,
+# 500 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_GLOBAL_MEMORY_BUS_WIDTH,
+# 501 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_L2_CACHE_SIZE,
+# 502 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_THREADS_PER_MULTIPROCESSOR,
+# 503 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_ASYNC_ENGINE_COUNT,
+# 504 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_UNIFIED_ADDRESSING,
+# 505 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_WIDTH,
+# 506 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LAYERED_LAYERS,
+# 507 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CAN_TEX2D_GATHER,
+# 508 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_WIDTH,
+# 509 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_GATHER_HEIGHT,
+# 510 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_WIDTH_ALTERNATE,
+# 511 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_HEIGHT_ALTERNATE,
+# 512 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE3D_DEPTH_ALTERNATE,
+# 513 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_PCI_DOMAIN_ID,
+# 514 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_TEXTURE_PITCH_ALIGNMENT,
+# 515 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_WIDTH,
+# 516 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_LAYERED_WIDTH,
+# 517 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURECUBEMAP_LAYERED_LAYERS,
+# 518 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_WIDTH,
+# 519 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_WIDTH,
+# 520 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_HEIGHT,
+# 521 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_WIDTH,
+# 522 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_HEIGHT,
+# 523 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE3D_DEPTH,
+# 524 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_WIDTH,
+# 525 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE1D_LAYERED_LAYERS,
+# 526 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_WIDTH,
+# 527 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_HEIGHT,
+# 528 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACE2D_LAYERED_LAYERS,
+# 529 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_WIDTH,
+# 530 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_WIDTH,
+# 531 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_SURFACECUBEMAP_LAYERED_LAYERS,
+# 532 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_LINEAR_WIDTH,
+# 533 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_WIDTH,
+# 534 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_HEIGHT,
+# 535 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_LINEAR_PITCH,
+# 536 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_MIPMAPPED_WIDTH,
+# 537 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE2D_MIPMAPPED_HEIGHT,
+# 538 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MAJOR,
+# 539 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_COMPUTE_CAPABILITY_MINOR,
+# 540 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAXIMUM_TEXTURE1D_MIPMAPPED_WIDTH,
+# 541 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_STREAM_PRIORITIES_SUPPORTED,
+# 542 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_GLOBAL_L1_CACHE_SUPPORTED,
+# 543 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_LOCAL_L1_CACHE_SUPPORTED,
+# 544 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_SHARED_MEMORY_PER_MULTIPROCESSOR,
+# 545 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX_REGISTERS_PER_MULTIPROCESSOR,
+# 546 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MANAGED_MEMORY,
+# 547 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MULTI_GPU_BOARD,
+# 548 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MULTI_GPU_BOARD_GROUP_ID,
+# 549 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_HOST_NATIVE_ATOMIC_SUPPORTED,
+# 550 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_SINGLE_TO_DOUBLE_PRECISION_PERF_RATIO,
+# 551 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_PAGEABLE_MEMORY_ACCESS,
+# 552 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CONCURRENT_MANAGED_ACCESS,
+# 553 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_COMPUTE_PREEMPTION_SUPPORTED,
+# 554 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_CAN_USE_HOST_POINTER_FOR_REGISTERED_MEM,
+# 555 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_ATTRIBUTE_MAX};
+# 577 "/usr/local/cuda/include/cuda.h"
+enum CUpointer_attribute_enum {
+# 578 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_CONTEXT = 1,
+# 579 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_MEMORY_TYPE,
+# 580 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_DEVICE_POINTER,
+# 581 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_HOST_POINTER,
+# 582 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_P2P_TOKENS,
+# 583 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_SYNC_MEMOPS,
+# 584 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_BUFFER_ID,
+# 585 "/usr/local/cuda/include/cuda.h"
+CU_POINTER_ATTRIBUTE_IS_MANAGED};
+# 591 "/usr/local/cuda/include/cuda.h"
+enum CUfunction_attribute_enum {
+# 597 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_MAX_THREADS_PER_BLOCK,
+# 604 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_SHARED_SIZE_BYTES,
+# 610 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_CONST_SIZE_BYTES,
+# 615 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_LOCAL_SIZE_BYTES,
+# 620 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_NUM_REGS,
+# 629 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_PTX_VERSION,
+# 638 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_BINARY_VERSION,
+# 644 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_CACHE_MODE_CA,
+# 646 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_ATTRIBUTE_MAX};
+# 652 "/usr/local/cuda/include/cuda.h"
+enum CUfunc_cache_enum {
+# 653 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_CACHE_PREFER_NONE,
+# 654 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_CACHE_PREFER_SHARED,
+# 655 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_CACHE_PREFER_L1,
+# 656 "/usr/local/cuda/include/cuda.h"
+CU_FUNC_CACHE_PREFER_EQUAL};
+# 662 "/usr/local/cuda/include/cuda.h"
+enum CUsharedconfig_enum {
+# 663 "/usr/local/cuda/include/cuda.h"
+CU_SHARED_MEM_CONFIG_DEFAULT_BANK_SIZE,
+# 664 "/usr/local/cuda/include/cuda.h"
+CU_SHARED_MEM_CONFIG_FOUR_BYTE_BANK_SIZE,
+# 665 "/usr/local/cuda/include/cuda.h"
+CU_SHARED_MEM_CONFIG_EIGHT_BYTE_BANK_SIZE};
+# 671 "/usr/local/cuda/include/cuda.h"
+enum CUmemorytype_enum {
+# 672 "/usr/local/cuda/include/cuda.h"
+CU_MEMORYTYPE_HOST = 1,
+# 673 "/usr/local/cuda/include/cuda.h"
+CU_MEMORYTYPE_DEVICE,
+# 674 "/usr/local/cuda/include/cuda.h"
+CU_MEMORYTYPE_ARRAY,
+# 675 "/usr/local/cuda/include/cuda.h"
+CU_MEMORYTYPE_UNIFIED};
+# 681 "/usr/local/cuda/include/cuda.h"
+enum CUcomputemode_enum {
+# 682 "/usr/local/cuda/include/cuda.h"
+CU_COMPUTEMODE_DEFAULT,
+# 683 "/usr/local/cuda/include/cuda.h"
+CU_COMPUTEMODE_PROHIBITED = 2,
+# 684 "/usr/local/cuda/include/cuda.h"
+CU_COMPUTEMODE_EXCLUSIVE_PROCESS};
+# 690 "/usr/local/cuda/include/cuda.h"
+enum CUmem_advise_enum {
+# 691 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_SET_READ_MOSTLY = 1,
+# 692 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_UNSET_READ_MOSTLY,
+# 693 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_SET_PREFERRED_LOCATION,
+# 694 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_UNSET_PREFERRED_LOCATION,
+# 695 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_SET_ACCESSED_BY,
+# 696 "/usr/local/cuda/include/cuda.h"
+CU_MEM_ADVISE_UNSET_ACCESSED_BY};
+# 699 "/usr/local/cuda/include/cuda.h"
+enum CUmem_range_attribute_enum {
+# 700 "/usr/local/cuda/include/cuda.h"
+CU_MEM_RANGE_ATTRIBUTE_READ_MOSTLY = 1,
+# 701 "/usr/local/cuda/include/cuda.h"
+CU_MEM_RANGE_ATTRIBUTE_PREFERRED_LOCATION,
+# 702 "/usr/local/cuda/include/cuda.h"
+CU_MEM_RANGE_ATTRIBUTE_ACCESSED_BY,
+# 703 "/usr/local/cuda/include/cuda.h"
+CU_MEM_RANGE_ATTRIBUTE_LAST_PREFETCH_LOCATION};
+# 709 "/usr/local/cuda/include/cuda.h"
+enum CUjit_option_enum {
+# 716 "/usr/local/cuda/include/cuda.h"
+CU_JIT_MAX_REGISTERS,
+# 731 "/usr/local/cuda/include/cuda.h"
+CU_JIT_THREADS_PER_BLOCK,
+# 739 "/usr/local/cuda/include/cuda.h"
+CU_JIT_WALL_TIME,
+# 748 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INFO_LOG_BUFFER,
+# 757 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INFO_LOG_BUFFER_SIZE_BYTES,
+# 766 "/usr/local/cuda/include/cuda.h"
+CU_JIT_ERROR_LOG_BUFFER,
+# 775 "/usr/local/cuda/include/cuda.h"
+CU_JIT_ERROR_LOG_BUFFER_SIZE_BYTES,
+# 783 "/usr/local/cuda/include/cuda.h"
+CU_JIT_OPTIMIZATION_LEVEL,
+# 791 "/usr/local/cuda/include/cuda.h"
+CU_JIT_TARGET_FROM_CUCONTEXT,
+# 799 "/usr/local/cuda/include/cuda.h"
+CU_JIT_TARGET,
+# 808 "/usr/local/cuda/include/cuda.h"
+CU_JIT_FALLBACK_STRATEGY,
+# 816 "/usr/local/cuda/include/cuda.h"
+CU_JIT_GENERATE_DEBUG_INFO,
+# 823 "/usr/local/cuda/include/cuda.h"
+CU_JIT_LOG_VERBOSE,
+# 830 "/usr/local/cuda/include/cuda.h"
+CU_JIT_GENERATE_LINE_INFO,
+# 838 "/usr/local/cuda/include/cuda.h"
+CU_JIT_CACHE_MODE,
+# 843 "/usr/local/cuda/include/cuda.h"
+CU_JIT_NEW_SM3X_OPT,
+# 844 "/usr/local/cuda/include/cuda.h"
+CU_JIT_FAST_COMPILE,
+# 846 "/usr/local/cuda/include/cuda.h"
+CU_JIT_NUM_OPTIONS};
+# 853 "/usr/local/cuda/include/cuda.h"
+enum CUjit_target_enum {
+# 855 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_10 = 10,
+# 856 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_11,
+# 857 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_12,
+# 858 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_13,
+# 859 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_20 = 20,
+# 860 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_21,
+# 861 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_30 = 30,
+# 862 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_32 = 32,
+# 863 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_35 = 35,
+# 864 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_37 = 37,
+# 865 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_50 = 50,
+# 866 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_52 = 52,
+# 867 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_53,
+# 868 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_60 = 60,
+# 869 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_61,
+# 870 "/usr/local/cuda/include/cuda.h"
+CU_TARGET_COMPUTE_62};
+# 876 "/usr/local/cuda/include/cuda.h"
+enum CUjit_fallback_enum {
+# 878 "/usr/local/cuda/include/cuda.h"
+CU_PREFER_PTX,
+# 880 "/usr/local/cuda/include/cuda.h"
+CU_PREFER_BINARY};
+# 887 "/usr/local/cuda/include/cuda.h"
+enum CUjit_cacheMode_enum {
+# 889 "/usr/local/cuda/include/cuda.h"
+CU_JIT_CACHE_OPTION_NONE,
+# 890 "/usr/local/cuda/include/cuda.h"
+CU_JIT_CACHE_OPTION_CG,
+# 891 "/usr/local/cuda/include/cuda.h"
+CU_JIT_CACHE_OPTION_CA};
+# 897 "/usr/local/cuda/include/cuda.h"
+enum CUjitInputType_enum {
+# 903 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INPUT_CUBIN,
+# 909 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INPUT_PTX,
+# 915 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INPUT_FATBINARY,
+# 921 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INPUT_OBJECT,
+# 927 "/usr/local/cuda/include/cuda.h"
+CU_JIT_INPUT_LIBRARY,
+# 929 "/usr/local/cuda/include/cuda.h"
+CU_JIT_NUM_INPUT_TYPES};
+# 939 "/usr/local/cuda/include/cuda.h"
+enum CUgraphicsRegisterFlags_enum {
+# 940 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_REGISTER_FLAGS_NONE,
+# 941 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_REGISTER_FLAGS_READ_ONLY,
+# 942 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_REGISTER_FLAGS_WRITE_DISCARD,
+# 943 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_REGISTER_FLAGS_SURFACE_LDST = 4,
+# 944 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_REGISTER_FLAGS_TEXTURE_GATHER = 8};
+# 950 "/usr/local/cuda/include/cuda.h"
+enum CUgraphicsMapResourceFlags_enum {
+# 951 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_MAP_RESOURCE_FLAGS_NONE,
+# 952 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_MAP_RESOURCE_FLAGS_READ_ONLY,
+# 953 "/usr/local/cuda/include/cuda.h"
+CU_GRAPHICS_MAP_RESOURCE_FLAGS_WRITE_DISCARD};
+# 959 "/usr/local/cuda/include/cuda.h"
+enum CUarray_cubemap_face_enum {
+# 960 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_POSITIVE_X,
+# 961 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_NEGATIVE_X,
+# 962 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_POSITIVE_Y,
+# 963 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_NEGATIVE_Y,
+# 964 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_POSITIVE_Z,
+# 965 "/usr/local/cuda/include/cuda.h"
+CU_CUBEMAP_FACE_NEGATIVE_Z};
+# 971 "/usr/local/cuda/include/cuda.h"
+enum CUlimit_enum {
+# 972 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_STACK_SIZE,
+# 973 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_PRINTF_FIFO_SIZE,
+# 974 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_MALLOC_HEAP_SIZE,
+# 975 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_DEV_RUNTIME_SYNC_DEPTH,
+# 976 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_DEV_RUNTIME_PENDING_LAUNCH_COUNT,
+# 977 "/usr/local/cuda/include/cuda.h"
+CU_LIMIT_MAX};
+# 983 "/usr/local/cuda/include/cuda.h"
+enum CUresourcetype_enum {
+# 984 "/usr/local/cuda/include/cuda.h"
+CU_RESOURCE_TYPE_ARRAY,
+# 985 "/usr/local/cuda/include/cuda.h"
+CU_RESOURCE_TYPE_MIPMAPPED_ARRAY,
+# 986 "/usr/local/cuda/include/cuda.h"
+CU_RESOURCE_TYPE_LINEAR,
+# 987 "/usr/local/cuda/include/cuda.h"
+CU_RESOURCE_TYPE_PITCH2D};
+# 993 "/usr/local/cuda/include/cuda.h"
+enum cudaError_enum {
+# 999 "/usr/local/cuda/include/cuda.h"
+CUDA_SUCCESS,
+# 1005 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_VALUE,
+# 1011 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_OUT_OF_MEMORY,
+# 1017 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_INITIALIZED,
+# 1022 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_DEINITIALIZED,
+# 1029 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PROFILER_DISABLED,
+# 1037 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PROFILER_NOT_INITIALIZED,
+# 1044 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PROFILER_ALREADY_STARTED,
+# 1051 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PROFILER_ALREADY_STOPPED,
+# 1057 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NO_DEVICE = 100,
+# 1063 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_DEVICE,
+# 1070 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_IMAGE = 200,
+# 1080 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_CONTEXT,
+# 1089 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_CONTEXT_ALREADY_CURRENT,
+# 1094 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_MAP_FAILED = 205,
+# 1099 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_UNMAP_FAILED,
+# 1105 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ARRAY_IS_MAPPED,
+# 1110 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ALREADY_MAPPED,
+# 1118 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NO_BINARY_FOR_GPU,
+# 1123 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ALREADY_ACQUIRED,
+# 1128 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_MAPPED,
+# 1134 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_MAPPED_AS_ARRAY,
+# 1140 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_MAPPED_AS_POINTER,
+# 1146 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ECC_UNCORRECTABLE,
+# 1152 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_UNSUPPORTED_LIMIT,
+# 1159 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_CONTEXT_ALREADY_IN_USE,
+# 1165 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PEER_ACCESS_UNSUPPORTED,
+# 1170 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_PTX,
+# 1175 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_GRAPHICS_CONTEXT,
+# 1181 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NVLINK_UNCORRECTABLE,
+# 1186 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_SOURCE = 300,
+# 1191 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_FILE_NOT_FOUND,
+# 1196 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_SHARED_OBJECT_SYMBOL_NOT_FOUND,
+# 1201 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_SHARED_OBJECT_INIT_FAILED,
+# 1206 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_OPERATING_SYSTEM,
+# 1212 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_HANDLE = 400,
+# 1218 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_FOUND = 500,
+# 1226 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_READY = 600,
+# 1235 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ILLEGAL_ADDRESS = 700,
+# 1246 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_LAUNCH_OUT_OF_RESOURCES,
+# 1257 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_LAUNCH_TIMEOUT,
+# 1263 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_LAUNCH_INCOMPATIBLE_TEXTURING,
+# 1270 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PEER_ACCESS_ALREADY_ENABLED,
+# 1277 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PEER_ACCESS_NOT_ENABLED,
+# 1283 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_PRIMARY_CONTEXT_ACTIVE = 708,
+# 1290 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_CONTEXT_IS_DESTROYED,
+# 1298 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ASSERT,
+# 1305 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_TOO_MANY_PEERS,
+# 1311 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_HOST_MEMORY_ALREADY_REGISTERED,
+# 1317 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_HOST_MEMORY_NOT_REGISTERED,
+# 1326 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_HARDWARE_STACK_ERROR,
+# 1334 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_ILLEGAL_INSTRUCTION,
+# 1343 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_MISALIGNED_ADDRESS,
+# 1354 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_ADDRESS_SPACE,
+# 1362 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_INVALID_PC,
+# 1372 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_LAUNCH_FAILED,
+# 1378 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_PERMITTED = 800,
+# 1384 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_NOT_SUPPORTED,
+# 1389 "/usr/local/cuda/include/cuda.h"
+CUDA_ERROR_UNKNOWN = 999};
+# 1395 "/usr/local/cuda/include/cuda.h"
+enum CUdevice_P2PAttribute_enum {
+# 1396 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_P2P_ATTRIBUTE_PERFORMANCE_RANK = 1,
+# 1397 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_P2P_ATTRIBUTE_ACCESS_SUPPORTED,
+# 1398 "/usr/local/cuda/include/cuda.h"
+CU_DEVICE_P2P_ATTRIBUTE_NATIVE_ATOMIC_SUPPORTED};
+# 1650 "/usr/local/cuda/include/cuda.h"
+enum CUresourceViewFormat_enum {
+# 1652 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_NONE,
+# 1653 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_1X8,
+# 1654 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_2X8,
+# 1655 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_4X8,
+# 1656 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_1X8,
+# 1657 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_2X8,
+# 1658 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_4X8,
+# 1659 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_1X16,
+# 1660 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_2X16,
+# 1661 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_4X16,
+# 1662 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_1X16,
+# 1663 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_2X16,
+# 1664 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_4X16,
+# 1665 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_1X32,
+# 1666 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_2X32,
+# 1667 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UINT_4X32,
+# 1668 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_1X32,
+# 1669 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_2X32,
+# 1670 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SINT_4X32,
+# 1671 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_1X16,
+# 1672 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_2X16,
+# 1673 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_4X16,
+# 1674 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_1X32,
+# 1675 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_2X32,
+# 1676 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_FLOAT_4X32,
+# 1677 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC1,
+# 1678 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC2,
+# 1679 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC3,
+# 1680 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC4,
+# 1681 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SIGNED_BC4,
+# 1682 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC5,
+# 1683 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SIGNED_BC5,
+# 1684 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC6H,
+# 1685 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_SIGNED_BC6H,
+# 1686 "/usr/local/cuda/include/cuda.h"
+CU_RES_VIEW_FORMAT_UNSIGNED_BC7};
+# 78 "/usr/local/cuda/include/cufft.h"
+enum cufftResult_t {
+# 79 "/usr/local/cuda/include/cufft.h"
+CUFFT_SUCCESS,
+# 80 "/usr/local/cuda/include/cufft.h"
+CUFFT_INVALID_PLAN,
+# 81 "/usr/local/cuda/include/cufft.h"
+CUFFT_ALLOC_FAILED,
+# 82 "/usr/local/cuda/include/cufft.h"
+CUFFT_INVALID_TYPE,
+# 83 "/usr/local/cuda/include/cufft.h"
+CUFFT_INVALID_VALUE,
+# 84 "/usr/local/cuda/include/cufft.h"
+CUFFT_INTERNAL_ERROR,
+# 85 "/usr/local/cuda/include/cufft.h"
+CUFFT_EXEC_FAILED,
+# 86 "/usr/local/cuda/include/cufft.h"
+CUFFT_SETUP_FAILED,
+# 87 "/usr/local/cuda/include/cufft.h"
+CUFFT_INVALID_SIZE,
+# 88 "/usr/local/cuda/include/cufft.h"
+CUFFT_UNALIGNED_DATA,
+# 89 "/usr/local/cuda/include/cufft.h"
+CUFFT_INCOMPLETE_PARAMETER_LIST,
+# 90 "/usr/local/cuda/include/cufft.h"
+CUFFT_INVALID_DEVICE,
+# 91 "/usr/local/cuda/include/cufft.h"
+CUFFT_PARSE_ERROR,
+# 92 "/usr/local/cuda/include/cufft.h"
+CUFFT_NO_WORKSPACE,
+# 93 "/usr/local/cuda/include/cufft.h"
+CUFFT_NOT_IMPLEMENTED,
+# 94 "/usr/local/cuda/include/cufft.h"
+CUFFT_LICENSE_ERROR,
+# 95 "/usr/local/cuda/include/cufft.h"
+CUFFT_NOT_SUPPORTED};
+# 121 "/usr/local/cuda/include/cufft.h"
+enum cufftType_t {
+# 122 "/usr/local/cuda/include/cufft.h"
+CUFFT_R2C = 42,
+# 123 "/usr/local/cuda/include/cufft.h"
+CUFFT_C2R = 44,
+# 124 "/usr/local/cuda/include/cufft.h"
+CUFFT_C2C = 41,
+# 125 "/usr/local/cuda/include/cufft.h"
+CUFFT_D2Z = 106,
+# 126 "/usr/local/cuda/include/cufft.h"
+CUFFT_Z2D = 108,
+# 127 "/usr/local/cuda/include/cufft.h"
+CUFFT_Z2Z = 105};
+# 131 "/usr/local/cuda/include/cufft.h"
+enum cufftCompatibility_t {
+# 132 "/usr/local/cuda/include/cufft.h"
+CUFFT_COMPATIBILITY_FFTW_PADDING = 1};
+# 127 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct Coulomb;
+# 128 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_voidIvEUt_E {
+# 128 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_voidIvE7__valueE = 1};
+# 149 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIbEUt_E {
+# 149 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIbE7__valueE = 1};
+# 156 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIcEUt_E {
+# 156 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIcE7__valueE = 1};
+# 163 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIaEUt_E {
+# 163 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIaE7__valueE = 1};
+# 170 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIhEUt_E {
+# 170 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIhE7__valueE = 1};
+# 178 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIwEUt_E {
+# 178 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIwE7__valueE = 1};
+# 202 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIsEUt_E {
+# 202 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIsE7__valueE = 1};
+# 209 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerItEUt_E {
+# 209 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerItE7__valueE = 1};
+# 216 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIiEUt_E {
+# 216 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIiE7__valueE = 1};
+# 223 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIjEUt_E {
+# 223 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIjE7__valueE = 1};
+# 230 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIlEUt_E {
+# 230 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIlE7__valueE = 1};
+# 237 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerImEUt_E {
+# 237 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerImE7__valueE = 1};
+# 244 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIxEUt_E {
+# 244 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIxE7__valueE = 1};
+# 251 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIyEUt_E {
+# 251 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIyE7__valueE = 1};
+# 270 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerInEUt_E {
+# 270 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerInE7__valueE = 1};
+# 270 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIoEUt_E {
+# 270 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIoE7__valueE = 1};
+# 298 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt13__is_floatingIfEUt_E {
+# 298 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt13__is_floatingIfE7__valueE = 1};
+# 305 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt13__is_floatingIdEUt_E {
+# 305 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt13__is_floatingIdE7__valueE = 1};
+# 312 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt13__is_floatingIeEUt_E {
+# 312 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt13__is_floatingIeE7__valueE = 1};
+# 380 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_charIcEUt_E {
+# 380 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_charIcE7__valueE = 1};
+# 388 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_charIwEUt_E {
+# 388 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_charIwE7__valueE = 1};
+# 403 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_byteIcEUt_E {
+# 403 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_byteIcE7__valueE = 1};
+# 410 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_byteIaEUt_E {
+# 410 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_byteIaE7__valueE = 1};
+# 417 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt9__is_byteIhEUt_E {
+# 417 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt9__is_byteIhE7__valueE = 1};
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIeEUt_E {
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIeE7__valueE};
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIdEUt_E {
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIdE7__valueE};
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+enum _ZNSt12__is_integerIfEUt_E {
+# 138 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
+_ZNSt12__is_integerIfE7__valueE};
+# 1870 "/usr/include/c++/5/bits/stl_algo.h" 3
+enum _ZStUt_ {
+# 1870 "/usr/include/c++/5/bits/stl_algo.h" 3
+_ZSt12_S_threshold = 16};
+# 2711 "/usr/include/c++/5/bits/stl_algo.h" 3
+enum _ZStUt0_ {
+# 2711 "/usr/include/c++/5/bits/stl_algo.h" 3
+_ZSt13_S_chunk_size = 7};
+# 37 "/usr/include/c++/5/bits/predefined_ops.h" 3
+struct _ZN9__gnu_cxx5__ops15_Iter_less_iterE;
+# 216 "/usr/lib/gcc/x86_64-linux-gnu/5/include/stddef.h" 3
+typedef unsigned long size_t;
+#include "crt/device_runtime.h"
+# 48 "/usr/include/stdio.h" 3
+typedef struct _IO_FILE FILE;
+# 49 "/usr/include/stdint.h" 3
+typedef unsigned short uint16_t;
+# 176 "/usr/local/cuda/include/cuComplex.h"
+typedef struct double2 cuDoubleComplex;
+# 97 "/usr/local/cuda/include/cufft.h"
+typedef enum cufftResult_t cufftResult;
+# 108 "/usr/local/cuda/include/cufft.h"
+typedef double cufftDoubleReal;
+# 114 "/usr/local/cuda/include/cufft.h"
+typedef cuDoubleComplex cufftDoubleComplex;
+# 128 "/usr/local/cuda/include/cufft.h"
+typedef enum cufftType_t cufftType;
+# 143 "/usr/local/cuda/include/cufft.h"
+typedef int cufftHandle;
+# 127 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct Coulomb {
+# 150 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cufftHandle plan_forward;
+# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cufftHandle plan_forward_cb;
+# 152 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cufftHandle plan_inverse;
+# 153 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cufftHandle plan_inverse_cb;
+# 158 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cuDoubleComplex *d_wrk_arr;
+# 159 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cuDoubleComplex *d_density_k;
+# 160 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+double *d_density;
+# 162 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+int _devId;
+# 163 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct cudaDeviceProp dev_prop;
+# 164 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct dim3 gpu_threads;
+# 165 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct dim3 gpu_blocks;
+# 166 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+double lcutoff;};
+# 37 "/usr/include/c++/5/bits/predefined_ops.h" 3
+struct _ZN9__gnu_cxx5__ops15_Iter_less_iterE {char __nv_no_debug_dummy_end_padding_0;};
+# 111 "/usr/local/cuda/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError cudaGetLastError(void);
+# 113 "/usr/local/cuda/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) const char *cudaGetErrorString(enum cudaError);
+# 122 "/usr/local/cuda/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError cudaEventRecord(struct CUevent_st *, struct CUstream_st *);
+# 126 "/usr/local/cuda/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError cudaFree(void *);
+# 127 "/usr/local/cuda/include/cuda_device_runtime_api.h"
+___device__(extern  __no_sc__) enum cudaError cudaMalloc(void **, size_t);
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+# 135 "/usr/local/cuda/include/common_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int fprintf(FILE *__restrict__, const char *__restrict__, ...);
+#endif
+#if !defined(__CUDABE__)
+# 129 "/usr/local/cuda/include/common_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) int printf(const char *__restrict__, ...);
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+# 435 "/usr/local/cuda/include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) double cos(double);
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+# 584 "/usr/local/cuda/include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) double sqrt(double);
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+# 8678 "/usr/local/cuda/include/math_functions.h"
+ __device_builtin__ ___device__(extern  __no_sc__) __attribute__((__nothrow__)) __attribute__((__const__)) float ceilf(float);
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z29__kernel_enlarge_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvP7double2Pd(cuDoubleComplex *, double *);
+# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z26kernel_coulomb_sph_cutoff0ILi384ELi384ELi384EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z32kernel_coulomb_sph_cutoff_3Didx0ILi384ELi384ELi384EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z28__kernel_lessen_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvPdS0_(double *, double *);
+# 115 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+ __constant__ double d_charge[1];
+# 116 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+ __constant__ double d_lcutoff[1];
+#include "common_functions.h"
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+#if !defined(__CUDABE__)
+#endif
+# 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z29__kernel_enlarge_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvP7double2Pd(
+# 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *array_in, 
+# 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+double *array_out){
+# 43 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 44 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26675_12_non_const_ixyz;
+# 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26676_12_non_const_ix;
+# 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26676_15_non_const_iy;
+# 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26676_18_non_const_iz;
+# 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26676_21_non_const_i;
+# 44 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26675_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 47 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26675_12_non_const_ixyz < 262144UL)
+# 48 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 50 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26681_16_non_const_density;
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_21_non_const_i = __cuda_local_var_26675_12_non_const_ixyz;
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_12_non_const_ix = (__cuda_local_var_26676_21_non_const_i / 2048UL);
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_21_non_const_i = (__cuda_local_var_26676_21_non_const_i - ((__cuda_local_var_26676_12_non_const_ix * 64UL) * 32UL));
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_15_non_const_iy = (__cuda_local_var_26676_21_non_const_i / 32UL);
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_18_non_const_iz = (__cuda_local_var_26676_21_non_const_i - (__cuda_local_var_26676_15_non_const_iy * 32UL));
+# 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 50 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26681_16_non_const_density = ((((array_in[__cuda_local_var_26675_12_non_const_ixyz]).x) * ((array_in[__cuda_local_var_26675_12_non_const_ixyz]).x)) + (((array_in[__cuda_local_var_26675_12_non_const_ixyz]).y) * ((array_in[__cuda_local_var_26675_12_non_const_ixyz]).y)));
+# 53 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26676_21_non_const_i = (((176UL + __cuda_local_var_26676_18_non_const_iz) + (384UL * (160UL + __cuda_local_var_26676_15_non_const_iy))) + (147456UL * (128UL + __cuda_local_var_26676_12_non_const_ix)));
+# 53 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 54 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(array_out[__cuda_local_var_26676_21_non_const_i]) = __cuda_local_var_26681_16_non_const_density;
+# 55 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} 
+# 56 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z26kernel_coulomb_sph_cutoff0ILi384ELi384ELi384EEvP7double2S1_(
+# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 209 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 210 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26790_12_non_const_ixyz;
+# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26791_9_non_const_ix;
+# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26791_13_non_const_iy;
+# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26791_17_non_const_iz;
+# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26791_21_non_const_i;
+# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26792_12_non_const_kx;
+# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26792_16_non_const_ky;
+# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26792_20_non_const_kz;
+# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26792_24_non_const__k2;
+# 213 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26793_24_non_const_density;
+# 210 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26790_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 215 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26790_12_non_const_ixyz < 28459008UL)
+# 216 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T20;
+ cuDoubleComplex __T21;
+ cuDoubleComplex __T22;
+ double __T23;
+ double __T24;
+ cuDoubleComplex __T25;
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26791_21_non_const_i = ((int)__cuda_local_var_26790_12_non_const_ixyz);
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26791_9_non_const_ix = (__cuda_local_var_26791_21_non_const_i / 74112);
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26791_21_non_const_i = (__cuda_local_var_26791_21_non_const_i - ((__cuda_local_var_26791_9_non_const_ix * 384) * 193));
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26791_13_non_const_iy = (__cuda_local_var_26791_21_non_const_i / 193);
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26791_17_non_const_iz = (__cuda_local_var_26791_21_non_const_i - (__cuda_local_var_26791_13_non_const_iy * 193));
+# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26791_9_non_const_ix < 192) {
+# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_12_non_const_kx = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_9_non_const_ix)); } else  {
+# 223 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_12_non_const_kx = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_9_non_const_ix - 384))); }
+# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26791_13_non_const_iy < 192) {
+# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_16_non_const_ky = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_13_non_const_iy)); } else  {
+# 226 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_16_non_const_ky = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_13_non_const_iy - 384))); }
+# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26791_17_non_const_iz < 192) {
+# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_20_non_const_kz = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_17_non_const_iz)); } else  {
+# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_20_non_const_kz = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_17_non_const_iz - 384))); }
+# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26792_24_non_const__k2 = (((__cuda_local_var_26792_12_non_const_kx * __cuda_local_var_26792_12_non_const_kx) + (__cuda_local_var_26792_16_non_const_ky * __cuda_local_var_26792_16_non_const_ky)) + (__cuda_local_var_26792_20_non_const_kz * __cuda_local_var_26792_20_non_const_kz));
+# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26793_24_non_const_density = (density_k[__cuda_local_var_26790_12_non_const_ixyz]);
+# 235 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26793_24_non_const_density = ((__cuda_local_var_26792_24_non_const__k2 > (1.000000000000000078e-15)) ? (((__T20 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26792_24_non_const__k2)))))))) , ((56623104.0) * __cuda_local_var_26792_24_non_const__k2)))) , (void)(__T21 = __cuda_local_var_26793_24_non_const_density)) , ((((__T22.x) = (__T20 * (__T21.x))) , (void)((__T22.y) = (__T20 * (__T21.y)))) , __T22)) : (((__T23 = ( fdivide((((((__cuda_local_var_26793_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0)))) , (void)(__T24 = ( fdivide((((((__cuda_local_var_26793_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0))))) , ((((__T25.x) = __T23) , (void)((__T25.y) = __T24)) , __T25)));
+# 241 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26790_12_non_const_ixyz]) = __cuda_local_var_26793_24_non_const_density;
+# 243 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} 
+# 244 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z32kernel_coulomb_sph_cutoff_3Didx0ILi384ELi384ELi384EEvP7double2S1_(
+# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 391 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 393 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_27022_9_non_const_ix;
+# 394 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_27023_9_non_const_iy;
+# 395 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_27024_9_non_const_iz;
+# 397 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_27026_12_non_const__k2;
+# 398 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cuDoubleComplex __cuda_local_var_27027_21_non_const_density;
+# 393 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27022_9_non_const_ix = ((int)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 394 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27023_9_non_const_iy = ((int)((threadIdx.y) + ((blockIdx.y) * (blockDim.y))));
+# 395 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27024_9_non_const_iz = ((int)((threadIdx.z) + ((blockIdx.z) * (blockDim.z))));
+# 401 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix)) == 0)
+# 402 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T26;
+ cuDoubleComplex __T27;
+ cuDoubleComplex __T28;
+# 403 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]) = (((__T26 = ( fdivide(((((1.5) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0)))) , (void)(__T27 = (density_k[0]))) , ((((__T28.x) = (__T26 * (__T27.x))) , (void)((__T28.y) = (__T26 * (__T27.y)))) , __T28));
+# 404 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} else  {
+# 405 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (((__cuda_local_var_27024_9_non_const_iz < 384) && (__cuda_local_var_27023_9_non_const_iy < 384)) && (__cuda_local_var_27022_9_non_const_ix < 384))
+# 406 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 407 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27027_21_non_const_density = (density_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]);
+# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27026_12_non_const__k2 = ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27022_9_non_const_ix - (384 * ((2 * __cuda_local_var_27022_9_non_const_ix) / 384))))) * ((double)(__cuda_local_var_27022_9_non_const_ix - (384 * ((2 * __cuda_local_var_27022_9_non_const_ix) / 384))))) , (147456.0)));
+# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27026_12_non_const__k2 += ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27023_9_non_const_iy - (384 * ((2 * __cuda_local_var_27023_9_non_const_iy) / 384))))) * ((double)(__cuda_local_var_27023_9_non_const_iy - (384 * ((2 * __cuda_local_var_27023_9_non_const_iy) / 384))))) , (147456.0)));
+# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_27026_12_non_const__k2 += ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27024_9_non_const_iz - (384 * ((2 * __cuda_local_var_27024_9_non_const_iz) / 384))))) * ((double)(__cuda_local_var_27024_9_non_const_iz - (384 * ((2 * __cuda_local_var_27024_9_non_const_iz) / 384))))) , (147456.0)));
+# 412 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(__cuda_local_var_27027_21_non_const_density.x) = ( fdivide(((((d_charge)[0]) * (__cuda_local_var_27027_21_non_const_density.x)) * ((1.0) - (((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_27026_12_non_const__k2)))))) , ((262144.0) * __cuda_local_var_27026_12_non_const__k2)));
+# 413 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(__cuda_local_var_27027_21_non_const_density.y) = ( fdivide(((((d_charge)[0]) * (__cuda_local_var_27027_21_non_const_density.y)) * ((1.0) - (((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_27026_12_non_const__k2)))))) , ((262144.0) * __cuda_local_var_27026_12_non_const__k2)));
+# 415 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]) = __cuda_local_var_27027_21_non_const_density;
+# 416 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} } 
+# 417 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z28__kernel_lessen_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvPdS0_(
+# 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+double *array_in, 
+# 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+double *array_out){
+# 70 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 72 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26694_12_non_const_ixyz;
+# 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26695_12_non_const_ix;
+# 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26695_15_non_const_iy;
+# 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26695_18_non_const_iz;
+# 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26695_21_non_const_i;
+# 72 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26694_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 75 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26694_12_non_const_ixyz < 262144UL)
+# 76 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_21_non_const_i = __cuda_local_var_26694_12_non_const_ixyz;
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_12_non_const_ix = (__cuda_local_var_26695_21_non_const_i / 2048UL);
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_21_non_const_i = (__cuda_local_var_26695_21_non_const_i - ((__cuda_local_var_26695_12_non_const_ix * 64UL) * 32UL));
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_15_non_const_iy = (__cuda_local_var_26695_21_non_const_i / 32UL);
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_18_non_const_iz = (__cuda_local_var_26695_21_non_const_i - (__cuda_local_var_26695_15_non_const_iy * 32UL));
+# 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26695_21_non_const_i = (((176UL + __cuda_local_var_26695_18_non_const_iz) + (384UL * (160UL + __cuda_local_var_26695_15_non_const_iy))) + (147456UL * (128UL + __cuda_local_var_26695_12_non_const_ix)));
+# 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 79 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(array_out[__cuda_local_var_26694_12_non_const_ixyz]) = (array_in[__cuda_local_var_26695_21_non_const_i]);
+# 80 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} 
+# 81 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
