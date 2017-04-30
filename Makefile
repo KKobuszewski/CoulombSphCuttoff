@@ -13,12 +13,6 @@ all: coulomb
 
 
 
-batch:
-	nvcc -o coulomb_batch1.exe test_coulomb_kernel2.cu -O3 -Xcompiler "-fPIC -m64" -I. -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart -lm -DBATCH_FRAC=1
-	nvcc -o coulomb_batch2.exe test_coulomb_kernel2.cu -O3 -Xcompiler "-fPIC -m64" -I. -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart -lm -DBATCH_FRAC=2
-	nvcc -o coulomb_batch4.exe test_coulomb_kernel2.cu -O3 -Xcompiler "-fPIC -m64" -I. -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart -lm -DBATCH_FRAC=4
-	nvcc -o coulomb_batch8.exe test_coulomb_kernel2.cu -O3 -Xcompiler "-fPIC -m64" -I. -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcudart -lm -DBATCH_FRAC=8
-
 coulomb:
 	$(NVCC) --shared -o libcoulomb.so $(LIB_PATH)/Coulomb/Coulomb.cu $(NVCC_FLAGS) $(NVCC_INC) $(NVCC_LIBS) -DVERBOSE --keep --keep-dir ./test_class_keep #-DNX=96 -DNY=38 -DNZ=36
 	$(NVCC) -o test_class.exe test_class.cu $(NVCC_FLAGS) $(NVCC_INC) -Xlinker -rpath=$(LIB_PATH) -L$(LIB_PATH) -lcoulomb $(NVCC_LIBS) -DVERBOSE #-DNX=96 -DNY=38 -DNZ=36
