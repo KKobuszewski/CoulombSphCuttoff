@@ -194,6 +194,10 @@ Advantages
 Straight forward implementation
 \end_layout
 
+\begin_layout Itemize
+Analytical for periodic case
+\end_layout
+
 \begin_layout Standard
 \begin_inset ERT
 status open
@@ -226,7 +230,8 @@ Disadvantages
 \end_layout
 
 \begin_layout Itemize
-Due to long range behaviour of Coulomb potential poor accurancy is expected.
+Due to long range behaviour of Coulomb potential poor accurancy in nonperiodic
+ case is expected.
 \end_layout
 
 \begin_layout Standard
@@ -995,7 +1000,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename timings_kernel0_pow_2.pdf
-	width 95theight%
+	width 95text%
 
 \end_inset
 
@@ -1007,6 +1012,9 @@ status open
 
 \begin_layout Plain Layout
 Performace tests for non-optimized implementation with power of 2 dimensions.
+ Note that upper figure is in logscale and the resized array is cube proportiona
+l to the largest dimension, so sometimes smaller input array has worse performan
+ce.
 \end_layout
 
 \end_inset
@@ -1017,10 +1025,40 @@ Performace tests for non-optimized implementation with power of 2 dimensions.
 \end_inset
 
 
+\end_layout
+
+\begin_layout Itemize
+After brief perfomance analysis of parts of algorithm we found out that
+ cuFFT and Coulomb convolution kernel take of an order of magnitude more
+ time than resizing operations on arrays.
+\end_layout
+
+\begin_layout Itemize
+Calls of cuFFT cannot be optimized further, so the only performance issue
+ is usage of real-to-complex transforms.
+ Investigation of cuFFT callback feature also doesn't seem to gain speed
+ at all...
+\end_layout
+
+\begin_layout Itemize
+Probably the only part of algorithm that can be impoved is Coulomb convolution
+ kernel, so most of affort was spent on this optimization.
 \end_layout
 
 \begin_layout Standard
-After brief analysis 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+newpage
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsubsection
@@ -1051,11 +1089,13 @@ status open
 \end_layout
 
 \begin_layout Subsubsection
-3D indexing
+Introducing constant memory and 3D indexing
 \end_layout
 
 \begin_layout Standard
-Firstly it was tested for naive algorithm
+Firstly it was tested for naive algorithm (with no array resizing and simpliest
+ kernel).
+ Kernels from file periodicCoulomb/vcoulomb_real.cu
 \end_layout
 
 \begin_layout Standard
@@ -1070,25 +1110,114 @@ status open
 
 \begin_layout Plain Layout
 
-  4.71%  4.1189ms         1  4.1189ms  4.1189ms  4.1189ms  kernel_coulomb_3Didx0<int=
-256, int=256, int=256>
+Calls   Avg       Min       Max  Name
 \end_layout
 
 \begin_layout Plain Layout
 
-  4.41%  3.7549ms         1  3.7549ms  3.7549ms  3.7549ms  kernel_coulomb_3Didx1<int=
-256, int=256, int=256>
+1  4.1189ms  4.1189ms  4.1189ms  kernel_coulomb_3Didx0
 \end_layout
 
 \begin_layout Plain Layout
 
-  3.85%  3.2651ms         1  3.2651ms  3.2651ms  3.2651ms  kernel_coulomb_3Didx_cnst<
-int=256, int=256, int=256>
+1  3.7549ms  3.7549ms  3.7549ms  kernel_coulomb_3Didx1
+\end_layout
+
+\begin_layout Plain Layout
+
+1  3.2651ms  3.2651ms  3.2651ms  kernel_coulomb_3Didx_cnst <- const mem
+\end_layout
+
+\begin_layout Plain Layout
+
+1  3.1699ms  3.1699ms  3.1699ms  kernel_coulomb_real0      <- 1D indexing
+\end_layout
+
+\begin_layout Plain Layout
+
+1  2.6150ms  2.6150ms  2.6150ms  kernel_coulomb_real_cnst  <- 1D indexing,
+\end_layout
+
+\begin_layout Plain Layout
+
+                                                              const mem
 \end_layout
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+This short overview suggest that the easiest way to optimize the kernel
+ is to use constant memory and 1D indexing of array also in case of non-naive
+ Coulomb implementation.
+\end_layout
+
+\begin_layout Subsubsection
+Spherical Cutoff Coulomb kernel optimization
+\end_layout
+
+\begin_layout Standard
+Results of development versions of kernels (lattice 64x48x32 / 192x192x192,
+ GeForce GTX 980M):
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+Calls  Avg [ms]  Min [ms]  Max [ms]  Name 
+\end_layout
+
+\begin_layout Plain Layout
+
+100    3.392995  3.355504  3.743688  kernel_coulomb_sph_cutoff0<int=192, int=192,
+ int=192>
+\end_layout
+
+\begin_layout Plain Layout
+
+100    3.308133  3.294319  3.591976  kernel_coulomb_sph_cutoff1<int=192, int=192,
+ int=192>
+\end_layout
+
+\begin_layout Plain Layout
+
+100    3.329621  3.315282  3.616202  kernel_coulomb_sph_cutoff2<int=192, int=192,
+ int=192> 
+\end_layout
+
+\begin_layout Plain Layout
+
+100    2.927677  2.907552  3.176187  kernel_coulomb_sph_cutoff_cnst0<int=192,
+ int=192, int=192>
+\end_layout
+
+\begin_layout Plain Layout
+
+100    2.855034  2.845691  3.210482  kernel_coulomb_sph_cutoff_cnst1<int=192,
+ int=192, int=192>
+\end_layout
+
+\begin_layout Plain Layout
+
+100    2.850524  2.830299  3.095796  kernel_coulomb_sph_cutoff_cnst2<int=192,
+ int=192, int=192>
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Further optimization could be probably done by strided or batched read from
+ global memory to kernels (and unrolling loops inside kernel_coulomb_sph_cutoff_
+cnst1 and kernel_coulomb_sph_cutoff_cnst2);
 \end_layout
 
 \begin_layout Standard

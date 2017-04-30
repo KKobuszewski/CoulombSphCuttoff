@@ -133,8 +133,7 @@ int main(int argc, char* argv[])
             //if (it == 0) save_file<double>("data/resized3D.bin",(void*) h_psi, (NX+2*CX)*(NY+2*CY)*(NZ+2*CZ) );
             
             // perform FFTs and convole with Coulomb kernel
-            //c->get_vcoulomb_enlarged((cuDoubleComplex*) h_psi, &time_coulomb,threads);
-            c->get_vcoulomb_enlarged_idx3d((cuDoubleComplex*) h_psi, &time_coulomb,threads);
+            c->get_vcoulomb_enlarged((cuDoubleComplex*) h_psi, &time_coulomb,192,5);
             //if (it == 0) save_file<cuDoubleComplex>("data/density_transform3D.bin",(void*) h_psi, (NX+2*CX)*(NY+2*CY)*(NZ+2*CZ));
             
             // truncate vcoulomb array to size of orginal array and save to given location
@@ -142,7 +141,7 @@ int main(int argc, char* argv[])
             if (it == 0) save_file<double>("vcoulomb.bin",(void*) h_psi, NXYZ);
             
             int differences = 0;
-            differences = thrust_compare_arrays<double,-7>(d_vcoulomb, d_analytical, (size_t) NX*NY*NZ);
+            differences = thrust_compare_arrays<double,-10>(d_vcoulomb, d_analytical, (size_t) NX*NY*NZ);
             if (differences) printf("WARNING: Number of differences: %d\n",differences);
             
             mean_time_enlarging += time_enlarging;

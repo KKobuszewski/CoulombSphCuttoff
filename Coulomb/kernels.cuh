@@ -1,3 +1,28 @@
+/* *********************************************************************** *
+ *   WARSAW UNIVERSITY OF TECHNOLOGY                                       *
+ *   FACULTY OF PHYSICS                                                    *
+ *   NUCLEAR THEORY GROUP                                                  *
+ *                                                                         *
+ *   Author: Konrad Kobuszewski                                            *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *                                                                         *
+ * *********************************************************************** */ 
+ 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -92,49 +117,12 @@ __global__ void __kernel_lessen_2Dindexing__(T1* array_in, T2* array_out)
 
 // ============================================================= CONVOLUTION KERNELS ======================================================================
 
-__device__ inline cuDoubleComplex _cuRCmul(double r, cuDoubleComplex z1)
+__device__ inline cuDoubleComplex cmath_DZ_mul(double r, cuDoubleComplex z1)
 {
     cuDoubleComplex z2;
     z2.x = r*z1.x;
     z2.y = r*z1.y;
     return z2;
-}
-
-__device__ inline cuDoubleComplex _vcoulomb_k(cuDoubleComplex density_k, const double kx, const double ky, const double kz, double d_charge)
-{
-    const double k2 = kx*kx + ky*ky + kz*kz;
-
-    return (k2 > 1e-15) ? _cuRCmul(d_charge/k2, density_k ): make_cuDoubleComplex(0.,0.);
-}
-
-/*
-__global__ void __density_time_vcoulomb_k__(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-    size_t ixyz = threadIdx.x + blockIdx.x * blockDim.x;
-    unsigned int ix, iy, iz, i;
-
-    // registers
-    cuDoubleComplex density;
-
-
-    if(ixyz<NXYZ)
-    {
-        ixyz2ixiyiz(ixyz,ix,iy,iz,i);
-        density = density_k[ixyz];
-
-        density = _vcoulomb_k(density, d_kkx[ix], d_kky[iy], d_kkz[iz], d_charge[0]);
-        density.x = density.x/NXYZ;
-        density.y = density.y/NXYZ;
-        vcoulomb_k[ixyz] = density;
-    }
-}
-*/
-
-__device__ inline cuDoubleComplex _vcoulomb_sph_cutoff_k(cuDoubleComplex density_k, const double kx, const double ky, const double kz, const double d_charge, const double lcutoff)
-{
-    const double k2 = kx*kx + ky*ky + kz*kz;
-
-    return (k2 > 1e-15) ? _cuRCmul(d_charge*(1 - sqrt(3)*lcutoff*sqrt(k2))/k2, density_k ): make_cuDoubleComplex(0.,0.);
 }
 
 /*
@@ -168,41 +156,7 @@ __global__ void kernel_coulomb(cuDoubleComplex* density_k, cuDoubleComplex* vcou
     _iy = _i/(nz);                                 \
     _iz = _i-_iy * (nz);
 
-template<const int nx, const int ny, const int nz>
-__global__ void kernel_coulomb_real0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
-    int ix, iy, iz, i;
-    double kx, ky, kz, k2;
-    cufftDoubleComplex density;
 
-    if(ixyz<nx*ny*(nz/2+1))
-    {
-        //ixyz2ixiyizD2Z(ixyz,ix,iy,iz,i); // decode cartesian coordinates
-        GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1));
-        
-        
-        // extract momentum
-        if   ( ix < (nx/2) ) kx=2.*M_PI/( double )nx * ( double )(ix   ); // 
-        else                 kx=2.*M_PI/( double )nx * ( double )(ix-nx); // 
-        
-        if   ( iy < (ny/2) ) ky=2.*M_PI/( double )ny * ( double )(iy   ); // 
-        else                 ky=2.*M_PI/( double )ny * ( double )(iy-ny); // 
-        
-        if   ( iz < (nz/2) ) kz=2.*M_PI/( double )nz * ( double )(iz   ); // 
-        else                 kz=2.*M_PI/( double )nz * ( double )(iz-nz); // 
-        
-        
-        k2 = (kx*kx + ky*ky + kz*kz); // 
-        density = density_k[ixyz];
-
-        density = (k2 > 1e-15) ? _cuRCmul(d_charge[0]/k2/(nx*ny*nz), density ): make_cuDoubleComplex(0.,0.);
-        //density.x = density.x/(nx*ny*nz);
-        //density.y = density.y/(nx*ny*nz);
-        vcoulomb_k[ixyz] = density;
-                     
-    }
-}
 
 template<const int nx, const int ny, const int nz>
 __global__ void kernel_coulomb_sph_cutoff0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
@@ -233,7 +187,7 @@ __global__ void kernel_coulomb_sph_cutoff0(cuDoubleComplex* density_k, cuDoubleC
         density = density_k[ixyz];
 
         density = (_k2 > 1e-15) ? 
-                  _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density ):
+                  cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density ):
                   make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
                                         density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
         //density.x = density.x/(nx*ny*nz);
@@ -274,16 +228,25 @@ __global__ void kernel_coulomb_sph_cutoff1(cuDoubleComplex* density_k, cuDoubleC
         if   ( iy < (ny/2) ) ky=2.*M_PI/( double )ny * ( double )(iy   ); // 
         else                 ky=2.*M_PI/( double )ny * ( double )(iy-ny); // 
         
-        if   ( iz < (nz/2) ) kz=2.*M_PI/( double )nz * ( double )(iz   ); // 
-        else                 kz=2.*M_PI/( double )nz * ( double )(iz-nz); // 
+        kz = 2.*M_PI/((double)nz) * iz; // TODO: not sure if the results are 100% reliable!!!
         
         
         _k2 = (kx*kx + ky*ky + kz*kz); // 
         density = density_k[ixyz];
 
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
         vcoulomb_k[ixyz] = density;
-                     
+        
+        /*
+        if (iz == 0)
+        {
+            density = density_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix];
+            kz = 2.*M_PI/((double)nz) * nz/2;
+            _k2 = kx*kx + ky*ky + M_PI*M_PI;
+            density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+            vcoulomb_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix] = density;
+        }
+        */
     }
 }
 
@@ -304,7 +267,7 @@ __global__ void kernel_coulomb_sph_cutoff2(cuDoubleComplex* density_k, cuDoubleC
     }
     else if (ixyz<nx*ny*(nz/2+1))
     {
-        //ixyz2ixiyizD2Z(ixyz,ix,iy,iz,i); // decode cartesian coordinates
+        // decode cartesian coordinates
         GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1));
         
         
@@ -317,149 +280,106 @@ __global__ void kernel_coulomb_sph_cutoff2(cuDoubleComplex* density_k, cuDoubleC
         
         density = density_k[ixyz];
 
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
         vcoulomb_k[ixyz] = density;
-                     
     }
 }
 
-
-// =============================================== BATCHES AND MEMORY ALIGNMENT =======================================================
-
-template<const int nx, const int ny, const int nz, const int batch>
-__global__ void kernel_coulomb_sph_cutoff3(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
-    int ix, iy, iz, i;
-    double kx, ky, kz, _k2;
-    cufftDoubleComplex density;
-    
-    if (ixyz == 0)
-    {
-        density = density_k[0];
-        density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
-                                        density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
-        vcoulomb_k[ixyz] = density;
-    }
-    else
-    while (ixyz<nx*ny*(nz/2+1))
-    {
-        //ixyz2ixiyizD2Z(ixyz,ix,iy,iz,i); // decode cartesian coordinates
-        GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1));
-        
-        // extract momentum
-        kx = 2.*M_PI/( double )nx * ((double) ( ix - nx * ((2*ix) / (nx)) )); //
-        kx = 2.*M_PI/( double )nx * ((double) ( ix - ny * ((2*iy) / (ny)) )); //
-        kx = 2.*M_PI/( double )nx * ((double) ( ix - nz * ((2*iz) / (nz)) )); //
-        
-        _k2 = (kx*kx + ky*ky + kz*kz); // 
-        
-        density = density_k[ixyz];
-        
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
-        vcoulomb_k[ixyz] = density;
-        
-        ixyz += nx*ny*(nz/2+1)/batch;
-    }
-}
 
 
 
 // =============================================== CONSTANT MEMORY =======================================================
 
 
-/*
-template<const int nx, const int ny, const int nz, const int batch>
-__global__ void kernel_coulomb_sph_cutoff#(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+template<const int nx, const int ny, const int nz>
+__global__ void kernel_coulomb_sph_cutoff_cnst0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
 {
     size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
     int ix, iy, iz, i;
-    double kx, ky, kz, _k2;
+    double k2; //kx, ky, kz, 
     cufftDoubleComplex density;
     
-    ...
-    
+    if ( ixyz == 0 )
+    {
+        density = density_k[ixyz];
+        density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                        density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
+        vcoulomb_k[ixyz] = density;
+    }
+    else if(ixyz<nx*ny*(nz/2+1))
+    {
+        GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1)); // decode cartesian coordinates
+        
+        // extract momentum
+        k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+        
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+        vcoulomb_k[ixyz] =  density;
+    }
 }
-*/
 
-
-// ============================================ 3D INDEXING ==============================================================
-
-
-template <const int nx, const int ny, const int nz>
-__global__ void kernel_coulomb_sph_cutoff_3Didx0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+// check out for strides
+template<const int nx, const int ny, const int nz>
+__global__ void kernel_coulomb_sph_cutoff_cnst1(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
 {
-    // registers
-    int ix = threadIdx.x + blockIdx.x * blockDim.x;
-    int iy = threadIdx.y + blockIdx.y * blockDim.y;
-    int iz = threadIdx.z + blockIdx.z * blockDim.z;
-    //size_t ixyz = iz + nz*iy + nz*ny*ix;
-    double _k2;
-    cuDoubleComplex density;
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
+    int ix, iy, iz, i;
+    double k2; //kx, ky, kz, 
+    cufftDoubleComplex density;
     
-    //if (ixyz<(nx*ny*nz))
-    if ( (iz + nz*iy + nz*ny*ix) == 0 )
+    while (ixyz<nx*ny*(nz/2+1))
     {
-        vcoulomb_k[iz + nz*iy + nz*ny*ix] = _cuRCmul(1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz), density_k[0]);
-    }
-    else if ( (iz < nz) && (iy < ny) && (ix < nx) )
-    {
-        density = density_k[iz + nz*iy + nz*ny*ix];
-        _k2 =  4. * M_PI * M_PI * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * DX * nx * DX);
-        _k2 += 4. * M_PI * M_PI * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * DY * ny * DY);
-        _k2 += 4. * M_PI * M_PI * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) )/((double) nz * DZ * nz * DZ);
-        
-        density.x = d_charge[0]*density.x*(1 - d_lcutoff[0]*sqrt(3.0*_k2))/((double)NXYZ * _k2);
-        density.y = d_charge[0]*density.y*(1 - d_lcutoff[0]*sqrt(3.0*_k2))/((double)NXYZ * _k2);
-        
-        vcoulomb_k[iz + nz*iy + nz*ny*ix] = density;
+        if ( ixyz == 0 )
+        {
+            density = density_k[ixyz];
+            density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                            density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
+            vcoulomb_k[ixyz] = density;
+        }
+        else
+        {
+            GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1)); // decode cartesian coordinates
+            
+            // extract momentum
+            k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+            
+            density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+            vcoulomb_k[ixyz] =  density;
+        }
+        ixyz +=nx*ny*(nz/2+1)/2;
     }
 }
 
-
-template <const int nx, const int ny, const int nz>
-__global__ void kernel_coulomb_sph_cutoff_3Didx(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+template<const int nx, const int ny, const int nz>
+__global__ void kernel_coulomb_sph_cutoff_cnst2(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
 {
-    // registers
-    int ix = threadIdx.x + blockIdx.x * blockDim.x;
-    int iy = threadIdx.y + blockIdx.y * blockDim.y;
-    int iz = threadIdx.z + blockIdx.z * blockDim.z;
-    //size_t ixyz = iz + nz*iy + nz*ny*ix;
-    double k2;
-    cuDoubleComplex density;
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
+    int ix, iy, iz, i;
+    double k2; //kx, ky, kz, 
+    cufftDoubleComplex density;
     
-    // density_k[:,:,:NZ/2]
-    if ( (iz < nz/2) && (iy < ny) && (ix < nx) )
+    while (ixyz<nx*ny*(nz/2+1))
     {
-        density = density_k[iz + (nz/2+1)*iy + (nz/2+1)*ny*ix];
-        
-        // TODO: use ((double) ix*ix)
-        k2 =  4. * M_PI * M_PI * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * DX * nx * DX);
-        k2 += 4. * M_PI * M_PI * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * DY * ny * DY);
-        k2 += 4. * M_PI * M_PI * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) )/((double) nz * DZ * nz * DZ);
-        
-        vcoulomb_k[iz + (nz/2+1)*iy + (nz/2+1)*ny*ix] = (k2 > 1e-15) ? (d_charge[0]*(1 - d_lcutoff[0]*sqrt(3.0*k2))/((double)NXYZ * k2))*density :
-                                                  make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
-                                                                        density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
-    }
-    
-    // density_k[:,:,NZ/2+1] <- known index iz
-    if (iz == 0)
-    {
-        density = density_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix];
-        
-        k2 =  4. * M_PI * M_PI * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * DX * nx * DX);
-        k2 += 4. * M_PI * M_PI * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * DY * ny * DY);
-        k2 += 4. * M_PI * M_PI * ((double) ( nz/2 - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( nz/2 - nz * ((2*iz)/((int)nz)) ) )/((double) nz * DZ * nz * DZ);
-        
-        vcoulomb_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix] = (k2 > 1e-15) ? (d_charge[0]*(1 - d_lcutoff[0]*sqrt(3.0*k2))/((double)NXYZ * k2))*density :
-                                                    make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
-                                                                          density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
-        //printf( "%d %d %d %d \n",ix, iy, iz, nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix );
+        if ( ixyz == 0 )
+        {
+            density = density_k[ixyz];
+            density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                            density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
+            vcoulomb_k[ixyz] = density;
+        }
+        else
+        {
+            GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1)); // decode cartesian coordinates
+            
+            // extract momentum
+            k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+            
+            density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+            vcoulomb_k[ixyz] =  density;
+        }
+        ixyz +=nx*ny*(nz/2+1)/4;
     }
 }
-
-
 
 // =============================================== OTHER =================================================================
 
@@ -500,3 +420,44 @@ __global__ void kernel_coulomb_sph_cutoff(cuDoubleComplex* density_k, cuDoubleCo
         vcoulomb_k[ixyz] = density;
     }
 }
+
+
+// =============================================== BATCHES AND MEMORY ALIGNMENT =======================================================
+
+template<const int nx, const int ny, const int nz, const int batch>
+__global__ void kernel_coulomb_sph_cutoff3(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+{
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x; // compute for this point
+    int ix, iy, iz, i;
+    double kx, ky, kz, _k2;
+    cufftDoubleComplex density;
+    
+    if (ixyz == 0)
+    {
+        density = density_k[0];
+        density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                        density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz)  );
+        vcoulomb_k[ixyz] = density;
+    }
+    else
+    while (ixyz<nx*ny*(nz/2+1))
+    {
+        //ixyz2ixiyizD2Z(ixyz,ix,iy,iz,i); // decode cartesian coordinates
+        GET_ixiyiz(ixyz,ix,iy,iz,i,nx,ny,(nz/2+1));
+        
+        // extract momentum
+        kx = 2.*M_PI/( double )nx * ((double) ( ix - nx * ((2*ix) / (nx)) )); //
+        kx = 2.*M_PI/( double )nx * ((double) ( ix - ny * ((2*iy) / (ny)) )); //
+        kx = 2.*M_PI/( double )nx * ((double) ( ix - nz * ((2*iz) / (nz)) )); //
+        
+        _k2 = (kx*kx + ky*ky + kz*kz); // 
+        
+        density = density_k[ixyz];
+        
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        vcoulomb_k[ixyz] = density;
+        
+        ixyz += nx*ny*(nz/2+1)/batch;
+    }
+}
+

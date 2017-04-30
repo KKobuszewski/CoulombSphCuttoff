@@ -22948,7 +22948,7 @@ inline void _cufftErrChk(cufftResult err, const char *file, const int line)
 # 17 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 2
 # 1 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/cutimer.h" 1
 # 18 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 2
-# 92 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 96 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 uint16_t nx, ny, nz;
 
 
@@ -22961,7 +22961,7 @@ inline void set_lattice_size(const uint16_t _nx,const uint16_t _ny,const uint16_
 
 inline void set_lattice()
 {
- set_lattice_size((uint16_t) 128,(uint16_t) 64,(uint16_t) 32);
+ set_lattice_size((uint16_t) 64,(uint16_t) 48,(uint16_t) 32);
 }
 
 inline void get_lattice_size(uint16_t *_nx,uint16_t *_ny,uint16_t *_nz)
@@ -22974,7 +22974,10 @@ inline void get_lattice_size(uint16_t *_nx,uint16_t *_ny,uint16_t *_nz)
 
 __attribute__((constant)) double d_charge[1];
 __attribute__((constant)) double d_lcutoff[1];
-# 127 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+__attribute__((constant)) double d_kkx[64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32))];
+__attribute__((constant)) double d_kky[48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2)];
+__attribute__((constant)) double d_kkz[32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)];
+# 134 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 class Coulomb
 {
 
@@ -22988,32 +22991,32 @@ public:
 
 
     void get_density_enlarged(cuDoubleComplex* d_psi, double* h_result = 
-# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 146 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                                         __null
-# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 146 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
                                                                             , double* h_t = 
-# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 146 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                                                             __null
-# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 146 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
                                                                                                 , const int _nthreads = -1);
     void get_vcoulomb_enlarged(cuDoubleComplex* h_result = 
-# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                           __null
-# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
                                                               , double* h_t = 
-# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                                               __null
-# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-                                                                                  , int _nthreads = -1);
-    void get_vcoulomb_enlarged_idx3d(cuDoubleComplex* h_result, double* h_t, int _nthreads = -1);
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+                                                                                  , int _nthreads = -1, unsigned kernel_type=0);
+
     void get_vcoulomb_lessened(double* d_vcoulomb, double* h_result = 
-# 142 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 149 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                                      __null
-# 142 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 149 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
                                                                          , double* h_t = 
-# 142 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
+# 149 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp" 3 4
                                                                                          __null
-# 142 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 149 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
                                                                                              , const int _nthreads = -1);
 
 
@@ -23088,7 +23091,7 @@ __attribute__((global)) void __kernel_enlarge_1Dindexing__(cuDoubleComplex* arra
 
     if (ixyz < nx*ny*nz)
     {
-        i = ixyz; ix = (i)/(64*32); i = (i)-(ix) * 64 * 32; iy = (i)/32; iz = (i)-(iy) * 32;;
+        i = ixyz; ix = (i)/(48*32); i = (i)-(ix) * 48 * 32; iy = (i)/32; iz = (i)-(iy) * 32;;
         double density = array_in[ixyz].x*array_in[ixyz].x + array_in[ixyz].y*array_in[ixyz].y;
 
 
@@ -23105,96 +23108,22 @@ __attribute__((global)) void __kernel_lessen_1Dindexing__(double* array_in, doub
     size_t ixyz = threadIdx.x + blockIdx.x * blockDim.x;
     size_t ix,iy,iz,i;
 
-    if (ixyz < 128*64*32)
+    if (ixyz < 64*48*32)
     {
-        i = ixyz; ix = (i)/(64*32); i = (i)-(ix) * 64 * 32; iy = (i)/32; iz = (i)-(iy) * 32;;
-        i = (cz+iz) + (32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2))*(cy+iy) + (32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(cx+ix);;
+        i = ixyz; ix = (i)/(48*32); i = (i)-(ix) * 48 * 32; iy = (i)/32; iz = (i)-(iy) * 32;;
+        i = (cz+iz) + (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))*(cy+iy) + (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(cx+ix);;
         array_out[ixyz] = array_in[i];
     }
 }
 # 95 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__attribute__((device)) inline cuDoubleComplex _cuRCmul(double r, cuDoubleComplex z1)
+__attribute__((device)) inline cuDoubleComplex cmath_DZ_mul(double r, cuDoubleComplex z1)
 {
     cuDoubleComplex z2;
     z2.x = r*z1.x;
     z2.y = r*z1.y;
     return z2;
 }
-
-__attribute__((device)) inline cuDoubleComplex _vcoulomb_k(cuDoubleComplex density_k, const double kx, const double ky, const double kz, double d_charge)
-{
-    const double k2 = kx*kx + ky*ky + kz*kz;
-
-    return (k2 > 1e-15) ? _cuRCmul(d_charge/k2, density_k ): make_cuDoubleComplex(0.,0.);
-}
-# 133 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__attribute__((device)) inline cuDoubleComplex _vcoulomb_sph_cutoff_k(cuDoubleComplex density_k, const double kx, const double ky, const double kz, const double d_charge, const double lcutoff)
-{
-    const double k2 = kx*kx + ky*ky + kz*kz;
-
-    return (k2 > 1e-15) ? _cuRCmul(d_charge*(1 - sqrt(3)*lcutoff*sqrt(k2))/k2, density_k ): make_cuDoubleComplex(0.,0.);
-}
-# 171 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-template<const int nx, const int ny, const int nz>
-__attribute__((global)) void kernel_coulomb_real0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x;
-    int ix, iy, iz, i;
-    double kx, ky, kz, k2;
-    cufftDoubleComplex density;
-
-    if(ixyz<nx*ny*(nz/2+1))
-    {
-
-        i = ixyz; ix = i/( (ny)*((nz/2+1)) ); i = i-ix * (ny) * ((nz/2+1)); iy = i/((nz/2+1)); iz = i-iy * ((nz/2+1));;
-
-
-
-        if ( ix < (nx/2) ) kx=2.*
-# 186 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 186 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nx * ( double )(ix );
-        else kx=2.*
-# 187 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 187 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nx * ( double )(ix-nx);
-
-        if ( iy < (ny/2) ) ky=2.*
-# 189 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 189 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )ny * ( double )(iy );
-        else ky=2.*
-# 190 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 190 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )ny * ( double )(iy-ny);
-
-        if ( iz < (nz/2) ) kz=2.*
-# 192 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 192 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nz * ( double )(iz );
-        else kz=2.*
-# 193 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 193 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nz * ( double )(iz-nz);
-
-
-        k2 = (kx*kx + ky*ky + kz*kz);
-        density = density_k[ixyz];
-
-        density = (k2 > 1e-15) ? _cuRCmul(d_charge[0]/k2/(nx*ny*nz), density ): make_cuDoubleComplex(0.,0.);
-
-
-        vcoulomb_k[ixyz] = density;
-
-    }
-}
-
+# 136 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 template<const int nx, const int ny, const int nz>
 __attribute__((global)) void kernel_coulomb_sph_cutoff0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
 {
@@ -23211,36 +23140,36 @@ __attribute__((global)) void kernel_coulomb_sph_cutoff0(cuDoubleComplex* density
 
 
         if ( ix < (nx/2) ) kx=2.*
-# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nx * ( double )(ix );
         else kx=2.*
-# 223 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 152 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 223 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 152 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nx * ( double )(ix-nx);
 
         if ( iy < (ny/2) ) ky=2.*
-# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 154 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 154 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )ny * ( double )(iy );
         else ky=2.*
-# 226 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 155 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 226 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 155 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )ny * ( double )(iy-ny);
 
         if ( iz < (nz/2) ) kz=2.*
-# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 157 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 157 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nz * ( double )(iz );
         else kz=2.*
-# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 158 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 158 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nz * ( double )(iz-nz);
 
 
@@ -23248,7 +23177,7 @@ __attribute__((global)) void kernel_coulomb_sph_cutoff0(cuDoubleComplex* density
         density = density_k[ixyz];
 
         density = (_k2 > 1e-15) ?
-                  _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density ):
+                  cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density ):
                   make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
                                         density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz) );
 
@@ -23284,45 +23213,40 @@ __attribute__((global)) void kernel_coulomb_sph_cutoff1(cuDoubleComplex* density
 
 
         if ( ix < (nx/2) ) kx=2.*
-# 271 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 200 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 271 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 200 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nx * ( double )(ix );
         else kx=2.*
-# 272 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 201 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 272 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 201 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )nx * ( double )(ix-nx);
 
         if ( iy < (ny/2) ) ky=2.*
-# 274 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 203 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 274 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 203 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )ny * ( double )(iy );
         else ky=2.*
-# 275 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 204 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                                   3.14159265358979323846
-# 275 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 204 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                                       /( double )ny * ( double )(iy-ny);
 
-        if ( iz < (nz/2) ) kz=2.*
-# 277 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 277 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nz * ( double )(iz );
-        else kz=2.*
-# 278 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                                  3.14159265358979323846
-# 278 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                                      /( double )nz * ( double )(iz-nz);
+        kz = 2.*
+# 206 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+               3.14159265358979323846
+# 206 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                   /((double)nz) * iz;
 
 
         _k2 = (kx*kx + ky*ky + kz*kz);
         density = density_k[ixyz];
 
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
         vcoulomb_k[ixyz] = density;
-
+# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
     }
 }
 
@@ -23349,28 +23273,187 @@ __attribute__((global)) void kernel_coulomb_sph_cutoff2(cuDoubleComplex* density
 
 
         kx = 2.*
-# 312 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 250 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 312 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 250 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )nx * ((double) ( ix - nx * ( (2*ix) / (nx) ) ) );
         ky = 2.*
-# 313 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 251 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 313 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 251 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )ny * ((double) ( iy - ny * ( (2*iy) / (ny) ) ) );
         kz = 2.*
-# 314 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 252 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 314 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 252 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )nz * ((double) ( iz - nz * ( (2*iz) / (nz) ) ) );
 
         _k2 = (kx*kx + ky*ky + kz*kz);
 
         density = density_k[ixyz];
 
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
         vcoulomb_k[ixyz] = density;
+    }
+}
 
+
+
+
+
+
+
+template<const int nx, const int ny, const int nz>
+__attribute__((global)) void kernel_coulomb_sph_cutoff_cnst0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+{
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x;
+    int ix, iy, iz, i;
+    double k2;
+    cufftDoubleComplex density;
+
+    if ( ixyz == 0 )
+    {
+        density = density_k[ixyz];
+        density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                        density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz) );
+        vcoulomb_k[ixyz] = density;
+    }
+    else if(ixyz<nx*ny*(nz/2+1))
+    {
+        i = ixyz; ix = i/( (ny)*((nz/2+1)) ); i = i-ix * (ny) * ((nz/2+1)); iy = i/((nz/2+1)); iz = i-iy * ((nz/2+1));;
+
+
+        k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+        vcoulomb_k[ixyz] = density;
+    }
+}
+
+
+template<const int nx, const int ny, const int nz>
+__attribute__((global)) void kernel_coulomb_sph_cutoff_cnst1(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+{
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x;
+    int ix, iy, iz, i;
+    double k2;
+    cufftDoubleComplex density;
+
+    while (ixyz<nx*ny*(nz/2+1))
+    {
+        if ( ixyz == 0 )
+        {
+            density = density_k[ixyz];
+            density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                            density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz) );
+            vcoulomb_k[ixyz] = density;
+        }
+        else
+        {
+            i = ixyz; ix = i/( (ny)*((nz/2+1)) ); i = i-ix * (ny) * ((nz/2+1)); iy = i/((nz/2+1)); iz = i-iy * ((nz/2+1));;
+
+
+            k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+
+            density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+            vcoulomb_k[ixyz] = density;
+        }
+        ixyz +=nx*ny*(nz/2+1)/2;
+    }
+}
+
+template<const int nx, const int ny, const int nz>
+__attribute__((global)) void kernel_coulomb_sph_cutoff_cnst2(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+{
+    size_t ixyz= threadIdx.x + blockIdx.x * blockDim.x;
+    int ix, iy, iz, i;
+    double k2;
+    cufftDoubleComplex density;
+
+    while (ixyz<nx*ny*(nz/2+1))
+    {
+        if ( ixyz == 0 )
+        {
+            density = density_k[ixyz];
+            density = make_cuDoubleComplex( density.x * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz),
+                                            density.y * 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz) );
+            vcoulomb_k[ixyz] = density;
+        }
+        else
+        {
+            i = ixyz; ix = i/( (ny)*((nz/2+1)) ); i = i-ix * (ny) * ((nz/2+1)); iy = i/((nz/2+1)); iz = i-iy * ((nz/2+1));;
+
+
+            k2 = (d_kkx[ix]*d_kkx[ix] + d_kky[iy]*d_kky[iy] + d_kkz[iz]*d_kkz[iz]);
+
+            density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*k2)) )/( (double)nx*ny*nz * k2 ), density_k[ixyz] );
+            vcoulomb_k[ixyz] = density;
+        }
+        ixyz +=nx*ny*(nz/2+1)/4;
+    }
+}
+
+
+
+template <const int nx, const int ny, const int nz>
+__attribute__((global)) void kernel_coulomb_sph_cutoff(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
+{
+
+    size_t ixyz = threadIdx.x + blockIdx.x * blockDim.x;
+    int i,ix,iy,iz;
+    double _k2;
+    cuDoubleComplex density;
+
+
+    if (ixyz == 0)
+    {
+
+        density = density_k[0];
+
+        density.x *= 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz);
+        density.y *= 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz);
+
+        vcoulomb_k[ixyz] = density;
+    }
+    else if ( ixyz<(nx*ny*nz) )
+    {
+        i = ixyz; ix = (i)/( (ny)*(nz) ); i = (i)-(ix) * (ny) * (nz); iy = (i)/(nz); iz = (i)-(iy) * (nz);;
+        density = density_k[ixyz];
+        _k2 = 4. * 
+# 385 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                   3.14159265358979323846 
+# 385 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                        * 
+# 385 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                          3.14159265358979323846 
+# 385 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                               * ((double) ( ix - nx * ( (2*ix) / (nx) ) ) ) *
+                                  ((double) ( ix - nx * ( (2*ix) / (nx) ) ) )/((double) nx * 1. * nx * 1.);
+        _k2 += 4. * 
+# 387 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                   3.14159265358979323846 
+# 387 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                        * 
+# 387 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                          3.14159265358979323846 
+# 387 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                               * ((double) ( iy - ny * ( (2*iy) / (ny) ) ) ) *
+                                  ((double) ( iy - ny * ( (2*iy) / (ny) ) ) )/((double) ny * (1.) * ny * (1.));
+        _k2 += 4. * 
+# 389 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                   3.14159265358979323846 
+# 389 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                        * 
+# 389 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+                          3.14159265358979323846 
+# 389 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+                               * ((double) ( iz - nz * ( (2*iz) / (nz) ) ) ) *
+                                  ((double) ( iz - nz * ( (2*iz) / (nz) ) ) )/((double) nz * (1.) * nz * (1.));
+
+        density.x = d_charge[0] * density.x * ( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 );
+        density.y = d_charge[0] * density.y * ( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 );
+
+        vcoulomb_k[ixyz] = density;
     }
 }
 
@@ -23400,237 +23483,29 @@ __attribute__((global)) void kernel_coulomb_sph_cutoff3(cuDoubleComplex* density
 
 
         kx = 2.*
-# 351 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 424 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 351 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 424 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )nx * ((double) ( ix - nx * ((2*ix) / (nx)) ));
         kx = 2.*
-# 352 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 425 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 352 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 425 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )nx * ((double) ( ix - ny * ((2*iy) / (ny)) ));
         kx = 2.*
-# 353 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
+# 426 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
                3.14159265358979323846
-# 353 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 426 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
                    /( double )nx * ((double) ( ix - nz * ((2*iz) / (nz)) ));
 
         _k2 = (kx*kx + ky*ky + kz*kz);
 
         density = density_k[ixyz];
 
-        density = _cuRCmul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
+        density = cmath_DZ_mul( d_charge[0]*( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 ), density );
         vcoulomb_k[ixyz] = density;
 
         ixyz += nx*ny*(nz/2+1)/batch;
-    }
-}
-# 389 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-template <const int nx, const int ny, const int nz>
-__attribute__((global)) void kernel_coulomb_sph_cutoff_3Didx0(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-
-    int ix = threadIdx.x + blockIdx.x * blockDim.x;
-    int iy = threadIdx.y + blockIdx.y * blockDim.y;
-    int iz = threadIdx.z + blockIdx.z * blockDim.z;
-
-    double _k2;
-    cuDoubleComplex density;
-
-
-    if ( (iz + nz*iy + nz*ny*ix) == 0 )
-    {
-        vcoulomb_k[iz + nz*iy + nz*ny*ix] = _cuRCmul(1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz), density_k[0]);
-    }
-    else if ( (iz < nz) && (iy < ny) && (ix < nx) )
-    {
-        density = density_k[iz + nz*iy + nz*ny*ix];
-        _k2 = 4. * 
-# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * 1. * nx * 1.);
-        _k2 += 4. * 
-# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * (1.) * ny * (1.));
-        _k2 += 4. * 
-# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) )/((double) nz * (1.) * nz * (1.));
-
-        density.x = d_charge[0]*density.x*(1 - d_lcutoff[0]*sqrt(3.0*_k2))/((double)(128*64*32) * _k2);
-        density.y = d_charge[0]*density.y*(1 - d_lcutoff[0]*sqrt(3.0*_k2))/((double)(128*64*32) * _k2);
-
-        vcoulomb_k[iz + nz*iy + nz*ny*ix] = density;
-    }
-}
-
-
-template <const int nx, const int ny, const int nz>
-__attribute__((global)) void kernel_coulomb_sph_cutoff_3Didx(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-
-    int ix = threadIdx.x + blockIdx.x * blockDim.x;
-    int iy = threadIdx.y + blockIdx.y * blockDim.y;
-    int iz = threadIdx.z + blockIdx.z * blockDim.z;
-
-    double k2;
-    cuDoubleComplex density;
-
-
-    if ( (iz < nz/2) && (iy < ny) && (ix < nx) )
-    {
-        density = density_k[iz + (nz/2+1)*iy + (nz/2+1)*ny*ix];
-
-        k2 = 4. * 
-# 436 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 436 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 436 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 436 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * 1. * nx * 1.);
-        k2 += 4. * 
-# 437 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 437 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 437 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 437 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * (1.) * ny * (1.));
-        k2 += 4. * 
-# 438 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 438 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 438 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 438 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( iz - nz * ((2*iz)/((int)nz)) ) )/((double) nz * (1.) * nz * (1.));
-
-        vcoulomb_k[iz + (nz/2+1)*iy + (nz/2+1)*ny*ix] = (k2 > 1e-15) ? (d_charge[0]*(1 - d_lcutoff[0]*sqrt(3.0*k2))/((double)(128*64*32) * k2))*density :
-                                                                       _cuRCmul(1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz), density_k[0]);
-    }
-
-
-    if (iz == 0)
-    {
-        density = density_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix];
-
-        k2 = 4. * 
-# 449 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 449 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 449 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 449 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) ) * ((double) ( ix - nx * ((2*ix)/((int)nx)) ) )/((double) nx * 1. * nx * 1.);
-        k2 += 4. * 
-# 450 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 450 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 450 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 450 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) ) * ((double) ( iy - ny * ((2*iy)/((int)ny)) ) )/((double) ny * (1.) * ny * (1.));
-        k2 += 4. * 
-# 451 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                  3.14159265358979323846 
-# 451 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                       * 
-# 451 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                         3.14159265358979323846 
-# 451 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                              * ((double) ( nz/2 - nz * ((2*iz)/((int)nz)) ) ) * ((double) ( nz/2 - nz * ((2*iz)/((int)nz)) ) )/((double) nz * (1.) * nz * (1.));
-
-        vcoulomb_k[nz/2 + (nz/2+1)*iy + (nz/2+1)*ny*ix] = (k2 > 1e-15) ? (d_charge[0]*(1 - d_lcutoff[0]*sqrt(3.0*k2))/((double)(128*64*32) * k2))*density :
-                                                                         _cuRCmul(1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz), density_k[0]);
-
-    }
-}
-
-
-
-
-
-template <const int nx, const int ny, const int nz>
-__attribute__((global)) void kernel_coulomb_sph_cutoff(cuDoubleComplex* density_k, cuDoubleComplex* vcoulomb_k)
-{
-
-    size_t ixyz = threadIdx.x + blockIdx.x * blockDim.x;
-    int i,ix,iy,iz;
-    double _k2;
-    cuDoubleComplex density;
-
-
-    if (ixyz == 0)
-    {
-
-        density = density_k[0];
-
-        density.x *= 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz);
-        density.y *= 1.5 * d_charge[0] * d_lcutoff[0]*d_lcutoff[0] / ((double)nx*ny*nz);
-
-        vcoulomb_k[ixyz] = density;
-    }
-    else if ( ixyz<(nx*ny*nz) )
-    {
-        i = ixyz; ix = (i)/( (ny)*(nz) ); i = (i)-(ix) * (ny) * (nz); iy = (i)/(nz); iz = (i)-(iy) * (nz);;
-        density = density_k[ixyz];
-        _k2 = 4. * 
-# 487 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 487 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 487 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 487 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( ix - nx * ( (2*ix) / (nx) ) ) ) *
-                                  ((double) ( ix - nx * ( (2*ix) / (nx) ) ) )/((double) nx * 1. * nx * 1.);
-        _k2 += 4. * 
-# 489 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 489 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 489 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 489 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( iy - ny * ( (2*iy) / (ny) ) ) ) *
-                                  ((double) ( iy - ny * ( (2*iy) / (ny) ) ) )/((double) ny * (1.) * ny * (1.));
-        _k2 += 4. * 
-# 491 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                   3.14159265358979323846 
-# 491 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                        * 
-# 491 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh" 3 4
-                          3.14159265358979323846 
-# 491 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-                               * ((double) ( iz - nz * ( (2*iz) / (nz) ) ) ) *
-                                  ((double) ( iz - nz * ( (2*iz) / (nz) ) ) )/((double) nz * (1.) * nz * (1.));
-
-        density.x = d_charge[0] * density.x * ( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 );
-        density.y = d_charge[0] * density.y * ( 1.0 - cos(d_lcutoff[0]*sqrt(3.0*_k2)) )/( (double)nx*ny*nz * _k2 );
-
-        vcoulomb_k[ixyz] = density;
     }
 }
 # 4 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 2
@@ -23644,35 +23519,35 @@ Coulomb::Coulomb(int devId, int nthreads):
     cudaSetDevice(_devId);
     cudaGetDeviceProperties(&dev_prop, _devId);
     dim3 _threads(nthreads);
-    dim3 _blocks((int) ceilf( ((float) ((128*64*32))) / nthreads ));
+    dim3 _blocks((int) ceilf( ((float) ((64*48*32))) / nthreads ));
     gpu_threads = _threads;
     gpu_blocks = _blocks;
 
 
-    lcutoff = ((double) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))) / (1.0 + sqrt(3.0));
+    lcutoff = ((double) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))) / (1.0 + sqrt(3.0));
     _cuErrCheck(cudaMemcpyToSymbol(d_lcutoff, &lcutoff, sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 20);
 
 
-    _cuErrCheck(cudaMalloc((void**) &d_density, (size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 23);
-    _cuErrCheck(cudaMalloc((void**) &d_density_k, (size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32/2+((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)+1) * sizeof(cuDoubleComplex)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 24);
+    _cuErrCheck(cudaMalloc((void**) &d_density, (size_t) ((64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32))))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 23);
+    _cuErrCheck(cudaMalloc((void**) &d_density_k, (size_t) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1) * sizeof(cuDoubleComplex)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 24);
 
 
     size_t wrk_sizes[4] = {0};
     _cufftErrChk(cufftCreate(&plan_forward), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 28);
     _cufftErrChk(cufftSetAutoAllocation(plan_forward,0), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 29);
-    _cufftErrChk(cufftMakePlan3d(plan_forward, 128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)), 64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2), 32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2), CUFFT_D2Z, &wrk_sizes[0]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 30);
+    _cufftErrChk(cufftMakePlan3d(plan_forward, 64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)), 48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2), 32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2), CUFFT_D2Z, &wrk_sizes[0]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 30);
 
     _cufftErrChk(cufftCreate(&plan_forward_cb), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 32);
     _cufftErrChk(cufftSetAutoAllocation(plan_forward_cb,0), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 33);
-    _cufftErrChk(cufftMakePlan3d(plan_forward, 128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)), 64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2), 32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2), CUFFT_D2Z, &wrk_sizes[1]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 34);
+    _cufftErrChk(cufftMakePlan3d(plan_forward, 64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)), 48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2), 32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2), CUFFT_D2Z, &wrk_sizes[1]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 34);
 
     _cufftErrChk(cufftCreate(&plan_inverse), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 36);
     _cufftErrChk(cufftSetAutoAllocation(plan_inverse,0), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 37);
-    _cufftErrChk(cufftMakePlan3d(plan_inverse, 128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)), 64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2), 32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2), CUFFT_Z2D, &wrk_sizes[2]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 38);
+    _cufftErrChk(cufftMakePlan3d(plan_inverse, 64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)), 48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2), 32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2), CUFFT_Z2D, &wrk_sizes[2]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 38);
 
     _cufftErrChk(cufftCreate(&plan_inverse_cb), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 40);
     _cufftErrChk(cufftSetAutoAllocation(plan_inverse_cb,0), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 41);
-    _cufftErrChk(cufftMakePlan3d(plan_inverse_cb, 128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)), 64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2), 32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2), CUFFT_Z2D, &wrk_sizes[3]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 42);
+    _cufftErrChk(cufftMakePlan3d(plan_inverse_cb, 64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)), 48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2), 32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2), CUFFT_Z2D, &wrk_sizes[3]), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 42);
 
 
     _cuErrCheck(cudaMalloc((void**) &d_wrk_arr, (size_t) *std::max_element(wrk_sizes, &wrk_sizes[3])), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 45);
@@ -23682,20 +23557,62 @@ Coulomb::Coulomb(int devId, int nthreads):
     _cufftErrChk(cufftSetWorkArea(plan_inverse_cb, d_wrk_arr), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 49);
 
 
+    double kkx[(64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))];
+    double kky[(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))];
+    double kkz[(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))];
+    uint16_t i; int j;
+    for (i = 0; i <= (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))/2 - 1; i++) { kkx[i] = 2. * 
+# 56 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                     3.14159265358979323846
+# 56 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                         /((double) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))) * (double) i; } j = - i;
+    for (i = (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))/2; i < (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32))); i++) { kkx[i] = 2. * 
+# 57 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                      3.14159265358979323846
+# 57 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                          /((double) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))) * (double) j; j++;}
+    _cuErrCheck(cudaMemcpyToSymbol(d_kkx, kkx, (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 58);
+
+    for (i = 0; i <= (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))/2 - 1; i++) { kky[i] = 2. * 
+# 60 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                     3.14159265358979323846
+# 60 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                         /((double) (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))) * (double) i; } j = - i;
+    for (i = (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))/2 ; i < (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2)) ; i++) { kky[i] = 2. * 
+# 61 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                      3.14159265358979323846
+# 61 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                          /((double) (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))) * (double) j; j++;}
+    _cuErrCheck(cudaMemcpyToSymbol(d_kky, kky, (48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 62);
+
+    for (i = 0; i <= (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))/2 - 1; i++) { kkz[i] = 2. * 
+# 64 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                     3.14159265358979323846
+# 64 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                         /((double) (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))) * (double) i; } j = - i;
+    for (i = (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) / 2; i < (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)); i++) { kkz[i] = 2. * 
+# 65 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+                                                      3.14159265358979323846
+# 65 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                                                          /((double) (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))) * (double) j; j++;}
+    _cuErrCheck(cudaMemcpyToSymbol(d_kkz, kkz, (32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2))*sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 66);
+
+
 
 
     printf("Instance of class Coulomb.\n");
-    printf("Compiled for lattice:  %ux%ux%u\n",128,64,32);
-    printf("Computational lattice: %ux%ux%u\n",128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)),64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2),32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2));
+    printf("Compiled for lattice:  %ux%ux%u\n",64,48,32);
+    printf("Computational lattice: %ux%ux%u\n",64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2));
+    printf("Computational lattice: %ux%ux%u\n",(64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32))),(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2)),(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)));
     printf("Cutoff length lc:      %.3lf\n",lcutoff);
 
     for (unsigned ii=0; ii<4; ii++)
         printf("Plan %u: %lu\n",ii,wrk_sizes[ii]);
 
     printf("Mem allocated:\n");
-    printf("    density (real space)    %lu\tB\n",(128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * sizeof(double));
-    printf("    density (recip. space)  %lu\tB\n",(128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * sizeof(cuDoubleComplex));
-    printf("    total                   %lu\tB\n",(128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * (sizeof(cuDoubleComplex)+sizeof(double))
+    printf("    density (real space)    %lu\tB\n",(64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * sizeof(double));
+    printf("    density (recip. space)  %lu\tB\n",(64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * sizeof(cuDoubleComplex));
+    printf("    total                   %lu\tB\n",(64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * (sizeof(cuDoubleComplex)+sizeof(double))
                                                                              + *std::max_element(wrk_sizes, &wrk_sizes[3]));
 
     printf("\n");
@@ -23709,20 +23626,20 @@ Coulomb::Coulomb(int devId, int nthreads):
 Coulomb::~Coulomb()
 {
     if (d_density != 
-# 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+# 96 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
                     __null
-# 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
-                        ) _cuErrCheck(cudaFree(d_density), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 78);
+# 96 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                        ) _cuErrCheck(cudaFree(d_density), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 96);
     if (d_density != 
-# 79 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+# 97 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
                     __null
-# 79 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
-                        ) _cuErrCheck(cudaFree(d_density_k), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 79);
+# 97 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                        ) _cuErrCheck(cudaFree(d_density_k), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 97);
     if (d_density != 
-# 80 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
+# 98 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu" 3 4
                     __null
-# 80 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
-                        ) _cuErrCheck(cudaFree(d_wrk_arr), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 80);
+# 98 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu"
+                        ) _cuErrCheck(cudaFree(d_wrk_arr), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 98);
 
 
 
@@ -23734,14 +23651,14 @@ Coulomb::~Coulomb()
 
 void Coulomb::set_charge(const double charge)
 {
-    _cuErrCheck(cudaMemcpyToSymbol(d_charge, &charge, sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 92);
+    _cuErrCheck(cudaMemcpyToSymbol(d_charge, &charge, sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 110);
 }
 
 
 void Coulomb::get_density_enlarged(cuDoubleComplex* d_psi, double* h_result, double* h_t, const int _nthreads)
 {
     dim3 _threads(_nthreads);
-    dim3 _blocks((int) ceilf( ((float) (128)*(64)*(32)) / _nthreads ));
+    dim3 _blocks((int) ceilf( ((float) (64)*(48)*(32)) / _nthreads ));
     if (_nthreads < 32) { _threads = gpu_threads; _blocks=gpu_blocks; }
 
     float rep;
@@ -23749,62 +23666,21 @@ void Coulomb::get_density_enlarged(cuDoubleComplex* d_psi, double* h_result, dou
     cudaEventRecord(rep_start); cudaEventSynchronize(rep_start);;
 
 
-    _cuErrCheck(cudaMemset((void*) d_density, 0,(size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 107);
+    _cuErrCheck(cudaMemset((void*) d_density, 0,(size_t) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * sizeof(double)), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 125);
 
 
-    __kernel_enlarge_1Dindexing__<128,64,32,(((((97*128/112)) + (32) - 1) / (32)) * (32)),((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2),((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)><<<_blocks,_threads>>>(d_psi,d_density);
-    _cuErrCheck(cudaGetLastError(), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 111);
+    __kernel_enlarge_1Dindexing__<64,48,32,(((((97*64/112)) + (32) - 1) / (32)) * (32)),((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks,_threads>>>(d_psi,d_density);
+    _cuErrCheck(cudaGetLastError(), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 129);
     cudaEventRecord(rep_start); cudaEventSynchronize(rep_start); cudaEventRecord(rep_end); cudaEventSynchronize(rep_end); cudaEventElapsedTime(&rep, rep_start, rep_end);;
 
-    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_density,(size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)) * sizeof(double), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 114);
+    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_density,(size_t) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)) * sizeof(double), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 132);
     if (h_t) *h_t = (double) rep;
 }
 
 
-void Coulomb::get_vcoulomb_enlarged(cuDoubleComplex* h_result, double* h_t, int _nthreads)
+void Coulomb::get_vcoulomb_enlarged(cuDoubleComplex* h_result, double* h_t, int _nthreads, unsigned kernel_type)
 {
     if (_nthreads < 32) _nthreads = 1024;
-    dim3 _threads(_nthreads);
-    dim3 _blocks((int) ceilf( ((float) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32/2+((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)+1)) / _nthreads ));
-
-    float rep;
-    cudaEvent_t rep_start, rep_end; cudaEventCreate(&rep_start); cudaEventCreate(&rep_end);;
-    cudaEventRecord(rep_start); cudaEventSynchronize(rep_start);;
-
-
-
-
-    _cufftErrChk(cufftExecD2Z(plan_forward, (double*) d_density, (cuDoubleComplex*) d_density_k), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 132);
-
-
-    kernel_coulomb_sph_cutoff0<128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)),64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2),32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)><<<_blocks,_threads>>>(d_density_k,d_density_k);
-
-
-
-
-
-
-
-    _cufftErrChk(cufftExecZ2D(plan_inverse, (cuDoubleComplex*) d_density_k, (double*) d_density), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 143);
-    cudaEventRecord(rep_start); cudaEventSynchronize(rep_start); cudaEventRecord(rep_end); cudaEventSynchronize(rep_end); cudaEventElapsedTime(&rep, rep_start, rep_end);;
-
-    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_density_k,(size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32/2+((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)+1) * sizeof(cuDoubleComplex), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 146);
-    if (h_t) *h_t = (double) rep;
-}
-
-void Coulomb::get_vcoulomb_enlarged_idx3d(cuDoubleComplex* h_result, double* h_t, int _nthreads)
-{
-    int nx_threads = 1;
-    int ny_threads = 2;
-
-    int nz_threads = 64;
-
-
-
-    dim3 gpu_threads(nx_threads,ny_threads,nz_threads);
-    dim3 gpu_blocks( (128 + 2*(((((97*128/112)) + (32) - 1) / (32)) * (32)) + nx_threads -1)/nx_threads,
-                     (64 + 2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2) + ny_threads -1)/ny_threads,
-                     (32/2 + ((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2) + 1 + nz_threads -1)/nz_threads );
 
 
     float rep;
@@ -23814,42 +23690,76 @@ void Coulomb::get_vcoulomb_enlarged_idx3d(cuDoubleComplex* h_result, double* h_t
 
 
 
-    _cufftErrChk(cufftExecD2Z(plan_forward, (double*) d_density, (cuDoubleComplex*) d_density_k), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 172);
+    _cufftErrChk(cufftExecD2Z(plan_forward, (double*) d_density, (cuDoubleComplex*) d_density_k), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 149);
+
+
+    switch (kernel_type)
+    {
+        case 0:
+        {
+            dim3 _threads0(_nthreads);
+            dim3 _blocks0((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)) / _nthreads ));
+            kernel_coulomb_sph_cutoff0<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks0,_threads0>>>(d_density_k,d_density_k); break;
+        }
+        case 1:
+        {
+            dim3 _threads1(_nthreads);
+            dim3 _blocks1((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)) / _nthreads ));
+            kernel_coulomb_sph_cutoff1<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks1,_threads1>>>(d_density_k,d_density_k); break;
+        }
+        case 2:
+        {
+            dim3 _threads2(_nthreads);
+            dim3 _blocks2((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)) / _nthreads ));
+            kernel_coulomb_sph_cutoff2<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks2,_threads2>>>(d_density_k,d_density_k); break;
+        }
+        case 3:
+        {
+            dim3 _threads3(_nthreads);
+            dim3 _blocks3((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)) / _nthreads ));
+            kernel_coulomb_sph_cutoff_cnst0<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks3,_threads3>>>(d_density_k,d_density_k); break;
+        }
+        case 4:
+        {
+            dim3 _threads3(_nthreads);
+            dim3 _blocks3((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)/2) / _nthreads ));
+            kernel_coulomb_sph_cutoff_cnst1<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks3,_threads3>>>(d_density_k,d_density_k); break;
+        }
+        case 5:
+        {
+            dim3 _threads3(_nthreads);
+            dim3 _blocks3((int) ceilf( ((float) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1)/4) / _nthreads ));
+            kernel_coulomb_sph_cutoff_cnst2<64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)),48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),32 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks3,_threads3>>>(d_density_k,d_density_k); break;
+        }
+    }
 
 
 
-    kernel_coulomb_sph_cutoff_3Didx0<128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)),64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2),32 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)><<<gpu_blocks,gpu_threads>>>(d_density_k,d_density_k);
-
-    _cuErrCheck(cudaGetLastError(), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 178);
 
 
-
-
-
-
-
-    _cufftErrChk(cufftExecZ2D(plan_inverse, (cuDoubleComplex*) d_density_k, (double*) d_density), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 186);
+    _cufftErrChk(cufftExecZ2D(plan_inverse, (cuDoubleComplex*) d_density_k, (double*) d_density), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 196);
     cudaEventRecord(rep_start); cudaEventSynchronize(rep_start); cudaEventRecord(rep_end); cudaEventSynchronize(rep_end); cudaEventElapsedTime(&rep, rep_start, rep_end);;
 
-    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_density_k,(size_t) (128 +2*(((((97*128/112)) + (32) - 1) / (32)) * (32)))*(64 +2*((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2))*(32/2+((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)+1) * sizeof(cuDoubleComplex), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 189);
+    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_density_k,(size_t) (64 +2*(((((97*64/112)) + (32) - 1) / (32)) * (32)))*(48 +2*((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2))*(32/2+((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)+1) * sizeof(cuDoubleComplex), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 199);
     if (h_t) *h_t = (double) rep;
 }
+
 
 void Coulomb::get_vcoulomb_lessened(double* d_vcoulomb, double* h_result, double* h_t, const int _nthreads)
 {
     dim3 _threads(_nthreads);
-    dim3 _blocks((int) ceilf( ((float) (128)*(64)*(32)) / _nthreads ));
+    dim3 _blocks((int) ceilf( ((float) (64)*(48)*(32)) / _nthreads ));
     if (_nthreads < 32) { _threads = gpu_threads; _blocks=gpu_blocks; }
 
     float rep;
     cudaEvent_t rep_start, rep_end; cudaEventCreate(&rep_start); cudaEventCreate(&rep_end);;
     cudaEventRecord(rep_start); cudaEventSynchronize(rep_start);;
 
-    __kernel_lessen_1Dindexing__<128,64,32,(((((97*128/112)) + (32) - 1) / (32)) * (32)),((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2),((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2)><<<_blocks,_threads>>>(d_density,d_vcoulomb);
-    _cuErrCheck(cudaGetLastError(), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 204);
+    __kernel_lessen_1Dindexing__<64,48,32,(((((97*64/112)) + (32) - 1) / (32)) * (32)),((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2),((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2)><<<_blocks,_threads>>>(d_density,d_vcoulomb);
+    _cuErrCheck(cudaGetLastError(), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 215);
     cudaEventRecord(rep_start); cudaEventSynchronize(rep_start); cudaEventRecord(rep_end); cudaEventSynchronize(rep_end); cudaEventElapsedTime(&rep, rep_start, rep_end);;
 
-    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_vcoulomb,(size_t) 128*64*32 * sizeof(double), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 207);
+    if (h_result) _cuErrCheck(cudaMemcpy(h_result, d_vcoulomb,(size_t) 64*48*32 * sizeof(double), cudaMemcpyDeviceToHost), "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.cu", 218);
     if (h_t) *h_t = (double) rep;
 }
 
@@ -23857,24 +23767,24 @@ void Coulomb::save_info(const double sigma)
 {
 
     FILE* file_info = fopen("coulomb.info","w");
-    fprintf(file_info,"nx\t%u\n",128);
-    fprintf(file_info,"ny\t%u\n",64);
+    fprintf(file_info,"nx\t%u\n",64);
+    fprintf(file_info,"ny\t%u\n",48);
     fprintf(file_info,"nz\t%u\n",32);
-    fprintf(file_info,"cx\t%u\n",(((((97*128/112)) + (32) - 1) / (32)) * (32)));
-    fprintf(file_info,"cy\t%u\n",((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2));
-    fprintf(file_info,"cz\t%u\n",((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2));
+    fprintf(file_info,"cx\t%u\n",(((((97*64/112)) + (32) - 1) / (32)) * (32)));
+    fprintf(file_info,"cy\t%u\n",((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2));
+    fprintf(file_info,"cz\t%u\n",((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2));
     fprintf(file_info,"aho\t%lf\n",sigma);
     fclose(file_info);
 }
 
 void Coulomb::get_lattice(unsigned* nx, unsigned* ny, unsigned* nz, unsigned* cx, unsigned* cy, unsigned* cz, double* _lcutoff)
 {
-    if (nx) *nx = 128;
-    if (ny) *ny = 64;
+    if (nx) *nx = 64;
+    if (ny) *ny = 48;
     if (nz) *nz = 32;
-    if (cx) *cx = (((((97*128/112)) + (32) - 1) / (32)) * (32));
-    if (cy) *cy = ((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -64)/2);
-    if (cz) *cz = ((((((97*128/112)) + (32) - 1) / (32)) * (32)) + (128 -32)/2);
+    if (cx) *cx = (((((97*64/112)) + (32) - 1) / (32)) * (32));
+    if (cy) *cy = ((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -48)/2);
+    if (cz) *cz = ((((((97*64/112)) + (32) - 1) / (32)) * (32)) + (64 -32)/2);
     if (_lcutoff) *_lcutoff = lcutoff;
 }
 

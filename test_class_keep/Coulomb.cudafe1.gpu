@@ -903,7 +903,7 @@ CUFFT_Z2Z = 105};
 enum cufftCompatibility_t {
 # 132 "/usr/local/cuda/include/cufft.h"
 CUFFT_COMPATIBILITY_FFTW_PADDING = 1};
-# 127 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 134 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 struct Coulomb;
 # 128 "/usr/include/c++/5/bits/cpp_type_traits.h" 3
 enum _ZNSt9__is_voidIvEUt_E {
@@ -1042,31 +1042,31 @@ typedef cuDoubleComplex cufftDoubleComplex;
 typedef enum cufftType_t cufftType;
 # 143 "/usr/local/cuda/include/cufft.h"
 typedef int cufftHandle;
-# 127 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 134 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 struct Coulomb {
-# 150 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 157 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 cufftHandle plan_forward;
-# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-cufftHandle plan_forward_cb;
-# 152 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-cufftHandle plan_inverse;
-# 153 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-cufftHandle plan_inverse_cb;
 # 158 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-cuDoubleComplex *d_wrk_arr;
+cufftHandle plan_forward_cb;
 # 159 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-cuDoubleComplex *d_density_k;
+cufftHandle plan_inverse;
 # 160 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-double *d_density;
-# 162 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-int _devId;
-# 163 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-struct cudaDeviceProp dev_prop;
-# 164 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-struct dim3 gpu_threads;
+cufftHandle plan_inverse_cb;
 # 165 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
-struct dim3 gpu_blocks;
+cuDoubleComplex *d_wrk_arr;
 # 166 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+cuDoubleComplex *d_density_k;
+# 167 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+double *d_density;
+# 169 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+int _devId;
+# 170 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct cudaDeviceProp dev_prop;
+# 171 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct dim3 gpu_threads;
+# 172 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+struct dim3 gpu_blocks;
+# 173 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
 double lcutoff;};
 # 37 "/usr/include/c++/5/bits/predefined_ops.h" 3
 struct _ZN9__gnu_cxx5__ops15_Iter_less_iterE {char __nv_no_debug_dummy_end_padding_0;};
@@ -2319,17 +2319,31 @@ ___device__(extern  __no_sc__) enum cudaError cudaMalloc(void **, size_t);
 #if !defined(__CUDABE__)
 #endif
 # 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ extern void _Z29__kernel_enlarge_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvP7double2Pd(cuDoubleComplex *, double *);
-# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ extern void _Z26kernel_coulomb_sph_cutoff0ILi384ELi384ELi384EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
-# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ extern void _Z32kernel_coulomb_sph_cutoff_3Didx0ILi384ELi384ELi384EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+__global__ __var_used__ extern void _Z29__kernel_enlarge_1Dindexing__ILj64ELj48ELj32ELj64ELj72ELj80EEvP7double2Pd(cuDoubleComplex *, double *);
+# 137 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z26kernel_coulomb_sph_cutoff0ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 179 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z26kernel_coulomb_sph_cutoff1ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z26kernel_coulomb_sph_cutoff2ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 270 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z31kernel_coulomb_sph_cutoff_cnst0ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 298 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z31kernel_coulomb_sph_cutoff_cnst1ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
+# 329 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ extern void _Z31kernel_coulomb_sph_cutoff_cnst2ILi192ELi192ELi192EEvP7double2S1_(cuDoubleComplex *, cuDoubleComplex *);
 # 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ extern void _Z28__kernel_lessen_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvPdS0_(double *, double *);
-# 115 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+__global__ __var_used__ extern void _Z28__kernel_lessen_1Dindexing__ILj64ELj48ELj32ELj64ELj72ELj80EEvPdS0_(double *, double *);
+# 119 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
  __constant__ double d_charge[1];
-# 116 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+# 120 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
  __constant__ double d_lcutoff[1];
+# 121 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+ __constant__ double d_kkx[192];
+# 122 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+ __constant__ double d_kky[192];
+# 123 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/Coulomb.hpp"
+ __constant__ double d_kkz[192];
 #include "common_functions.h"
 #if !defined(__CUDABE__)
 #endif
@@ -3560,7 +3574,7 @@ __global__ __var_used__ extern void _Z28__kernel_lessen_1Dindexing__ILj128ELj64E
 #if !defined(__CUDABE__)
 #endif
 # 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ void _Z29__kernel_enlarge_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvP7double2Pd(
+__global__ __var_used__ void _Z29__kernel_enlarge_1Dindexing__ILj64ELj48ELj32ELj64ELj72ELj80EEvP7double2Pd(
 # 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 cuDoubleComplex *array_in, 
 # 42 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
@@ -3568,186 +3582,512 @@ double *array_out){
 # 43 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
 # 44 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26675_12_non_const_ixyz;
+ size_t __cuda_local_var_26678_12_non_const_ixyz;
 # 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26676_12_non_const_ix;
+ size_t __cuda_local_var_26679_12_non_const_ix;
 # 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26676_15_non_const_iy;
+ size_t __cuda_local_var_26679_15_non_const_iy;
 # 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26676_18_non_const_iz;
+ size_t __cuda_local_var_26679_18_non_const_iz;
 # 45 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26676_21_non_const_i;
+ size_t __cuda_local_var_26679_21_non_const_i;
 # 44 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26675_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+__cuda_local_var_26678_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
 # 47 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26675_12_non_const_ixyz < 262144UL)
+if (__cuda_local_var_26678_12_non_const_ixyz < 98304UL)
 # 48 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
 # 50 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_26681_16_non_const_density;
+ double __cuda_local_var_26684_16_non_const_density;
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_21_non_const_i = __cuda_local_var_26675_12_non_const_ixyz;
+__cuda_local_var_26679_21_non_const_i = __cuda_local_var_26678_12_non_const_ixyz;
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_12_non_const_ix = (__cuda_local_var_26676_21_non_const_i / 2048UL);
+__cuda_local_var_26679_12_non_const_ix = (__cuda_local_var_26679_21_non_const_i / 1536UL);
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_21_non_const_i = (__cuda_local_var_26676_21_non_const_i - ((__cuda_local_var_26676_12_non_const_ix * 64UL) * 32UL));
+__cuda_local_var_26679_21_non_const_i = (__cuda_local_var_26679_21_non_const_i - ((__cuda_local_var_26679_12_non_const_ix * 48UL) * 32UL));
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_15_non_const_iy = (__cuda_local_var_26676_21_non_const_i / 32UL);
+__cuda_local_var_26679_15_non_const_iy = (__cuda_local_var_26679_21_non_const_i / 32UL);
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_18_non_const_iz = (__cuda_local_var_26676_21_non_const_i - (__cuda_local_var_26676_15_non_const_iy * 32UL));
+__cuda_local_var_26679_18_non_const_iz = (__cuda_local_var_26679_21_non_const_i - (__cuda_local_var_26679_15_non_const_iy * 32UL));
 # 49 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 ;
 # 50 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26681_16_non_const_density = ((((array_in[__cuda_local_var_26675_12_non_const_ixyz]).x) * ((array_in[__cuda_local_var_26675_12_non_const_ixyz]).x)) + (((array_in[__cuda_local_var_26675_12_non_const_ixyz]).y) * ((array_in[__cuda_local_var_26675_12_non_const_ixyz]).y)));
+__cuda_local_var_26684_16_non_const_density = ((((array_in[__cuda_local_var_26678_12_non_const_ixyz]).x) * ((array_in[__cuda_local_var_26678_12_non_const_ixyz]).x)) + (((array_in[__cuda_local_var_26678_12_non_const_ixyz]).y) * ((array_in[__cuda_local_var_26678_12_non_const_ixyz]).y)));
 # 53 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26676_21_non_const_i = (((176UL + __cuda_local_var_26676_18_non_const_iz) + (384UL * (160UL + __cuda_local_var_26676_15_non_const_iy))) + (147456UL * (128UL + __cuda_local_var_26676_12_non_const_ix)));
+__cuda_local_var_26679_21_non_const_i = (((80UL + __cuda_local_var_26679_18_non_const_iz) + (192UL * (72UL + __cuda_local_var_26679_15_non_const_iy))) + (36864UL * (64UL + __cuda_local_var_26679_12_non_const_ix)));
 # 53 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 ;
 # 54 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(array_out[__cuda_local_var_26676_21_non_const_i]) = __cuda_local_var_26681_16_non_const_density;
+(array_out[__cuda_local_var_26679_21_non_const_i]) = __cuda_local_var_26684_16_non_const_density;
 # 55 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 } 
 # 56 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 }}
-# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ void _Z26kernel_coulomb_sph_cutoff0ILi384ELi384ELi384EEvP7double2S1_(
-# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 137 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z26kernel_coulomb_sph_cutoff0ILi192ELi192ELi192EEvP7double2S1_(
+# 137 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 cuDoubleComplex *density_k, 
-# 208 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 137 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 cuDoubleComplex *vcoulomb_k){
-# 209 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 138 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
-# 210 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26790_12_non_const_ixyz;
-# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_26791_9_non_const_ix;
-# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_26791_13_non_const_iy;
-# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_26791_17_non_const_iz;
-# 211 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_26791_21_non_const_i;
-# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_26792_12_non_const_kx;
-# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_26792_16_non_const_ky;
-# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_26792_20_non_const_kz;
-# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_26792_24_non_const__k2;
-# 213 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- cufftDoubleComplex __cuda_local_var_26793_24_non_const_density;
-# 210 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26790_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
-# 215 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26790_12_non_const_ixyz < 28459008UL)
-# 216 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26719_12_non_const_ixyz;
+# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26720_9_non_const_ix;
+# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26720_13_non_const_iy;
+# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26720_17_non_const_iz;
+# 140 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26720_21_non_const_i;
+# 141 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26721_12_non_const_kx;
+# 141 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26721_16_non_const_ky;
+# 141 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26721_20_non_const_kz;
+# 141 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26721_24_non_const__k2;
+# 142 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26722_24_non_const_density;
+# 139 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26719_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 144 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26719_12_non_const_ixyz < 3575808UL)
+# 145 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {  double __T20;
  cuDoubleComplex __T21;
  cuDoubleComplex __T22;
  double __T23;
  double __T24;
  cuDoubleComplex __T25;
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26791_21_non_const_i = ((int)__cuda_local_var_26790_12_non_const_ixyz);
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26791_9_non_const_ix = (__cuda_local_var_26791_21_non_const_i / 74112);
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26791_21_non_const_i = (__cuda_local_var_26791_21_non_const_i - ((__cuda_local_var_26791_9_non_const_ix * 384) * 193));
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26791_13_non_const_iy = (__cuda_local_var_26791_21_non_const_i / 193);
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26791_17_non_const_iz = (__cuda_local_var_26791_21_non_const_i - (__cuda_local_var_26791_13_non_const_iy * 193));
-# 218 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26720_21_non_const_i = ((int)__cuda_local_var_26719_12_non_const_ixyz);
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26720_9_non_const_ix = (__cuda_local_var_26720_21_non_const_i / 18624);
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26720_21_non_const_i = (__cuda_local_var_26720_21_non_const_i - ((__cuda_local_var_26720_9_non_const_ix * 192) * 97));
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26720_13_non_const_iy = (__cuda_local_var_26720_21_non_const_i / 97);
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26720_17_non_const_iz = (__cuda_local_var_26720_21_non_const_i - (__cuda_local_var_26720_13_non_const_iy * 97));
+# 147 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 ;
-# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26791_9_non_const_ix < 192) {
-# 222 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_12_non_const_kx = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_9_non_const_ix)); } else  {
-# 223 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_12_non_const_kx = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_9_non_const_ix - 384))); }
-# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26791_13_non_const_iy < 192) {
-# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_16_non_const_ky = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_13_non_const_iy)); } else  {
-# 226 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_16_non_const_ky = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_13_non_const_iy - 384))); }
-# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26791_17_non_const_iz < 192) {
-# 228 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_20_non_const_kz = ((0.01636246173744683799) * ((double)__cuda_local_var_26791_17_non_const_iz)); } else  {
-# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_20_non_const_kz = ((0.01636246173744683799) * ((double)(__cuda_local_var_26791_17_non_const_iz - 384))); }
-# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26792_24_non_const__k2 = (((__cuda_local_var_26792_12_non_const_kx * __cuda_local_var_26792_12_non_const_kx) + (__cuda_local_var_26792_16_non_const_ky * __cuda_local_var_26792_16_non_const_ky)) + (__cuda_local_var_26792_20_non_const_kz * __cuda_local_var_26792_20_non_const_kz));
-# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26793_24_non_const_density = (density_k[__cuda_local_var_26790_12_non_const_ixyz]);
-# 235 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26793_24_non_const_density = ((__cuda_local_var_26792_24_non_const__k2 > (1.000000000000000078e-15)) ? (((__T20 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26792_24_non_const__k2)))))))) , ((56623104.0) * __cuda_local_var_26792_24_non_const__k2)))) , (void)(__T21 = __cuda_local_var_26793_24_non_const_density)) , ((((__T22.x) = (__T20 * (__T21.x))) , (void)((__T22.y) = (__T20 * (__T21.y)))) , __T22)) : (((__T23 = ( fdivide((((((__cuda_local_var_26793_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0)))) , (void)(__T24 = ( fdivide((((((__cuda_local_var_26793_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0))))) , ((((__T25.x) = __T23) , (void)((__T25.y) = __T24)) , __T25)));
-# 241 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(vcoulomb_k[__cuda_local_var_26790_12_non_const_ixyz]) = __cuda_local_var_26793_24_non_const_density;
-# 243 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26720_9_non_const_ix < 96) {
+# 151 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_12_non_const_kx = ((0.03272492347489367598) * ((double)__cuda_local_var_26720_9_non_const_ix)); } else  {
+# 152 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_12_non_const_kx = ((0.03272492347489367598) * ((double)(__cuda_local_var_26720_9_non_const_ix - 192))); }
+# 154 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26720_13_non_const_iy < 96) {
+# 154 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_16_non_const_ky = ((0.03272492347489367598) * ((double)__cuda_local_var_26720_13_non_const_iy)); } else  {
+# 155 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_16_non_const_ky = ((0.03272492347489367598) * ((double)(__cuda_local_var_26720_13_non_const_iy - 192))); }
+# 157 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26720_17_non_const_iz < 96) {
+# 157 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_20_non_const_kz = ((0.03272492347489367598) * ((double)__cuda_local_var_26720_17_non_const_iz)); } else  {
+# 158 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_20_non_const_kz = ((0.03272492347489367598) * ((double)(__cuda_local_var_26720_17_non_const_iz - 192))); }
+# 161 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26721_24_non_const__k2 = (((__cuda_local_var_26721_12_non_const_kx * __cuda_local_var_26721_12_non_const_kx) + (__cuda_local_var_26721_16_non_const_ky * __cuda_local_var_26721_16_non_const_ky)) + (__cuda_local_var_26721_20_non_const_kz * __cuda_local_var_26721_20_non_const_kz));
+# 162 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26722_24_non_const_density = (density_k[__cuda_local_var_26719_12_non_const_ixyz]);
+# 164 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26722_24_non_const_density = ((__cuda_local_var_26721_24_non_const__k2 > (1.000000000000000078e-15)) ? (((__T20 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26721_24_non_const__k2)))))))) , ((7077888.0) * __cuda_local_var_26721_24_non_const__k2)))) , (void)(__T21 = __cuda_local_var_26722_24_non_const_density)) , ((((__T22.x) = (__T20 * (__T21.x))) , (void)((__T22.y) = (__T20 * (__T21.y)))) , __T22)) : (((__T23 = ( fdivide((((((__cuda_local_var_26722_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T24 = ( fdivide((((((__cuda_local_var_26722_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T25.x) = __T23) , (void)((__T25.y) = __T24)) , __T25)));
+# 170 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26719_12_non_const_ixyz]) = __cuda_local_var_26722_24_non_const_density;
+# 172 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 } 
-# 244 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 173 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 }}
-# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ void _Z32kernel_coulomb_sph_cutoff_3Didx0ILi384ELi384ELi384EEvP7double2S1_(
-# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 179 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z26kernel_coulomb_sph_cutoff1ILi192ELi192ELi192EEvP7double2S1_(
+# 179 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 cuDoubleComplex *density_k, 
-# 390 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 179 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 cuDoubleComplex *vcoulomb_k){
-# 391 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-{
-# 393 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_27022_9_non_const_ix;
-# 394 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_27023_9_non_const_iy;
-# 395 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- int __cuda_local_var_27024_9_non_const_iz;
-# 397 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- double __cuda_local_var_27026_12_non_const__k2;
-# 398 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- cuDoubleComplex __cuda_local_var_27027_21_non_const_density;
-# 393 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27022_9_non_const_ix = ((int)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
-# 394 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27023_9_non_const_iy = ((int)((threadIdx.y) + ((blockIdx.y) * (blockDim.y))));
-# 395 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27024_9_non_const_iz = ((int)((threadIdx.z) + ((blockIdx.z) * (blockDim.z))));
-# 401 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix)) == 0)
-# 402 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 180 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {  double __T26;
  cuDoubleComplex __T27;
  cuDoubleComplex __T28;
-# 403 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(vcoulomb_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]) = (((__T26 = ( fdivide(((((1.5) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (56623104.0)))) , (void)(__T27 = (density_k[0]))) , ((((__T28.x) = (__T26 * (__T27.x))) , (void)((__T28.y) = (__T26 * (__T27.y)))) , __T28));
-# 404 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 181 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26785_12_non_const_ixyz;
+# 182 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26786_9_non_const_ix;
+# 182 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26786_13_non_const_iy;
+# 182 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26786_17_non_const_iz;
+# 182 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26786_21_non_const_i;
+# 183 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26787_12_non_const_kx;
+# 183 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26787_16_non_const_ky;
+# 183 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26787_20_non_const_kz;
+# 183 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26787_24_non_const__k2;
+# 184 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26788_24_non_const_density;
+# 181 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26785_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 186 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26785_12_non_const_ixyz == 0UL)
+# 187 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T29;
+ double __T210;
+ cuDoubleComplex __T211;
+# 188 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26788_24_non_const_density = (density_k[__cuda_local_var_26785_12_non_const_ixyz]);
+# 189 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26788_24_non_const_density = (((__T29 = ( fdivide((((((__cuda_local_var_26788_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T210 = ( fdivide((((((__cuda_local_var_26788_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T211.x) = __T29) , (void)((__T211.y) = __T210)) , __T211));
+# 191 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26785_12_non_const_ixyz]) = __cuda_local_var_26788_24_non_const_density;
+# 192 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 } else  {
-# 405 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (((__cuda_local_var_27024_9_non_const_iz < 384) && (__cuda_local_var_27023_9_non_const_iy < 384)) && (__cuda_local_var_27022_9_non_const_ix < 384))
-# 406 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 193 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26785_12_non_const_ixyz < 3575808UL)
+# 194 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
-# 407 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27027_21_non_const_density = (density_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]);
-# 408 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27026_12_non_const__k2 = ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27022_9_non_const_ix - (384 * ((2 * __cuda_local_var_27022_9_non_const_ix) / 384))))) * ((double)(__cuda_local_var_27022_9_non_const_ix - (384 * ((2 * __cuda_local_var_27022_9_non_const_ix) / 384))))) , (147456.0)));
-# 409 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27026_12_non_const__k2 += ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27023_9_non_const_iy - (384 * ((2 * __cuda_local_var_27023_9_non_const_iy) / 384))))) * ((double)(__cuda_local_var_27023_9_non_const_iy - (384 * ((2 * __cuda_local_var_27023_9_non_const_iy) / 384))))) , (147456.0)));
-# 410 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_27026_12_non_const__k2 += ( fdivide((((39.47841760435743197) * ((double)(__cuda_local_var_27024_9_non_const_iz - (384 * ((2 * __cuda_local_var_27024_9_non_const_iz) / 384))))) * ((double)(__cuda_local_var_27024_9_non_const_iz - (384 * ((2 * __cuda_local_var_27024_9_non_const_iz) / 384))))) , (147456.0)));
-# 412 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(__cuda_local_var_27027_21_non_const_density.x) = ( fdivide(((((d_charge)[0]) * (__cuda_local_var_27027_21_non_const_density.x)) * ((1.0) - (((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_27026_12_non_const__k2)))))) , ((262144.0) * __cuda_local_var_27026_12_non_const__k2)));
-# 413 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(__cuda_local_var_27027_21_non_const_density.y) = ( fdivide(((((d_charge)[0]) * (__cuda_local_var_27027_21_non_const_density.y)) * ((1.0) - (((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_27026_12_non_const__k2)))))) , ((262144.0) * __cuda_local_var_27026_12_non_const__k2)));
-# 415 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(vcoulomb_k[((__cuda_local_var_27024_9_non_const_iz + (384 * __cuda_local_var_27023_9_non_const_iy)) + (147456 * __cuda_local_var_27022_9_non_const_ix))]) = __cuda_local_var_27027_21_non_const_density;
-# 416 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26786_21_non_const_i = ((int)__cuda_local_var_26785_12_non_const_ixyz);
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26786_9_non_const_ix = (__cuda_local_var_26786_21_non_const_i / 18624);
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26786_21_non_const_i = (__cuda_local_var_26786_21_non_const_i - ((__cuda_local_var_26786_9_non_const_ix * 192) * 97));
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26786_13_non_const_iy = (__cuda_local_var_26786_21_non_const_i / 97);
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26786_17_non_const_iz = (__cuda_local_var_26786_21_non_const_i - (__cuda_local_var_26786_13_non_const_iy * 97));
+# 196 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 200 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26786_9_non_const_ix < 96) {
+# 200 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_12_non_const_kx = ((0.03272492347489367598) * ((double)__cuda_local_var_26786_9_non_const_ix)); } else  {
+# 201 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_12_non_const_kx = ((0.03272492347489367598) * ((double)(__cuda_local_var_26786_9_non_const_ix - 192))); }
+# 203 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26786_13_non_const_iy < 96) {
+# 203 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_16_non_const_ky = ((0.03272492347489367598) * ((double)__cuda_local_var_26786_13_non_const_iy)); } else  {
+# 204 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_16_non_const_ky = ((0.03272492347489367598) * ((double)(__cuda_local_var_26786_13_non_const_iy - 192))); }
+# 206 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_20_non_const_kz = ((0.03272492347489367598) * ((double)__cuda_local_var_26786_17_non_const_iz));
+# 209 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26787_24_non_const__k2 = (((__cuda_local_var_26787_12_non_const_kx * __cuda_local_var_26787_12_non_const_kx) + (__cuda_local_var_26787_16_non_const_ky * __cuda_local_var_26787_16_non_const_ky)) + (__cuda_local_var_26787_20_non_const_kz * __cuda_local_var_26787_20_non_const_kz));
+# 210 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26788_24_non_const_density = (density_k[__cuda_local_var_26785_12_non_const_ixyz]);
+# 212 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26788_24_non_const_density = (((__T26 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26787_24_non_const__k2)))))))) , ((7077888.0) * __cuda_local_var_26787_24_non_const__k2)))) , (void)(__T27 = __cuda_local_var_26788_24_non_const_density)) , ((((__T28.x) = (__T26 * (__T27.x))) , (void)((__T28.y) = (__T26 * (__T27.y)))) , __T28));
+# 213 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26785_12_non_const_ixyz]) = __cuda_local_var_26788_24_non_const_density;
+# 225 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 } } 
-# 417 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+# 226 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z26kernel_coulomb_sph_cutoff2ILi192ELi192ELi192EEvP7double2S1_(
+# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 229 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 230 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T212;
+ cuDoubleComplex __T213;
+ cuDoubleComplex __T214;
+# 231 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26845_12_non_const_ixyz;
+# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26846_9_non_const_ix;
+# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26846_13_non_const_iy;
+# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26846_17_non_const_iz;
+# 232 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26846_21_non_const_i;
+# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26847_12_non_const_kx;
+# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26847_16_non_const_ky;
+# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26847_20_non_const_kz;
+# 233 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26847_24_non_const__k2;
+# 234 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26848_24_non_const_density;
+# 231 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26845_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 236 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26845_12_non_const_ixyz == 0UL)
+# 237 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T215;
+ double __T216;
+ cuDoubleComplex __T217;
+# 238 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26848_24_non_const_density = (density_k[__cuda_local_var_26845_12_non_const_ixyz]);
+# 239 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26848_24_non_const_density = (((__T215 = ( fdivide((((((__cuda_local_var_26848_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T216 = ( fdivide((((((__cuda_local_var_26848_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T217.x) = __T215) , (void)((__T217.y) = __T216)) , __T217));
+# 241 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26845_12_non_const_ixyz]) = __cuda_local_var_26848_24_non_const_density;
+# 242 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} else  {
+# 243 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26845_12_non_const_ixyz < 3575808UL)
+# 244 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26846_21_non_const_i = ((int)__cuda_local_var_26845_12_non_const_ixyz);
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26846_9_non_const_ix = (__cuda_local_var_26846_21_non_const_i / 18624);
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26846_21_non_const_i = (__cuda_local_var_26846_21_non_const_i - ((__cuda_local_var_26846_9_non_const_ix * 192) * 97));
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26846_13_non_const_iy = (__cuda_local_var_26846_21_non_const_i / 97);
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26846_17_non_const_iz = (__cuda_local_var_26846_21_non_const_i - (__cuda_local_var_26846_13_non_const_iy * 97));
+# 246 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 250 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26847_12_non_const_kx = ((0.03272492347489367598) * ((double)(__cuda_local_var_26846_9_non_const_ix - (192 * ((2 * __cuda_local_var_26846_9_non_const_ix) / 192)))));
+# 251 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26847_16_non_const_ky = ((0.03272492347489367598) * ((double)(__cuda_local_var_26846_13_non_const_iy - (192 * ((2 * __cuda_local_var_26846_13_non_const_iy) / 192)))));
+# 252 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26847_20_non_const_kz = ((0.03272492347489367598) * ((double)(__cuda_local_var_26846_17_non_const_iz - (192 * ((2 * __cuda_local_var_26846_17_non_const_iz) / 192)))));
+# 254 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26847_24_non_const__k2 = (((__cuda_local_var_26847_12_non_const_kx * __cuda_local_var_26847_12_non_const_kx) + (__cuda_local_var_26847_16_non_const_ky * __cuda_local_var_26847_16_non_const_ky)) + (__cuda_local_var_26847_20_non_const_kz * __cuda_local_var_26847_20_non_const_kz));
+# 256 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26848_24_non_const_density = (density_k[__cuda_local_var_26845_12_non_const_ixyz]);
+# 258 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26848_24_non_const_density = (((__T212 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26847_24_non_const__k2)))))))) , ((7077888.0) * __cuda_local_var_26847_24_non_const__k2)))) , (void)(__T213 = __cuda_local_var_26848_24_non_const_density)) , ((((__T214.x) = (__T212 * (__T213.x))) , (void)((__T214.y) = (__T212 * (__T213.y)))) , __T214));
+# 259 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26845_12_non_const_ixyz]) = __cuda_local_var_26848_24_non_const_density;
+# 260 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} } 
+# 261 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 270 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z31kernel_coulomb_sph_cutoff_cnst0ILi192ELi192ELi192EEvP7double2S1_(
+# 270 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 270 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 271 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T218;
+ cuDoubleComplex __T219;
+ cuDoubleComplex __T220;
+# 272 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26898_12_non_const_ixyz;
+# 273 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26899_9_non_const_ix;
+# 273 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26899_13_non_const_iy;
+# 273 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26899_17_non_const_iz;
+# 273 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26899_21_non_const_i;
+# 274 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26900_12_non_const_k2;
+# 275 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26901_24_non_const_density;
+# 272 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26898_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 277 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26898_12_non_const_ixyz == 0UL)
+# 278 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T221;
+ double __T222;
+ cuDoubleComplex __T223;
+# 279 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26901_24_non_const_density = (density_k[__cuda_local_var_26898_12_non_const_ixyz]);
+# 280 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26901_24_non_const_density = (((__T221 = ( fdivide((((((__cuda_local_var_26901_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T222 = ( fdivide((((((__cuda_local_var_26901_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T223.x) = __T221) , (void)((__T223.y) = __T222)) , __T223));
+# 282 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26898_12_non_const_ixyz]) = __cuda_local_var_26901_24_non_const_density;
+# 283 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} else  {
+# 284 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26898_12_non_const_ixyz < 3575808UL)
+# 285 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26899_21_non_const_i = ((int)__cuda_local_var_26898_12_non_const_ixyz);
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26899_9_non_const_ix = (__cuda_local_var_26899_21_non_const_i / 18624);
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26899_21_non_const_i = (__cuda_local_var_26899_21_non_const_i - ((__cuda_local_var_26899_9_non_const_ix * 192) * 97));
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26899_13_non_const_iy = (__cuda_local_var_26899_21_non_const_i / 97);
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26899_17_non_const_iz = (__cuda_local_var_26899_21_non_const_i - (__cuda_local_var_26899_13_non_const_iy * 97));
+# 286 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 289 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26900_12_non_const_k2 = (((((d_kkx)[__cuda_local_var_26899_9_non_const_ix]) * ((d_kkx)[__cuda_local_var_26899_9_non_const_ix])) + (((d_kky)[__cuda_local_var_26899_13_non_const_iy]) * ((d_kky)[__cuda_local_var_26899_13_non_const_iy]))) + (((d_kkz)[__cuda_local_var_26899_17_non_const_iz]) * ((d_kkz)[__cuda_local_var_26899_17_non_const_iz])));
+# 291 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26901_24_non_const_density = (((__T218 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26900_12_non_const_k2)))))))) , ((7077888.0) * __cuda_local_var_26900_12_non_const_k2)))) , (void)(__T219 = (density_k[__cuda_local_var_26898_12_non_const_ixyz]))) , ((((__T220.x) = (__T218 * (__T219.x))) , (void)((__T220.y) = (__T218 * (__T219.y)))) , __T220));
+# 292 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26898_12_non_const_ixyz]) = __cuda_local_var_26901_24_non_const_density;
+# 293 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} } 
+# 294 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 298 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z31kernel_coulomb_sph_cutoff_cnst1ILi192ELi192ELi192EEvP7double2S1_(
+# 298 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 298 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 299 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T224;
+ cuDoubleComplex __T225;
+ cuDoubleComplex __T226;
+# 300 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26926_12_non_const_ixyz;
+# 301 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26927_9_non_const_ix;
+# 301 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26927_13_non_const_iy;
+# 301 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26927_17_non_const_iz;
+# 301 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26927_21_non_const_i;
+# 302 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26928_12_non_const_k2;
+# 303 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26929_24_non_const_density;
+# 300 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26926_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 305 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+while (__cuda_local_var_26926_12_non_const_ixyz < 3575808UL)
+# 306 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 307 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26926_12_non_const_ixyz == 0UL)
+# 308 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T227;
+ double __T228;
+ cuDoubleComplex __T229;
+# 309 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26929_24_non_const_density = (density_k[__cuda_local_var_26926_12_non_const_ixyz]);
+# 310 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26929_24_non_const_density = (((__T227 = ( fdivide((((((__cuda_local_var_26929_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T228 = ( fdivide((((((__cuda_local_var_26929_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T229.x) = __T227) , (void)((__T229.y) = __T228)) , __T229));
+# 312 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26926_12_non_const_ixyz]) = __cuda_local_var_26929_24_non_const_density;
+# 313 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}
+# 315 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+else 
+# 315 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26927_21_non_const_i = ((int)__cuda_local_var_26926_12_non_const_ixyz);
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26927_9_non_const_ix = (__cuda_local_var_26927_21_non_const_i / 18624);
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26927_21_non_const_i = (__cuda_local_var_26927_21_non_const_i - ((__cuda_local_var_26927_9_non_const_ix * 192) * 97));
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26927_13_non_const_iy = (__cuda_local_var_26927_21_non_const_i / 97);
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26927_17_non_const_iz = (__cuda_local_var_26927_21_non_const_i - (__cuda_local_var_26927_13_non_const_iy * 97));
+# 316 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 319 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26928_12_non_const_k2 = (((((d_kkx)[__cuda_local_var_26927_9_non_const_ix]) * ((d_kkx)[__cuda_local_var_26927_9_non_const_ix])) + (((d_kky)[__cuda_local_var_26927_13_non_const_iy]) * ((d_kky)[__cuda_local_var_26927_13_non_const_iy]))) + (((d_kkz)[__cuda_local_var_26927_17_non_const_iz]) * ((d_kkz)[__cuda_local_var_26927_17_non_const_iz])));
+# 321 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26929_24_non_const_density = (((__T224 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26928_12_non_const_k2)))))))) , ((7077888.0) * __cuda_local_var_26928_12_non_const_k2)))) , (void)(__T225 = (density_k[__cuda_local_var_26926_12_non_const_ixyz]))) , ((((__T226.x) = (__T224 * (__T225.x))) , (void)((__T226.y) = (__T224 * (__T225.y)))) , __T226));
+# 322 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26926_12_non_const_ixyz]) = __cuda_local_var_26929_24_non_const_density;
+# 323 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}
+# 324 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26926_12_non_const_ixyz += 1787904UL;
+# 325 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} 
+# 326 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}}
+# 329 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__global__ __var_used__ void _Z31kernel_coulomb_sph_cutoff_cnst2ILi192ELi192ELi192EEvP7double2S1_(
+# 329 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *density_k, 
+# 329 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+cuDoubleComplex *vcoulomb_k){
+# 330 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T230;
+ cuDoubleComplex __T231;
+ cuDoubleComplex __T232;
+# 331 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ size_t __cuda_local_var_26957_12_non_const_ixyz;
+# 332 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26958_9_non_const_ix;
+# 332 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26958_13_non_const_iy;
+# 332 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26958_17_non_const_iz;
+# 332 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ int __cuda_local_var_26958_21_non_const_i;
+# 333 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ double __cuda_local_var_26959_12_non_const_k2;
+# 334 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+ cufftDoubleComplex __cuda_local_var_26960_24_non_const_density;
+# 331 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26957_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+# 336 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+while (__cuda_local_var_26957_12_non_const_ixyz < 3575808UL)
+# 337 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 338 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+if (__cuda_local_var_26957_12_non_const_ixyz == 0UL)
+# 339 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{  double __T233;
+ double __T234;
+ cuDoubleComplex __T235;
+# 340 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26960_24_non_const_density = (density_k[__cuda_local_var_26957_12_non_const_ixyz]);
+# 341 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26960_24_non_const_density = (((__T233 = ( fdivide((((((__cuda_local_var_26960_24_non_const_density.x) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0)))) , (void)(__T234 = ( fdivide((((((__cuda_local_var_26960_24_non_const_density.y) * (1.5)) * ((d_charge)[0])) * ((d_lcutoff)[0])) * ((d_lcutoff)[0])) , (7077888.0))))) , ((((__T235.x) = __T233) , (void)((__T235.y) = __T234)) , __T235));
+# 343 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26957_12_non_const_ixyz]) = __cuda_local_var_26960_24_non_const_density;
+# 344 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}
+# 346 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+else 
+# 346 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+{
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26958_21_non_const_i = ((int)__cuda_local_var_26957_12_non_const_ixyz);
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26958_9_non_const_ix = (__cuda_local_var_26958_21_non_const_i / 18624);
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26958_21_non_const_i = (__cuda_local_var_26958_21_non_const_i - ((__cuda_local_var_26958_9_non_const_ix * 192) * 97));
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26958_13_non_const_iy = (__cuda_local_var_26958_21_non_const_i / 97);
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26958_17_non_const_iz = (__cuda_local_var_26958_21_non_const_i - (__cuda_local_var_26958_13_non_const_iy * 97));
+# 347 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+;
+# 350 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26959_12_non_const_k2 = (((((d_kkx)[__cuda_local_var_26958_9_non_const_ix]) * ((d_kkx)[__cuda_local_var_26958_9_non_const_ix])) + (((d_kky)[__cuda_local_var_26958_13_non_const_iy]) * ((d_kky)[__cuda_local_var_26958_13_non_const_iy]))) + (((d_kkz)[__cuda_local_var_26958_17_non_const_iz]) * ((d_kkz)[__cuda_local_var_26958_17_non_const_iz])));
+# 352 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26960_24_non_const_density = (((__T230 = ( fdivide((((d_charge)[0]) * ((1.0) - (cos((((d_lcutoff)[0]) * (sqrt(((3.0) * __cuda_local_var_26959_12_non_const_k2)))))))) , ((7077888.0) * __cuda_local_var_26959_12_non_const_k2)))) , (void)(__T231 = (density_k[__cuda_local_var_26957_12_non_const_ixyz]))) , ((((__T232.x) = (__T230 * (__T231.x))) , (void)((__T232.y) = (__T230 * (__T231.y)))) , __T232));
+# 353 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+(vcoulomb_k[__cuda_local_var_26957_12_non_const_ixyz]) = __cuda_local_var_26960_24_non_const_density;
+# 354 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+}
+# 355 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+__cuda_local_var_26957_12_non_const_ixyz += 893952UL;
+# 356 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
+} 
+# 357 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 }}
 # 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__global__ __var_used__ void _Z28__kernel_lessen_1Dindexing__ILj128ELj64ELj32ELj128ELj160ELj176EEvPdS0_(
+__global__ __var_used__ void _Z28__kernel_lessen_1Dindexing__ILj64ELj48ELj32ELj64ELj72ELj80EEvPdS0_(
 # 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 double *array_in, 
 # 69 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
@@ -3755,39 +4095,39 @@ double *array_out){
 # 70 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
 # 72 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26694_12_non_const_ixyz;
+ size_t __cuda_local_var_26697_12_non_const_ixyz;
 # 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26695_12_non_const_ix;
+ size_t __cuda_local_var_26698_12_non_const_ix;
 # 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26695_15_non_const_iy;
+ size_t __cuda_local_var_26698_15_non_const_iy;
 # 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26695_18_non_const_iz;
+ size_t __cuda_local_var_26698_18_non_const_iz;
 # 73 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
- size_t __cuda_local_var_26695_21_non_const_i;
+ size_t __cuda_local_var_26698_21_non_const_i;
 # 72 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26694_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
+__cuda_local_var_26697_12_non_const_ixyz = ((size_t)((threadIdx.x) + ((blockIdx.x) * (blockDim.x))));
 # 75 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-if (__cuda_local_var_26694_12_non_const_ixyz < 262144UL)
+if (__cuda_local_var_26697_12_non_const_ixyz < 98304UL)
 # 76 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 {
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_21_non_const_i = __cuda_local_var_26694_12_non_const_ixyz;
+__cuda_local_var_26698_21_non_const_i = __cuda_local_var_26697_12_non_const_ixyz;
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_12_non_const_ix = (__cuda_local_var_26695_21_non_const_i / 2048UL);
+__cuda_local_var_26698_12_non_const_ix = (__cuda_local_var_26698_21_non_const_i / 1536UL);
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_21_non_const_i = (__cuda_local_var_26695_21_non_const_i - ((__cuda_local_var_26695_12_non_const_ix * 64UL) * 32UL));
+__cuda_local_var_26698_21_non_const_i = (__cuda_local_var_26698_21_non_const_i - ((__cuda_local_var_26698_12_non_const_ix * 48UL) * 32UL));
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_15_non_const_iy = (__cuda_local_var_26695_21_non_const_i / 32UL);
+__cuda_local_var_26698_15_non_const_iy = (__cuda_local_var_26698_21_non_const_i / 32UL);
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_18_non_const_iz = (__cuda_local_var_26695_21_non_const_i - (__cuda_local_var_26695_15_non_const_iy * 32UL));
+__cuda_local_var_26698_18_non_const_iz = (__cuda_local_var_26698_21_non_const_i - (__cuda_local_var_26698_15_non_const_iy * 32UL));
 # 77 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 ;
 # 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-__cuda_local_var_26695_21_non_const_i = (((176UL + __cuda_local_var_26695_18_non_const_iz) + (384UL * (160UL + __cuda_local_var_26695_15_non_const_iy))) + (147456UL * (128UL + __cuda_local_var_26695_12_non_const_ix)));
+__cuda_local_var_26698_21_non_const_i = (((80UL + __cuda_local_var_26698_18_non_const_iz) + (192UL * (72UL + __cuda_local_var_26698_15_non_const_iy))) + (36864UL * (64UL + __cuda_local_var_26698_12_non_const_ix)));
 # 78 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 ;
 # 79 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
-(array_out[__cuda_local_var_26694_12_non_const_ixyz]) = (array_in[__cuda_local_var_26695_21_non_const_i]);
+(array_out[__cuda_local_var_26697_12_non_const_ixyz]) = (array_in[__cuda_local_var_26698_21_non_const_i]);
 # 80 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"
 } 
 # 81 "/home/konrad/Pulpit/CUDA/VC_spherical_cutoff/Coulomb/kernels.cuh"

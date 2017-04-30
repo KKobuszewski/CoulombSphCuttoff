@@ -1,3 +1,28 @@
+/* *********************************************************************** *
+ *   WARSAW UNIVERSITY OF TECHNOLOGY                                       *
+ *   FACULTY OF PHYSICS                                                    *
+ *   NUCLEAR THEORY GROUP                                                  *
+ *                                                                         *
+ *   Author: Konrad Kobuszewski                                            *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *                                                                         *
+ * *********************************************************************** */ 
+ 
+
 #ifndef __COULOMB_HPP__
 #define __COULOMB_HPP__
 
@@ -23,11 +48,11 @@
 #define ROUND_UP(N, S) ((((N) + (S) - 1) / (S)) * (S))
 
 #ifndef NX
-#define NX 128
+#define NX 64
 #endif
 
 #ifndef NY
-#define NY 64
+#define NY 48
 #endif
 
 #ifndef NZ
@@ -59,6 +84,10 @@
 #ifndef DZ
 	#define DZ (DX)
 #endif
+
+#define NCX (NX+2*CX)
+#define NCY (NY+2*CY)
+#define NCZ (NZ+2*CZ)
 
 
 //TODO: Check if this macros work properly!!!
@@ -114,6 +143,9 @@ inline void get_lattice_size(uint16_t *_nx,uint16_t *_ny,uint16_t *_nz)
 // CUDA const memory
 __constant__ double d_charge[1];
 __constant__ double d_lcutoff[1];
+__constant__ double d_kkx[NX+2*CX];
+__constant__ double d_kky[NY+2*CY];
+__constant__ double d_kkz[NZ+2*CZ];
 
 
 /* CUFFT CALLBACKS
@@ -137,8 +169,8 @@ public:
     
     // algorithm methods
     void get_density_enlarged(cuDoubleComplex* d_psi, double* h_result = NULL, double* h_t = NULL, const int _nthreads = -1);
-    void get_vcoulomb_enlarged(cuDoubleComplex* h_result = NULL, double* h_t = NULL, int _nthreads = -1);
-    void get_vcoulomb_enlarged_idx3d(cuDoubleComplex* h_result, double* h_t, int _nthreads = -1);
+    void get_vcoulomb_enlarged(cuDoubleComplex* h_result = NULL, double* h_t = NULL, int _nthreads = -1, unsigned kernel_type=0);
+//     void get_vcoulomb_enlarged_idx3d(cuDoubleComplex* h_result, double* h_t, int _nthreads = -1);
     void get_vcoulomb_lessened(double* d_vcoulomb, double* h_result = NULL, double* h_t = NULL, const int _nthreads = -1);
     
     // utilities
