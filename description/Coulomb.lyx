@@ -1245,6 +1245,18 @@ First tests
 \end_layout
 
 \begin_layout Standard
+Code from example 
+\begin_inset CommandInset href
+LatexCommand href
+name "https://devblogs.nvidia.com/parallelforall/cuda-pro-tip-use-cufft-callbacks-custom-data-processing/"
+target "https://devblogs.nvidia.com/parallelforall/cuda-pro-tip-use-cufft-callbacks-custom-data-processing/"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
 Results for code in file cufft_callback.cu (GeForce GTX980M, compute capability
  SM5.2):
 \end_layout
